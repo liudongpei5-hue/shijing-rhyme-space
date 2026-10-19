@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="臻摄至形纹">
+  <defs>
+    <filter id="carved" x="-12%" y="-12%" width="124%" height="124%">
+      <feTurbulence type="fractalNoise" baseFrequency=".018 .075" numOctaves="3" seed="17" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    <mask id="wear">
+      <rect width="256" height="256" fill="white"/>
+      <g fill="black" opacity=".62">
+        <circle cx="91" cy="54" r="2.6"/><circle cx="160" cy="61" r="2.1"/><circle cx="126" cy="116" r="2.4"/>
+        <circle cx="113" cy="170" r="2.1"/><circle cx="151" cy="184" r="2.8"/><circle cx="73" cy="214" r="2.2"/>
+      </g>
+    </mask>
+  </defs>
+  <g fill="none" stroke="#a52f25" stroke-width="18" stroke-linecap="butt" stroke-linejoin="bevel" filter="url(#carved)" mask="url(#wear)">
+    <path d="M78 38 L126 72"/>
+    <path d="M178 34 L128 72"/>
+    <path d="M128 67 C126 101 130 133 126 165"/>
+    <path d="M99 139 L126 174 L158 136"/>
+    <path d="M66 208 C104 203 151 211 193 205"/>
+  </g>
+</svg>

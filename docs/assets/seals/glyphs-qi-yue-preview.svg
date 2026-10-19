@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 360" role="img" aria-label="七月篆书SVG预览">
+  <rect width="700" height="360" fill="#efe7d7"/>
+  <g color="#2b2823">
+    <image href="glyph-qi.svg" x="80" y="48" width="265" height="265"/>
+    <image href="glyph-yue.svg" x="370" y="48" width="265" height="265"/>
+  </g>
+</svg>

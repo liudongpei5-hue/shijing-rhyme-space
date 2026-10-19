@@ -1,0 +1,98 @@
+{
+  "text": "七月流火，九月授衣",
+  "sourceVersion": "tshet-uinh@0.15.4",
+  "status": "first-pass-reviewed",
+  "sequence": ["七", "月", "流", "火", "九", "月", "授", "衣"],
+  "characters": {
+    "七": {
+      "selectedPosition": "清開三真入",
+      "initial": "清",
+      "openness": "開",
+      "division": "三",
+      "type": null,
+      "rime": "真",
+      "rimeGroup": "臻",
+      "tone": "入",
+      "fanqie": "親吉",
+      "source": { "document": "廣韻", "xiaoyun": "3291", "rimeHeading": "質" }
+    },
+    "月": {
+      "selectedPosition": "疑合三C元入",
+      "initial": "疑",
+      "openness": "合",
+      "division": "三",
+      "type": "C",
+      "rime": "元",
+      "rimeGroup": "山",
+      "tone": "入",
+      "fanqie": "魚厥",
+      "source": { "document": "廣韻", "xiaoyun": "3356", "rimeHeading": "月" }
+    },
+    "流": {
+      "selectedPosition": "來三尤平",
+      "initial": "來",
+      "openness": null,
+      "division": "三",
+      "type": null,
+      "rime": "尤",
+      "rimeGroup": "流",
+      "tone": "平",
+      "fanqie": "力求",
+      "source": { "document": "廣韻", "xiaoyun": "988", "rimeHeading": "尤" }
+    },
+    "火": {
+      "selectedPosition": "曉合一歌上",
+      "initial": "曉",
+      "openness": "合",
+      "division": "一",
+      "type": null,
+      "rime": "歌",
+      "rimeGroup": "果",
+      "tone": "上",
+      "fanqie": "呼果",
+      "source": { "document": "廣韻", "xiaoyun": "1759", "rimeHeading": "果" }
+    },
+    "九": {
+      "selectedPosition": "見三C尤上",
+      "initial": "見",
+      "openness": null,
+      "division": "三",
+      "type": "C",
+      "rime": "尤",
+      "rimeGroup": "流",
+      "tone": "上",
+      "fanqie": "舉有",
+      "source": { "document": "廣韻", "xiaoyun": "1933", "rimeHeading": "有" }
+    },
+    "授": {
+      "selectedPosition": "常三尤去",
+      "initial": "常",
+      "openness": null,
+      "division": "三",
+      "type": null,
+      "rime": "尤",
+      "rimeGroup": "流",
+      "tone": "去",
+      "fanqie": "承呪",
+      "source": { "document": "廣韻", "xiaoyun": "3057", "rimeHeading": "宥" }
+    },
+    "衣": {
+      "selectedPosition": "影開三C微平",
+      "selectionReason": "本句“授衣”中的“衣”为名词，选择平声读法；去声条目释义为“衣著”，对应动词。",
+      "initial": "影",
+      "openness": "開",
+      "division": "三",
+      "type": "C",
+      "rime": "微",
+      "rimeGroup": "止",
+      "tone": "平",
+      "fanqie": "於希",
+      "source": { "document": "廣韻", "xiaoyun": "221", "rimeHeading": "微" },
+      "rejectedAlternative": {
+        "position": "影開三C微去",
+        "fanqie": "於既",
+        "reason": "《廣韻》释为“衣著”，是动词读法，不符合本句语义。"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="疑母双线菱形断口印框">
+  <defs>
+    <filter id="carved" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency=".016 .071" numOctaves="3" seed="37" result="grain"/>
+      <feDisplacementMap in="SourceGraphic" in2="grain" scale="2.5" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+  <g fill="none" stroke="#a52f25" stroke-linecap="butt" stroke-linejoin="bevel" filter="url(#carved)">
+    <!-- 外线：右侧保留参考图中的自然断口与错位 -->
+    <path stroke-width="12" d="M128 25 L224 121"/>
+    <path stroke-width="12" d="M220 141 L128 231 L29 132 L128 25"/>
+    <!-- 内线：断口略向内错开，避免机械式平行 -->
+    <path stroke-width="7" d="M128 43 L207 122"/>
+    <path stroke-width="7" d="M202 137 L128 211 L48 132 L128 43"/>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="月字篆书描摹">
+  <g fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 依据用户提供字形：外部折曲月体与内部两道短横 -->
+    <path d="M57 218 L57 58
+             C57 42 68 34 83 34
+             L183 34
+             C196 34 202 42 202 55
+             L202 112
+             C202 126 195 133 181 133
+             L96 133
+             C82 133 75 142 75 155
+             L75 205"/>
+    <path d="M92 77 L174 77"/>
+    <path d="M101 174 L213 174"/>
+  </g>
+</svg>

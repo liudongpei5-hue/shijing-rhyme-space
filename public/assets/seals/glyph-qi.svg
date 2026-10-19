@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="七字篆书描摹">
+  <g fill="none" stroke="currentColor" stroke-width="24" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 依据用户提供字形：上部长横、中央竖起，主体连续回旋下垂 -->
+    <path d="M38 52 C83 51 134 51 214 50"/>
+    <path d="M111 25 C111 53 108 75 110 91
+             C113 105 135 103 154 102
+             C179 100 190 105 190 121
+             C190 137 178 144 157 143
+             L112 142
+             C96 142 89 151 90 166
+             C91 180 104 185 122 185
+             L158 185
+             C176 185 181 196 180 218"/>
+  </g>
+</svg>
