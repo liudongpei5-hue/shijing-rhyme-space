@@ -1,0 +1,4961 @@
+[
+  {
+    "text": "采薇采薇，薇亦作止。曰歸曰歸，歲亦莫止。靡室靡家，玁狁之故。不遑啟居，玁狁之故。",
+    "entries": [
+      {
+        "char": "采",
+        "index": 0,
+        "chapter": 0,
+        "initial": "清",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "倉宰",
+        "position": "清開一咍上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "清開一咍上",
+            "initial": "清",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "倉宰",
+            "gloss": "事也又取也亦姓風俗通云漢有度遼將軍采晧倉宰切七"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 1,
+        "chapter": 0,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "采",
+        "index": 2,
+        "chapter": 0,
+        "initial": "清",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "倉宰",
+        "position": "清開一咍上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "清開一咍上",
+            "initial": "清",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "倉宰",
+            "gloss": "事也又取也亦姓風俗通云漢有度遼將軍采晧倉宰切七"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 3,
+        "chapter": 0,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 4,
+        "chapter": 0,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "亦",
+        "index": 5,
+        "chapter": 0,
+        "initial": "以",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "羊益",
+        "position": "以開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三清入",
+            "initial": "以",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "羊益",
+            "gloss": "摠也俗作𡖋"
+          }
+        ]
+      },
+      {
+        "char": "作",
+        "index": 6,
+        "chapter": 0,
+        "initial": "精",
+        "rhyme": "模",
+        "group": "遇",
+        "tone": "去",
+        "fanqie": "臧祚",
+        "position": "精一模去",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "精一模去",
+            "initial": "精",
+            "rhyme": "模",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "臧祚",
+            "gloss": "造也臧祚切一"
+          },
+          {
+            "position": "精開一歌去",
+            "initial": "精",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "去",
+            "fanqie": "則箇",
+            "gloss": "造也本臧洛切"
+          },
+          {
+            "position": "精開一唐入",
+            "initial": "精",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "入",
+            "fanqie": "則落",
+            "gloss": "爲也起也行也役也始也生也又姓漢有涿郡太守作顯則落切又則邏臧路二切六"
+          }
+        ]
+      },
+      {
+        "char": "止",
+        "index": 7,
+        "chapter": 0,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "諸市",
+        "position": "章開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之上",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "諸市",
+            "gloss": "停也足也禮也息也待也留也諸市切十"
+          }
+        ]
+      },
+      {
+        "char": "曰",
+        "index": 8,
+        "chapter": 0,
+        "initial": "云",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "王伐",
+        "position": "云合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C元入",
+            "initial": "云",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "王伐",
+            "gloss": "辝也於也之也"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 9,
+        "chapter": 0,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "曰",
+        "index": 10,
+        "chapter": 0,
+        "initial": "云",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "王伐",
+        "position": "云合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C元入",
+            "initial": "云",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "王伐",
+            "gloss": "辝也於也之也"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 11,
+        "chapter": 0,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "歲",
+        "index": 12,
+        "chapter": 0,
+        "initial": "心",
+        "rhyme": "祭",
+        "group": "蟹",
+        "tone": "去",
+        "fanqie": "相銳",
+        "position": "心合三祭去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心合三祭去",
+            "initial": "心",
+            "rhyme": "祭",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "相銳",
+            "gloss": "釋名曰歲越也越故限也從步戌相銳切四"
+          }
+        ]
+      },
+      {
+        "char": "亦",
+        "index": 13,
+        "chapter": 0,
+        "initial": "以",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "羊益",
+        "position": "以開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三清入",
+            "initial": "以",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "羊益",
+            "gloss": "摠也俗作𡖋"
+          }
+        ]
+      },
+      {
+        "char": "莫",
+        "index": 14,
+        "chapter": 0,
+        "initial": "明",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "入",
+        "fanqie": "慕各",
+        "position": "明一唐入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明一唐入",
+            "initial": "明",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "入",
+            "fanqie": "慕各",
+            "gloss": "無也定也說文本模故切日且冥也从日在茻中茻音莽又州名開元十三年改鄚州去邑亦姓楚莫敖之後又虜複姓五氏西秦錄有左衛將軍莫者羖羝南涼州刺史莫侯悌眷後魏末有亂寇莫折念生又有莫輿氏莫盧氏又虜三字姓周太祖賜廣寧楊纂姓莫胡盧氏慕各切十六"
+          }
+        ]
+      },
+      {
+        "char": "止",
+        "index": 15,
+        "chapter": 0,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "諸市",
+        "position": "章開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之上",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "諸市",
+            "gloss": "停也足也禮也息也待也留也諸市切十"
+          }
+        ]
+      },
+      {
+        "char": "靡",
+        "index": 16,
+        "chapter": 0,
+        "initial": "明",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "文彼",
+        "position": "明三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明三B支上",
+            "initial": "明",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "文彼",
+            "gloss": "無也偃也又靡曼美色也說文曰披靡也文彼切七"
+          }
+        ]
+      },
+      {
+        "char": "室",
+        "index": 17,
+        "chapter": 0,
+        "initial": "書",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "入",
+        "fanqie": "式質",
+        "position": "書開三真入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "書開三真入",
+            "initial": "書",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "式質",
+            "gloss": "房也易曰穴居而野處後世聖人易之以宮室釋名曰室實也人物實滿其中也周書曰黃帝始作宮窒呂氏春秋曰高元作宮室也"
+          }
+        ]
+      },
+      {
+        "char": "靡",
+        "index": 18,
+        "chapter": 0,
+        "initial": "明",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "文彼",
+        "position": "明三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明三B支上",
+            "initial": "明",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "文彼",
+            "gloss": "無也偃也又靡曼美色也說文曰披靡也文彼切七"
+          }
+        ]
+      },
+      {
+        "char": "家",
+        "index": 19,
+        "chapter": 0,
+        "initial": "見",
+        "rhyme": "麻",
+        "group": "假",
+        "tone": "平",
+        "fanqie": "古牙",
+        "position": "見開二麻平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開二麻平",
+            "initial": "見",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "平",
+            "fanqie": "古牙",
+            "gloss": "居也爾雅云扆內謂之家又姓風俗通漢有家羨爲劇令"
+          }
+        ]
+      },
+      {
+        "char": "玁",
+        "index": 20,
+        "chapter": 0,
+        "initial": "曉",
+        "rhyme": "鹽",
+        "group": "咸",
+        "tone": "上",
+        "fanqie": "虛檢",
+        "position": "曉開三B鹽上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "曉開三B鹽上",
+            "initial": "曉",
+            "rhyme": "鹽",
+            "group": "咸",
+            "tone": "上",
+            "fanqie": "虛檢",
+            "gloss": "上同（獫狁）"
+          }
+        ]
+      },
+      {
+        "char": "狁",
+        "index": 21,
+        "chapter": 0,
+        "initial": "以",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "上",
+        "fanqie": "余準",
+        "position": "以合三真上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以合三真上",
+            "initial": "以",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "上",
+            "fanqie": "余準",
+            "gloss": "獫狁"
+          }
+        ]
+      },
+      {
+        "char": "之",
+        "index": 22,
+        "chapter": 0,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "止而",
+        "position": "章開三之平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之平",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "止而",
+            "gloss": "適也往也閒也亦姓出姓苑止而切四"
+          }
+        ]
+      },
+      {
+        "char": "故",
+        "index": 23,
+        "chapter": 0,
+        "initial": "見",
+        "rhyme": "模",
+        "group": "遇",
+        "tone": "去",
+        "fanqie": "古暮",
+        "position": "見一模去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見一模去",
+            "initial": "見",
+            "rhyme": "模",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "古暮",
+            "gloss": "舊也事也常也又姓出姓苑"
+          }
+        ]
+      },
+      {
+        "char": "不",
+        "index": 24,
+        "chapter": 0,
+        "initial": "幫",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "甫鳩",
+        "position": "幫三C尤平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "幫三C尤平",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "甫鳩",
+            "gloss": "弗也又姓晉書有汲郡人不準盜發六國時魏王冢得古文竹書今之汲冢記也甫鳩切又甫九甫救二切五"
+          },
+          {
+            "position": "幫三C尤上",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "方久",
+            "gloss": "弗也說文作𠀚鳥飛上翔不下來也从一一天也象形又甫鳩甫救二切"
+          },
+          {
+            "position": "幫三C文入",
+            "initial": "幫",
+            "rhyme": "文",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "分勿",
+            "gloss": "與弗同又府鳩方久二切"
+          }
+        ]
+      },
+      {
+        "char": "遑",
+        "index": 25,
+        "chapter": 0,
+        "initial": "匣",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "胡光",
+        "position": "匣合一唐平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "匣合一唐平",
+            "initial": "匣",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "胡光",
+            "gloss": "急也"
+          }
+        ]
+      },
+      {
+        "char": "啟",
+        "index": 26,
+        "chapter": 0,
+        "initial": "溪",
+        "rhyme": "齊",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "康禮",
+        "position": "溪開四齊上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "溪開四齊上",
+            "initial": "溪",
+            "rhyme": "齊",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "康禮",
+            "gloss": "開也發也別也刻也說文教也俗作啓康禮切十二"
+          }
+        ]
+      },
+      {
+        "char": "居",
+        "index": 27,
+        "chapter": 0,
+        "initial": "見",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "居之",
+        "position": "見開三C之平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "見開三C之平",
+            "initial": "見",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "居之",
+            "gloss": "語助見禮"
+          },
+          {
+            "position": "見開三C魚平",
+            "initial": "見",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "平",
+            "fanqie": "九魚",
+            "gloss": "當也處也安也九魚切十四"
+          }
+        ]
+      },
+      {
+        "char": "玁",
+        "index": 28,
+        "chapter": 0,
+        "initial": "曉",
+        "rhyme": "鹽",
+        "group": "咸",
+        "tone": "上",
+        "fanqie": "虛檢",
+        "position": "曉開三B鹽上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "曉開三B鹽上",
+            "initial": "曉",
+            "rhyme": "鹽",
+            "group": "咸",
+            "tone": "上",
+            "fanqie": "虛檢",
+            "gloss": "上同（獫狁）"
+          }
+        ]
+      },
+      {
+        "char": "狁",
+        "index": 29,
+        "chapter": 0,
+        "initial": "以",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "上",
+        "fanqie": "余準",
+        "position": "以合三真上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以合三真上",
+            "initial": "以",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "上",
+            "fanqie": "余準",
+            "gloss": "獫狁"
+          }
+        ]
+      },
+      {
+        "char": "之",
+        "index": 30,
+        "chapter": 0,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "止而",
+        "position": "章開三之平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之平",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "止而",
+            "gloss": "適也往也閒也亦姓出姓苑止而切四"
+          }
+        ]
+      },
+      {
+        "char": "故",
+        "index": 31,
+        "chapter": 0,
+        "initial": "見",
+        "rhyme": "模",
+        "group": "遇",
+        "tone": "去",
+        "fanqie": "古暮",
+        "position": "見一模去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見一模去",
+            "initial": "見",
+            "rhyme": "模",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "古暮",
+            "gloss": "舊也事也常也又姓出姓苑"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "采薇采薇，薇亦柔止。曰歸曰歸，心亦憂止。憂心烈烈，載飢載渴。我戍未定，靡使歸聘。",
+    "entries": [
+      {
+        "char": "采",
+        "index": 0,
+        "chapter": 1,
+        "initial": "清",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "倉宰",
+        "position": "清開一咍上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "清開一咍上",
+            "initial": "清",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "倉宰",
+            "gloss": "事也又取也亦姓風俗通云漢有度遼將軍采晧倉宰切七"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 1,
+        "chapter": 1,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "采",
+        "index": 2,
+        "chapter": 1,
+        "initial": "清",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "倉宰",
+        "position": "清開一咍上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "清開一咍上",
+            "initial": "清",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "倉宰",
+            "gloss": "事也又取也亦姓風俗通云漢有度遼將軍采晧倉宰切七"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 3,
+        "chapter": 1,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 4,
+        "chapter": 1,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "亦",
+        "index": 5,
+        "chapter": 1,
+        "initial": "以",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "羊益",
+        "position": "以開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三清入",
+            "initial": "以",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "羊益",
+            "gloss": "摠也俗作𡖋"
+          }
+        ]
+      },
+      {
+        "char": "柔",
+        "index": 6,
+        "chapter": 1,
+        "initial": "日",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "耳由",
+        "position": "日三尤平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "日三尤平",
+            "initial": "日",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "耳由",
+            "gloss": "順也說文曰木曲直也耳由切十六"
+          }
+        ]
+      },
+      {
+        "char": "止",
+        "index": 7,
+        "chapter": 1,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "諸市",
+        "position": "章開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之上",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "諸市",
+            "gloss": "停也足也禮也息也待也留也諸市切十"
+          }
+        ]
+      },
+      {
+        "char": "曰",
+        "index": 8,
+        "chapter": 1,
+        "initial": "云",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "王伐",
+        "position": "云合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C元入",
+            "initial": "云",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "王伐",
+            "gloss": "辝也於也之也"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 9,
+        "chapter": 1,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "曰",
+        "index": 10,
+        "chapter": 1,
+        "initial": "云",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "王伐",
+        "position": "云合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C元入",
+            "initial": "云",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "王伐",
+            "gloss": "辝也於也之也"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 11,
+        "chapter": 1,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "心",
+        "index": 12,
+        "chapter": 1,
+        "initial": "心",
+        "rhyme": "侵",
+        "group": "深",
+        "tone": "平",
+        "fanqie": "息林",
+        "position": "心開三侵平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三侵平",
+            "initial": "心",
+            "rhyme": "侵",
+            "group": "深",
+            "tone": "平",
+            "fanqie": "息林",
+            "gloss": "火藏釋名曰心纖也所識纖微無不貫也息林切四"
+          }
+        ]
+      },
+      {
+        "char": "亦",
+        "index": 13,
+        "chapter": 1,
+        "initial": "以",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "羊益",
+        "position": "以開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三清入",
+            "initial": "以",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "羊益",
+            "gloss": "摠也俗作𡖋"
+          }
+        ]
+      },
+      {
+        "char": "憂",
+        "index": 14,
+        "chapter": 1,
+        "initial": "影",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "於求",
+        "position": "影三C尤平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影三C尤平",
+            "initial": "影",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "於求",
+            "gloss": "愁也又姓出姓苑於求切十七"
+          }
+        ]
+      },
+      {
+        "char": "止",
+        "index": 15,
+        "chapter": 1,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "諸市",
+        "position": "章開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之上",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "諸市",
+            "gloss": "停也足也禮也息也待也留也諸市切十"
+          }
+        ]
+      },
+      {
+        "char": "憂",
+        "index": 16,
+        "chapter": 1,
+        "initial": "影",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "於求",
+        "position": "影三C尤平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影三C尤平",
+            "initial": "影",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "於求",
+            "gloss": "愁也又姓出姓苑於求切十七"
+          }
+        ]
+      },
+      {
+        "char": "心",
+        "index": 17,
+        "chapter": 1,
+        "initial": "心",
+        "rhyme": "侵",
+        "group": "深",
+        "tone": "平",
+        "fanqie": "息林",
+        "position": "心開三侵平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三侵平",
+            "initial": "心",
+            "rhyme": "侵",
+            "group": "深",
+            "tone": "平",
+            "fanqie": "息林",
+            "gloss": "火藏釋名曰心纖也所識纖微無不貫也息林切四"
+          }
+        ]
+      },
+      {
+        "char": "烈",
+        "index": 18,
+        "chapter": 1,
+        "initial": "來",
+        "rhyme": "仙",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "良辥",
+        "position": "來開三仙入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "來開三仙入",
+            "initial": "來",
+            "rhyme": "仙",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "良辥",
+            "gloss": "光也業也又忠烈又猛也熱也火也"
+          }
+        ]
+      },
+      {
+        "char": "烈",
+        "index": 19,
+        "chapter": 1,
+        "initial": "來",
+        "rhyme": "仙",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "良辥",
+        "position": "來開三仙入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "來開三仙入",
+            "initial": "來",
+            "rhyme": "仙",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "良辥",
+            "gloss": "光也業也又忠烈又猛也熱也火也"
+          }
+        ]
+      },
+      {
+        "char": "載",
+        "index": 20,
+        "chapter": 1,
+        "initial": "精",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "作亥",
+        "position": "精開一咍上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "精開一咍上",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "作亥",
+            "gloss": "年也出方言又音再"
+          },
+          {
+            "position": "精開一咍去",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "作代",
+            "gloss": "年也事也則也乘也始也盟辭也又姓風俗通云姬姓之後作代切又材代切六"
+          },
+          {
+            "position": "從開一咍去",
+            "initial": "從",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "昨代",
+            "gloss": "運也昨代切七"
+          }
+        ]
+      },
+      {
+        "char": "飢",
+        "index": 21,
+        "chapter": 1,
+        "initial": "見",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "居夷",
+        "position": "見開三B脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開三B脂平",
+            "initial": "見",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "居夷",
+            "gloss": "飢餓也又姓左傳殷人七族有飢氏居夷切四"
+          }
+        ]
+      },
+      {
+        "char": "載",
+        "index": 22,
+        "chapter": 1,
+        "initial": "精",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "作亥",
+        "position": "精開一咍上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "精開一咍上",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "作亥",
+            "gloss": "年也出方言又音再"
+          },
+          {
+            "position": "精開一咍去",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "作代",
+            "gloss": "年也事也則也乘也始也盟辭也又姓風俗通云姬姓之後作代切又材代切六"
+          },
+          {
+            "position": "從開一咍去",
+            "initial": "從",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "昨代",
+            "gloss": "運也昨代切七"
+          }
+        ]
+      },
+      {
+        "char": "渴",
+        "index": 23,
+        "chapter": 1,
+        "initial": "溪",
+        "rhyme": "寒",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "苦曷",
+        "position": "溪開一寒入",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "溪開一寒入",
+            "initial": "溪",
+            "rhyme": "寒",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "苦曷",
+            "gloss": "飢渴又虜複姓二氏後魏書渴侯氏後改爲緱氏渴單氏後改爲單氏亦虜三字姓後魏書北方渴燭渾氏後改爲朱氏苦曷切八"
+          },
+          {
+            "position": "羣開三B仙入",
+            "initial": "羣",
+            "rhyme": "仙",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "渠列",
+            "gloss": "水盡也"
+          }
+        ]
+      },
+      {
+        "char": "我",
+        "index": 24,
+        "chapter": 1,
+        "initial": "疑",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "上",
+        "fanqie": "五可",
+        "position": "疑開一歌上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開一歌上",
+            "initial": "疑",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "五可",
+            "gloss": "己稱又姓我子古賢者著書五可切五"
+          }
+        ]
+      },
+      {
+        "char": "戍",
+        "index": 25,
+        "chapter": 1,
+        "initial": "書",
+        "rhyme": "虞",
+        "group": "遇",
+        "tone": "去",
+        "fanqie": "傷遇",
+        "position": "書合三虞去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "書合三虞去",
+            "initial": "書",
+            "rhyme": "虞",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "傷遇",
+            "gloss": "遏也舍也從人荷戈也傷遇切八"
+          }
+        ]
+      },
+      {
+        "char": "未",
+        "index": 26,
+        "chapter": 1,
+        "initial": "明",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "無沸",
+        "position": "明三C微去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明三C微去",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "無沸",
+            "gloss": "辰名爾雅曰太歲在未曰協洽無沸切八"
+          }
+        ]
+      },
+      {
+        "char": "定",
+        "index": 27,
+        "chapter": 1,
+        "initial": "定",
+        "rhyme": "青",
+        "group": "梗",
+        "tone": "去",
+        "fanqie": "徒徑",
+        "position": "定開四青去",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "定開四青去",
+            "initial": "定",
+            "rhyme": "青",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "徒徑",
+            "gloss": "安也亦州名帝堯始封唐國之城秦爲趙郡鉅鹿二郡漢爲中山郡後魏置安州又改爲定州以安定天下爲名徒徑切四"
+          },
+          {
+            "position": "端開四青去",
+            "initial": "端",
+            "rhyme": "青",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "丁定",
+            "gloss": "題額詩云定之方中定營室也又徒徑切"
+          }
+        ]
+      },
+      {
+        "char": "靡",
+        "index": 28,
+        "chapter": 1,
+        "initial": "明",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "文彼",
+        "position": "明三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明三B支上",
+            "initial": "明",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "文彼",
+            "gloss": "無也偃也又靡曼美色也說文曰披靡也文彼切七"
+          }
+        ]
+      },
+      {
+        "char": "使",
+        "index": 29,
+        "chapter": 1,
+        "initial": "生",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "疎士",
+        "position": "生開三之上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "生開三之上",
+            "initial": "生",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "疎士",
+            "gloss": "役也令也又疎事切"
+          },
+          {
+            "position": "生開三之去",
+            "initial": "生",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "疎吏",
+            "gloss": "又色里切"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 30,
+        "chapter": 1,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "聘",
+        "index": 31,
+        "chapter": 1,
+        "initial": "滂",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "去",
+        "fanqie": "匹正",
+        "position": "滂三A清去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "滂三A清去",
+            "initial": "滂",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "匹正",
+            "gloss": "聘問也訪也匹正切三"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "采薇采薇，薇亦剛止。曰歸曰歸，歲亦陽止。王事靡盬，不遑啟處。憂心孔疚，我行不來。",
+    "entries": [
+      {
+        "char": "采",
+        "index": 0,
+        "chapter": 2,
+        "initial": "清",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "倉宰",
+        "position": "清開一咍上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "清開一咍上",
+            "initial": "清",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "倉宰",
+            "gloss": "事也又取也亦姓風俗通云漢有度遼將軍采晧倉宰切七"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 1,
+        "chapter": 2,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "采",
+        "index": 2,
+        "chapter": 2,
+        "initial": "清",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "倉宰",
+        "position": "清開一咍上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "清開一咍上",
+            "initial": "清",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "倉宰",
+            "gloss": "事也又取也亦姓風俗通云漢有度遼將軍采晧倉宰切七"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 3,
+        "chapter": 2,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "薇",
+        "index": 4,
+        "chapter": 2,
+        "initial": "明",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "武悲",
+        "position": "明三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "明三B脂平",
+            "initial": "明",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "武悲",
+            "gloss": "爾雅曰薇垂水謂生於水邊"
+          },
+          {
+            "position": "明三C微平",
+            "initial": "明",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "無非",
+            "gloss": "菜也"
+          }
+        ]
+      },
+      {
+        "char": "亦",
+        "index": 5,
+        "chapter": 2,
+        "initial": "以",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "羊益",
+        "position": "以開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三清入",
+            "initial": "以",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "羊益",
+            "gloss": "摠也俗作𡖋"
+          }
+        ]
+      },
+      {
+        "char": "剛",
+        "index": 6,
+        "chapter": 2,
+        "initial": "見",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "古郎",
+        "position": "見開一唐平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開一唐平",
+            "initial": "見",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "古郎",
+            "gloss": "強也"
+          }
+        ]
+      },
+      {
+        "char": "止",
+        "index": 7,
+        "chapter": 2,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "諸市",
+        "position": "章開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之上",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "諸市",
+            "gloss": "停也足也禮也息也待也留也諸市切十"
+          }
+        ]
+      },
+      {
+        "char": "曰",
+        "index": 8,
+        "chapter": 2,
+        "initial": "云",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "王伐",
+        "position": "云合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C元入",
+            "initial": "云",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "王伐",
+            "gloss": "辝也於也之也"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 9,
+        "chapter": 2,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "曰",
+        "index": 10,
+        "chapter": 2,
+        "initial": "云",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "王伐",
+        "position": "云合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C元入",
+            "initial": "云",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "王伐",
+            "gloss": "辝也於也之也"
+          }
+        ]
+      },
+      {
+        "char": "歸",
+        "index": 11,
+        "chapter": 2,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "舉韋",
+        "position": "見合三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C微平",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "舉韋",
+            "gloss": "還也公羊傳曰婦人謂嫁曰歸亦州名古夔子國武德初割夔州之秭歸巴東二縣置州取歸國爲名也舉韋切三"
+          }
+        ]
+      },
+      {
+        "char": "歲",
+        "index": 12,
+        "chapter": 2,
+        "initial": "心",
+        "rhyme": "祭",
+        "group": "蟹",
+        "tone": "去",
+        "fanqie": "相銳",
+        "position": "心合三祭去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心合三祭去",
+            "initial": "心",
+            "rhyme": "祭",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "相銳",
+            "gloss": "釋名曰歲越也越故限也從步戌相銳切四"
+          }
+        ]
+      },
+      {
+        "char": "亦",
+        "index": 13,
+        "chapter": 2,
+        "initial": "以",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "羊益",
+        "position": "以開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三清入",
+            "initial": "以",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "羊益",
+            "gloss": "摠也俗作𡖋"
+          }
+        ]
+      },
+      {
+        "char": "陽",
+        "index": 14,
+        "chapter": 2,
+        "initial": "以",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "與章",
+        "position": "以開三陽平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三陽平",
+            "initial": "以",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "與章",
+            "gloss": "陰陽說文曰高明也爾雅云山東曰朝陽山西曰夕陽又姓出右北平本自周景王封少子於陽樊後裔避周之亂適燕家於無終因邑命氏秦置右北平子孫仍屬焉又漢複姓二十二氏歐陽氏越王句踐之後封于烏程歐陽亭後因爲氏望出長沙呂氏春秋有辯士高陽魋帝顓頊高陽氏之後漢有東海王中尉青陽精少昊青陽氏之後又有御史孫陽放秦穆公時孫陽伯樂之後魯之公族有名子陽者及衛公子趙陽之後並以名爲氏漢有周陽由淮南王舅周陽侯趙兼之後又駙馬都尉涇陽準秦涇陽君之後世本云偪陽妘姓國爲晉所滅子孫因氏焉左傳晉有梗陽巫皋衛有戲陽速漢有博士中山鮭陽鴻又有葉陽氏秦葉陽君之後列仙傳有沛國陵陽子明止陵陽山得仙其後因山爲氏漢有揚州刺史鮮陽戩後漢有櫟陽侯景丹曾孫汾避亂隴西因封爲氏又長沙太守濮陽逸陳留人也神仙傳有太陽子白日升天春秋釋例周有老陽子修黃老術漢有安陽護軍河東成陽恢何氏姓苑有朱陽氏索陽氏與章切三十二"
+          }
+        ]
+      },
+      {
+        "char": "止",
+        "index": 15,
+        "chapter": 2,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "諸市",
+        "position": "章開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之上",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "諸市",
+            "gloss": "停也足也禮也息也待也留也諸市切十"
+          }
+        ]
+      },
+      {
+        "char": "王",
+        "index": 16,
+        "chapter": 2,
+        "initial": "云",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "雨方",
+        "position": "云合三C陽平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "云合三C陽平",
+            "initial": "云",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "雨方",
+            "gloss": "大也君也字林云三者天地人一貫三爲王天下所法又姓出太原琅邪周靈王太子晉之後北海陳留齊王田和之後東海出自姫姓高平京兆魏信陵君之後天水東平新蔡新野山陽中山章武東萊河東者殷王子比千爲紂所害子孫以王者之後号曰王氏金城廣漢長沙堂邑河南共二十一望又漢複姓五氏左傳晉有樂王鮒小王桃甲賈執英賢傳云東莞有五王氏史記云出齊威王至建王五王之後風俗通云漢有中郎威王弼出自楚威王後漢有新豐令王史音雨方切又雨誑切四"
+          },
+          {
+            "position": "云合三C陽去",
+            "initial": "云",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "去",
+            "fanqie": "于放",
+            "gloss": "霸王又盛也又于方切"
+          }
+        ]
+      },
+      {
+        "char": "事",
+        "index": 17,
+        "chapter": 2,
+        "initial": "莊",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "側吏",
+        "position": "莊開三之去",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "莊開三之去",
+            "initial": "莊",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "側吏",
+            "gloss": "事刃又作剚倳"
+          },
+          {
+            "position": "崇開三之去",
+            "initial": "崇",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "鉏吏",
+            "gloss": "使也立也由也鉏吏切又側吏切二"
+          }
+        ]
+      },
+      {
+        "char": "靡",
+        "index": 18,
+        "chapter": 2,
+        "initial": "明",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "文彼",
+        "position": "明三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明三B支上",
+            "initial": "明",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "文彼",
+            "gloss": "無也偃也又靡曼美色也說文曰披靡也文彼切七"
+          }
+        ]
+      },
+      {
+        "char": "盬",
+        "index": 19,
+        "chapter": 2,
+        "initial": "見",
+        "rhyme": "模",
+        "group": "遇",
+        "tone": "平",
+        "fanqie": "古胡",
+        "position": "見一模平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "見一模平",
+            "initial": "見",
+            "rhyme": "模",
+            "group": "遇",
+            "tone": "平",
+            "fanqie": "古胡",
+            "gloss": "陳楚人謂鹽池爲盬出方言又音古"
+          },
+          {
+            "position": "見一模上",
+            "initial": "見",
+            "rhyme": "模",
+            "group": "遇",
+            "tone": "上",
+            "fanqie": "公戶",
+            "gloss": "鹽池又左傳曰盬其腦杜預云盬𠯗也又詩傳云盬不固也"
+          }
+        ]
+      },
+      {
+        "char": "不",
+        "index": 20,
+        "chapter": 2,
+        "initial": "幫",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "甫鳩",
+        "position": "幫三C尤平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "幫三C尤平",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "甫鳩",
+            "gloss": "弗也又姓晉書有汲郡人不準盜發六國時魏王冢得古文竹書今之汲冢記也甫鳩切又甫九甫救二切五"
+          },
+          {
+            "position": "幫三C尤上",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "方久",
+            "gloss": "弗也說文作𠀚鳥飛上翔不下來也从一一天也象形又甫鳩甫救二切"
+          },
+          {
+            "position": "幫三C文入",
+            "initial": "幫",
+            "rhyme": "文",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "分勿",
+            "gloss": "與弗同又府鳩方久二切"
+          }
+        ]
+      },
+      {
+        "char": "遑",
+        "index": 21,
+        "chapter": 2,
+        "initial": "匣",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "胡光",
+        "position": "匣合一唐平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "匣合一唐平",
+            "initial": "匣",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "胡光",
+            "gloss": "急也"
+          }
+        ]
+      },
+      {
+        "char": "啟",
+        "index": 22,
+        "chapter": 2,
+        "initial": "溪",
+        "rhyme": "齊",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "康禮",
+        "position": "溪開四齊上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "溪開四齊上",
+            "initial": "溪",
+            "rhyme": "齊",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "康禮",
+            "gloss": "開也發也別也刻也說文教也俗作啓康禮切十二"
+          }
+        ]
+      },
+      {
+        "char": "處",
+        "index": 23,
+        "chapter": 2,
+        "initial": "昌",
+        "rhyme": "魚",
+        "group": "遇",
+        "tone": "上",
+        "fanqie": "昌與",
+        "position": "昌開三魚上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "昌開三魚上",
+            "initial": "昌",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "上",
+            "fanqie": "昌與",
+            "gloss": "居也止也制也息也留也定也說文又作処亦姓風俗通云漢有北海太守處興"
+          },
+          {
+            "position": "昌開三魚去",
+            "initial": "昌",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "昌據",
+            "gloss": "處所也昌據切又音杵二"
+          }
+        ]
+      },
+      {
+        "char": "憂",
+        "index": 24,
+        "chapter": 2,
+        "initial": "影",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "於求",
+        "position": "影三C尤平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影三C尤平",
+            "initial": "影",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "於求",
+            "gloss": "愁也又姓出姓苑於求切十七"
+          }
+        ]
+      },
+      {
+        "char": "心",
+        "index": 25,
+        "chapter": 2,
+        "initial": "心",
+        "rhyme": "侵",
+        "group": "深",
+        "tone": "平",
+        "fanqie": "息林",
+        "position": "心開三侵平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三侵平",
+            "initial": "心",
+            "rhyme": "侵",
+            "group": "深",
+            "tone": "平",
+            "fanqie": "息林",
+            "gloss": "火藏釋名曰心纖也所識纖微無不貫也息林切四"
+          }
+        ]
+      },
+      {
+        "char": "孔",
+        "index": 26,
+        "chapter": 2,
+        "initial": "溪",
+        "rhyme": "東",
+        "group": "通",
+        "tone": "上",
+        "fanqie": "康董",
+        "position": "溪一東上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "溪一東上",
+            "initial": "溪",
+            "rhyme": "東",
+            "group": "通",
+            "tone": "上",
+            "fanqie": "康董",
+            "gloss": "孔穴也又空也甚也亦姓殷湯之後本自帝嚳次妃簡狄吞乙卵生契賜姓子氏至成湯以其祖吞乙卵而生故名履字太天乙後代以子加乙始爲孔氏至宋孔父嘉遭華父督之難其子奔魯故孔子生於魯康董切二"
+          }
+        ]
+      },
+      {
+        "char": "疚",
+        "index": 27,
+        "chapter": 2,
+        "initial": "見",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "去",
+        "fanqie": "居祐",
+        "position": "見三C尤去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見三C尤去",
+            "initial": "見",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "去",
+            "fanqie": "居祐",
+            "gloss": "病也"
+          }
+        ]
+      },
+      {
+        "char": "我",
+        "index": 28,
+        "chapter": 2,
+        "initial": "疑",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "上",
+        "fanqie": "五可",
+        "position": "疑開一歌上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開一歌上",
+            "initial": "疑",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "五可",
+            "gloss": "己稱又姓我子古賢者著書五可切五"
+          }
+        ]
+      },
+      {
+        "char": "行",
+        "index": 29,
+        "chapter": 2,
+        "initial": "匣",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "胡郎",
+        "position": "匣開一唐平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "匣開一唐平",
+            "initial": "匣",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "胡郎",
+            "gloss": "伍也列也又戶庚戶浪戶孟三切"
+          },
+          {
+            "position": "匣開二庚平",
+            "initial": "匣",
+            "rhyme": "庚",
+            "group": "梗",
+            "tone": "平",
+            "fanqie": "戶庚",
+            "gloss": "行步也適也往也去也又姓周有大行人之官其後氏焉戶庚切又戶剛戶浪下孟三切十"
+          },
+          {
+            "position": "匣開一唐去",
+            "initial": "匣",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "去",
+            "fanqie": "下浪",
+            "gloss": "次第"
+          },
+          {
+            "position": "匣開二庚去",
+            "initial": "匣",
+            "rhyme": "庚",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "下更",
+            "gloss": "景迹又事也言也下更切又胡郎胡浪胡庚三切五三"
+          }
+        ]
+      },
+      {
+        "char": "不",
+        "index": 30,
+        "chapter": 2,
+        "initial": "幫",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "甫鳩",
+        "position": "幫三C尤平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "幫三C尤平",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "甫鳩",
+            "gloss": "弗也又姓晉書有汲郡人不準盜發六國時魏王冢得古文竹書今之汲冢記也甫鳩切又甫九甫救二切五"
+          },
+          {
+            "position": "幫三C尤上",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "方久",
+            "gloss": "弗也說文作𠀚鳥飛上翔不下來也从一一天也象形又甫鳩甫救二切"
+          },
+          {
+            "position": "幫三C文入",
+            "initial": "幫",
+            "rhyme": "文",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "分勿",
+            "gloss": "與弗同又府鳩方久二切"
+          }
+        ]
+      },
+      {
+        "char": "來",
+        "index": 31,
+        "chapter": 2,
+        "initial": "來",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "平",
+        "fanqie": "落哀",
+        "position": "來開一咍平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "來開一咍平",
+            "initial": "來",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "平",
+            "fanqie": "落哀",
+            "gloss": "至也及也還也又姓後漢來歙光武姑子蜀志云荊楚名族有黃門侍郎來桓俗作来洛哀切二十五"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "彼爾維何？維常之華。彼路斯何？君子之車。戎車既駕，四牡業業。豈敢定居？一月三捷。",
+    "entries": [
+      {
+        "char": "彼",
+        "index": 0,
+        "chapter": 3,
+        "initial": "幫",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "甫委",
+        "position": "幫三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "幫三B支上",
+            "initial": "幫",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "甫委",
+            "gloss": "對此之稱甫委切五"
+          }
+        ]
+      },
+      {
+        "char": "爾",
+        "index": 1,
+        "chapter": 3,
+        "initial": "日",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "兒氏",
+        "position": "日開三支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "日開三支上",
+            "initial": "日",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "兒氏",
+            "gloss": "汝也說文作爾云麗爾猶靡麗也兒氏切四"
+          }
+        ]
+      },
+      {
+        "char": "維",
+        "index": 2,
+        "chapter": 3,
+        "initial": "以",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "以追",
+        "position": "以合三脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以合三脂平",
+            "initial": "以",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "以追",
+            "gloss": "豈也隅也持也繫也說文曰車蓋維也"
+          }
+        ]
+      },
+      {
+        "char": "何",
+        "index": 3,
+        "chapter": 3,
+        "initial": "匣",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "平",
+        "fanqie": "胡歌",
+        "position": "匣開一歌平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "匣開一歌平",
+            "initial": "匣",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "平",
+            "fanqie": "胡歌",
+            "gloss": "辝也說文儋也又姓出自周成王母弟唐叔虞後封於韓韓滅子孫分散江淮閒音以韓爲何字隨音變遂爲何氏出廬江東海陳郡三望胡歌切七"
+          },
+          {
+            "position": "匣開一歌上",
+            "initial": "匣",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "胡可",
+            "gloss": "上同（負荷也胡可切又戶哥切二）"
+          }
+        ]
+      },
+      {
+        "char": "維",
+        "index": 4,
+        "chapter": 3,
+        "initial": "以",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "以追",
+        "position": "以合三脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以合三脂平",
+            "initial": "以",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "以追",
+            "gloss": "豈也隅也持也繫也說文曰車蓋維也"
+          }
+        ]
+      },
+      {
+        "char": "常",
+        "index": 5,
+        "chapter": 3,
+        "initial": "常",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "市羊",
+        "position": "常開三陽平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "常開三陽平",
+            "initial": "常",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "市羊",
+            "gloss": "倍尋曰常又官名漢書曰奉常秦官掌宗廟禮儀景帝六年更名太常也釋名曰九旂之名日月爲常謂畫日月於其端天子所建言常明也亦姓出河內漢有常惠市羊切十"
+          }
+        ]
+      },
+      {
+        "char": "之",
+        "index": 6,
+        "chapter": 3,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "止而",
+        "position": "章開三之平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之平",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "止而",
+            "gloss": "適也往也閒也亦姓出姓苑止而切四"
+          }
+        ]
+      },
+      {
+        "char": "華",
+        "index": 7,
+        "chapter": 3,
+        "initial": "匣",
+        "rhyme": "麻",
+        "group": "假",
+        "tone": "平",
+        "fanqie": "戶花",
+        "position": "匣合二麻平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "匣合二麻平",
+            "initial": "匣",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "平",
+            "fanqie": "戶花",
+            "gloss": "草盛也色也說文作䔢榮也崔豹古今注曰堯設誹謗木今之華表也西京記謂交午柱戶花切又呼瓜戶化二切十"
+          },
+          {
+            "position": "曉合二麻平",
+            "initial": "曉",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "平",
+            "fanqie": "呼瓜",
+            "gloss": "爾雅云華荂也呼瓜切四"
+          },
+          {
+            "position": "匣合二麻去",
+            "initial": "匣",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "去",
+            "fanqie": "胡化",
+            "gloss": "上同（崋山西嶽亦州名春秋時秦晉之分境後魏置東雍州改爲崋州又姓出平原殷湯之後宋戴公考父食采於其崋後氏焉）"
+          }
+        ]
+      },
+      {
+        "char": "彼",
+        "index": 8,
+        "chapter": 3,
+        "initial": "幫",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "甫委",
+        "position": "幫三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "幫三B支上",
+            "initial": "幫",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "甫委",
+            "gloss": "對此之稱甫委切五"
+          }
+        ]
+      },
+      {
+        "char": "路",
+        "index": 9,
+        "chapter": 3,
+        "initial": "來",
+        "rhyme": "模",
+        "group": "遇",
+        "tone": "去",
+        "fanqie": "洛故",
+        "position": "來一模去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "來一模去",
+            "initial": "來",
+            "rhyme": "模",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "洛故",
+            "gloss": "道路亦大也周禮曰合方氏掌達天下之道路爾雅曰一達謂之道路又姓本自帝摯之後出陽平襄城陳留安定東陽河南等六望洛故切十三"
+          }
+        ]
+      },
+      {
+        "char": "斯",
+        "index": 10,
+        "chapter": 3,
+        "initial": "心",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "息移",
+        "position": "心開三支平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三支平",
+            "initial": "心",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "息移",
+            "gloss": "此也說文曰析也詩曰斧以斯之又姓吳志賀齊傳有剡縣史斯從息移切二十六"
+          }
+        ]
+      },
+      {
+        "char": "何",
+        "index": 11,
+        "chapter": 3,
+        "initial": "匣",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "平",
+        "fanqie": "胡歌",
+        "position": "匣開一歌平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "匣開一歌平",
+            "initial": "匣",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "平",
+            "fanqie": "胡歌",
+            "gloss": "辝也說文儋也又姓出自周成王母弟唐叔虞後封於韓韓滅子孫分散江淮閒音以韓爲何字隨音變遂爲何氏出廬江東海陳郡三望胡歌切七"
+          },
+          {
+            "position": "匣開一歌上",
+            "initial": "匣",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "胡可",
+            "gloss": "上同（負荷也胡可切又戶哥切二）"
+          }
+        ]
+      },
+      {
+        "char": "君",
+        "index": 12,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "文",
+        "group": "臻",
+        "tone": "平",
+        "fanqie": "舉云",
+        "position": "見合三C文平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C文平",
+            "initial": "見",
+            "rhyme": "文",
+            "group": "臻",
+            "tone": "平",
+            "fanqie": "舉云",
+            "gloss": "白虎通曰君者羣也羣下之所歸心也荀卿子曰君者儀也民者影也儀正則影正君者盤也民者水也盤圓則水圓又君者民之源也源清則流清源濁則流濁舉云切八"
+          }
+        ]
+      },
+      {
+        "char": "子",
+        "index": 13,
+        "chapter": 3,
+        "initial": "精",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "即里",
+        "position": "精開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "精開三之上",
+            "initial": "精",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "即里",
+            "gloss": "子息環濟要略曰子猶孳也孳恤下之稱也亦辰名爾雅云太歲在子曰困敦又殷姓又漢複姓十一氏左傳鄭大夫子人九魯大夫子服氏子家羈莊子有子桑扈皇子告敖何氏姓苑有子乾子仲子工子革子臧子師等氏即里切八"
+          }
+        ]
+      },
+      {
+        "char": "之",
+        "index": 14,
+        "chapter": 3,
+        "initial": "章",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "止而",
+        "position": "章開三之平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "章開三之平",
+            "initial": "章",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "止而",
+            "gloss": "適也往也閒也亦姓出姓苑止而切四"
+          }
+        ]
+      },
+      {
+        "char": "車",
+        "index": 15,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "魚",
+        "group": "遇",
+        "tone": "平",
+        "fanqie": "九魚",
+        "position": "見開三C魚平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "見開三C魚平",
+            "initial": "見",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "平",
+            "fanqie": "九魚",
+            "gloss": "車輅又昌遮切"
+          },
+          {
+            "position": "昌開三麻平",
+            "initial": "昌",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "平",
+            "fanqie": "尺遮",
+            "gloss": "古史考曰黃帝作車引重致遠少昊時加牛禹時奚仲加馬周公作指南車又姓出魯國南平淮南河南四望本自舜後陳敬仲奔齊爲田氏至漢丞相田千秋以年老得乘小車出入省中時人謂之車丞相子孫因以爲氏漢末避地於魯又複姓二氏世本有齊臨淄大夫車遽氏又有車成氏亦虜複姓魏獻帝命疎屬車焜氏後改爲車氏尺遮切又音居二"
+          }
+        ]
+      },
+      {
+        "char": "戎",
+        "index": 16,
+        "chapter": 3,
+        "initial": "日",
+        "rhyme": "東",
+        "group": "通",
+        "tone": "平",
+        "fanqie": "如融",
+        "position": "日三東平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "日三東平",
+            "initial": "日",
+            "rhyme": "東",
+            "group": "通",
+            "tone": "平",
+            "fanqie": "如融",
+            "gloss": "戎狄亦助也說文作𢦦兵也又姓漢宣帝戎婕妤生中山哀王竟如融切九"
+          }
+        ]
+      },
+      {
+        "char": "車",
+        "index": 17,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "魚",
+        "group": "遇",
+        "tone": "平",
+        "fanqie": "九魚",
+        "position": "見開三C魚平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "見開三C魚平",
+            "initial": "見",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "平",
+            "fanqie": "九魚",
+            "gloss": "車輅又昌遮切"
+          },
+          {
+            "position": "昌開三麻平",
+            "initial": "昌",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "平",
+            "fanqie": "尺遮",
+            "gloss": "古史考曰黃帝作車引重致遠少昊時加牛禹時奚仲加馬周公作指南車又姓出魯國南平淮南河南四望本自舜後陳敬仲奔齊爲田氏至漢丞相田千秋以年老得乘小車出入省中時人謂之車丞相子孫因以爲氏漢末避地於魯又複姓二氏世本有齊臨淄大夫車遽氏又有車成氏亦虜複姓魏獻帝命疎屬車焜氏後改爲車氏尺遮切又音居二"
+          }
+        ]
+      },
+      {
+        "char": "既",
+        "index": 18,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "居豙",
+        "position": "見開三C微去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開三C微去",
+            "initial": "見",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "居豙",
+            "gloss": "已也盡也又姓吳王夫既之後居豙切七"
+          }
+        ]
+      },
+      {
+        "char": "駕",
+        "index": 19,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "麻",
+        "group": "假",
+        "tone": "去",
+        "fanqie": "古訝",
+        "position": "見開二麻去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開二麻去",
+            "initial": "見",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "去",
+            "fanqie": "古訝",
+            "gloss": "行也乘也說文曰馬在軶中也古訝切十二"
+          }
+        ]
+      },
+      {
+        "char": "四",
+        "index": 20,
+        "chapter": 3,
+        "initial": "心",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "息利",
+        "position": "心開三脂去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三脂去",
+            "initial": "心",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "息利",
+            "gloss": "說文曰陰數也象四分之形息利切十四"
+          }
+        ]
+      },
+      {
+        "char": "牡",
+        "index": 21,
+        "chapter": 3,
+        "initial": "明",
+        "rhyme": "侯",
+        "group": "流",
+        "tone": "上",
+        "fanqie": "莫厚",
+        "position": "明一侯上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明一侯上",
+            "initial": "明",
+            "rhyme": "侯",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "莫厚",
+            "gloss": "牝牡"
+          }
+        ]
+      },
+      {
+        "char": "業",
+        "index": 22,
+        "chapter": 3,
+        "initial": "疑",
+        "rhyme": "嚴",
+        "group": "咸",
+        "tone": "入",
+        "fanqie": "魚怯",
+        "position": "疑開三C嚴入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開三C嚴入",
+            "initial": "疑",
+            "rhyme": "嚴",
+            "group": "咸",
+            "tone": "入",
+            "fanqie": "魚怯",
+            "gloss": "事也大也敘也次也始也敬也嚴也說文作𢄁大版也所以飾縣鐘鼓捷業如鋸齒以白畫之象其鉏鋙相承也詩曰巨業維樅又爾雅曰大版謂之業郭璞云築牆版也俗作㸣魚怯切十五"
+          }
+        ]
+      },
+      {
+        "char": "業",
+        "index": 23,
+        "chapter": 3,
+        "initial": "疑",
+        "rhyme": "嚴",
+        "group": "咸",
+        "tone": "入",
+        "fanqie": "魚怯",
+        "position": "疑開三C嚴入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開三C嚴入",
+            "initial": "疑",
+            "rhyme": "嚴",
+            "group": "咸",
+            "tone": "入",
+            "fanqie": "魚怯",
+            "gloss": "事也大也敘也次也始也敬也嚴也說文作𢄁大版也所以飾縣鐘鼓捷業如鋸齒以白畫之象其鉏鋙相承也詩曰巨業維樅又爾雅曰大版謂之業郭璞云築牆版也俗作㸣魚怯切十五"
+          }
+        ]
+      },
+      {
+        "char": "豈",
+        "index": 24,
+        "chapter": 3,
+        "initial": "溪",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "袪豨",
+        "position": "溪開三C微上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "溪開三C微上",
+            "initial": "溪",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "袪豨",
+            "gloss": "安也焉也曾也袪豨切二"
+          }
+        ]
+      },
+      {
+        "char": "敢",
+        "index": 25,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "談",
+        "group": "咸",
+        "tone": "上",
+        "fanqie": "古覽",
+        "position": "見開一談上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開一談上",
+            "initial": "見",
+            "rhyme": "談",
+            "group": "咸",
+            "tone": "上",
+            "fanqie": "古覽",
+            "gloss": "勇也犯也說文作𠭖進取也古覽切七"
+          }
+        ]
+      },
+      {
+        "char": "定",
+        "index": 26,
+        "chapter": 3,
+        "initial": "定",
+        "rhyme": "青",
+        "group": "梗",
+        "tone": "去",
+        "fanqie": "徒徑",
+        "position": "定開四青去",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "定開四青去",
+            "initial": "定",
+            "rhyme": "青",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "徒徑",
+            "gloss": "安也亦州名帝堯始封唐國之城秦爲趙郡鉅鹿二郡漢爲中山郡後魏置安州又改爲定州以安定天下爲名徒徑切四"
+          },
+          {
+            "position": "端開四青去",
+            "initial": "端",
+            "rhyme": "青",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "丁定",
+            "gloss": "題額詩云定之方中定營室也又徒徑切"
+          }
+        ]
+      },
+      {
+        "char": "居",
+        "index": 27,
+        "chapter": 3,
+        "initial": "見",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "居之",
+        "position": "見開三C之平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "見開三C之平",
+            "initial": "見",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "居之",
+            "gloss": "語助見禮"
+          },
+          {
+            "position": "見開三C魚平",
+            "initial": "見",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "平",
+            "fanqie": "九魚",
+            "gloss": "當也處也安也九魚切十四"
+          }
+        ]
+      },
+      {
+        "char": "一",
+        "index": 28,
+        "chapter": 3,
+        "initial": "影",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "入",
+        "fanqie": "於悉",
+        "position": "影開三A真入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影開三A真入",
+            "initial": "影",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "於悉",
+            "gloss": "數之始也物之極也同也少也初也又虜三字姓後魏書一那婁氏後改爲婁氏於悉切三"
+          }
+        ]
+      },
+      {
+        "char": "月",
+        "index": 29,
+        "chapter": 3,
+        "initial": "疑",
+        "rhyme": "元",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "魚厥",
+        "position": "疑合三C元入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑合三C元入",
+            "initial": "疑",
+            "rhyme": "元",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "魚厥",
+            "gloss": "范子計然云月者尺也者紀度而成數也王子年拾遺錄曰水精爲月魚厥切十一"
+          }
+        ]
+      },
+      {
+        "char": "三",
+        "index": 30,
+        "chapter": 3,
+        "initial": "心",
+        "rhyme": "談",
+        "group": "咸",
+        "tone": "平",
+        "fanqie": "蘇甘",
+        "position": "心開一談平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "心開一談平",
+            "initial": "心",
+            "rhyme": "談",
+            "group": "咸",
+            "tone": "平",
+            "fanqie": "蘇甘",
+            "gloss": "數名又漢複姓五氏三閭氏三閭大夫屈原之後也沛上計三烏群三烏大夫之後也三飯尞之後有三飯氏三州孝子之後有三州氏後單姓州蜀志有三丘務蘇甘切五"
+          },
+          {
+            "position": "心開一談去",
+            "initial": "心",
+            "rhyme": "談",
+            "group": "咸",
+            "tone": "去",
+            "fanqie": "蘇暫",
+            "gloss": "三思蘇暫切又蘇甘切一"
+          }
+        ]
+      },
+      {
+        "char": "捷",
+        "index": 31,
+        "chapter": 3,
+        "initial": "從",
+        "rhyme": "鹽",
+        "group": "咸",
+        "tone": "入",
+        "fanqie": "疾葉",
+        "position": "從開三鹽入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "從開三鹽入",
+            "initial": "從",
+            "rhyme": "鹽",
+            "group": "咸",
+            "tone": "入",
+            "fanqie": "疾葉",
+            "gloss": "獲也佽也疾也剋也勝也成也說文曰獵也軍獲得也春秋傳曰齊人來獻戎捷又姓漢書藝文志捷子齊人著書疾葉切八"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "駕彼四牡，四牡騤騤。君子所依，小人所腓。四牡翼翼，象弭魚服。豈不日戒？玁狁孔棘。",
+    "entries": [
+      {
+        "char": "駕",
+        "index": 0,
+        "chapter": 4,
+        "initial": "見",
+        "rhyme": "麻",
+        "group": "假",
+        "tone": "去",
+        "fanqie": "古訝",
+        "position": "見開二麻去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開二麻去",
+            "initial": "見",
+            "rhyme": "麻",
+            "group": "假",
+            "tone": "去",
+            "fanqie": "古訝",
+            "gloss": "行也乘也說文曰馬在軶中也古訝切十二"
+          }
+        ]
+      },
+      {
+        "char": "彼",
+        "index": 1,
+        "chapter": 4,
+        "initial": "幫",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "甫委",
+        "position": "幫三B支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "幫三B支上",
+            "initial": "幫",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "甫委",
+            "gloss": "對此之稱甫委切五"
+          }
+        ]
+      },
+      {
+        "char": "四",
+        "index": 2,
+        "chapter": 4,
+        "initial": "心",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "息利",
+        "position": "心開三脂去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三脂去",
+            "initial": "心",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "息利",
+            "gloss": "說文曰陰數也象四分之形息利切十四"
+          }
+        ]
+      },
+      {
+        "char": "牡",
+        "index": 3,
+        "chapter": 4,
+        "initial": "明",
+        "rhyme": "侯",
+        "group": "流",
+        "tone": "上",
+        "fanqie": "莫厚",
+        "position": "明一侯上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明一侯上",
+            "initial": "明",
+            "rhyme": "侯",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "莫厚",
+            "gloss": "牝牡"
+          }
+        ]
+      },
+      {
+        "char": "四",
+        "index": 4,
+        "chapter": 4,
+        "initial": "心",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "息利",
+        "position": "心開三脂去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三脂去",
+            "initial": "心",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "息利",
+            "gloss": "說文曰陰數也象四分之形息利切十四"
+          }
+        ]
+      },
+      {
+        "char": "牡",
+        "index": 5,
+        "chapter": 4,
+        "initial": "明",
+        "rhyme": "侯",
+        "group": "流",
+        "tone": "上",
+        "fanqie": "莫厚",
+        "position": "明一侯上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明一侯上",
+            "initial": "明",
+            "rhyme": "侯",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "莫厚",
+            "gloss": "牝牡"
+          }
+        ]
+      },
+      {
+        "char": "騤",
+        "index": 6,
+        "chapter": 4,
+        "initial": "羣",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "渠追",
+        "position": "羣合三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "羣合三B脂平",
+            "initial": "羣",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "渠追",
+            "gloss": "強也盛也又馬行皃"
+          },
+          {
+            "position": "見合四先入",
+            "initial": "見",
+            "rhyme": "先",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "古穴",
+            "gloss": "爾雅馬回毛在背曰騤𩧉𩧉音光亦作闋廣"
+          }
+        ]
+      },
+      {
+        "char": "騤",
+        "index": 7,
+        "chapter": 4,
+        "initial": "羣",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "渠追",
+        "position": "羣合三B脂平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "羣合三B脂平",
+            "initial": "羣",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "渠追",
+            "gloss": "強也盛也又馬行皃"
+          },
+          {
+            "position": "見合四先入",
+            "initial": "見",
+            "rhyme": "先",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "古穴",
+            "gloss": "爾雅馬回毛在背曰騤𩧉𩧉音光亦作闋廣"
+          }
+        ]
+      },
+      {
+        "char": "君",
+        "index": 8,
+        "chapter": 4,
+        "initial": "見",
+        "rhyme": "文",
+        "group": "臻",
+        "tone": "平",
+        "fanqie": "舉云",
+        "position": "見合三C文平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見合三C文平",
+            "initial": "見",
+            "rhyme": "文",
+            "group": "臻",
+            "tone": "平",
+            "fanqie": "舉云",
+            "gloss": "白虎通曰君者羣也羣下之所歸心也荀卿子曰君者儀也民者影也儀正則影正君者盤也民者水也盤圓則水圓又君者民之源也源清則流清源濁則流濁舉云切八"
+          }
+        ]
+      },
+      {
+        "char": "子",
+        "index": 9,
+        "chapter": 4,
+        "initial": "精",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "即里",
+        "position": "精開三之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "精開三之上",
+            "initial": "精",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "即里",
+            "gloss": "子息環濟要略曰子猶孳也孳恤下之稱也亦辰名爾雅云太歲在子曰困敦又殷姓又漢複姓十一氏左傳鄭大夫子人九魯大夫子服氏子家羈莊子有子桑扈皇子告敖何氏姓苑有子乾子仲子工子革子臧子師等氏即里切八"
+          }
+        ]
+      },
+      {
+        "char": "所",
+        "index": 10,
+        "chapter": 4,
+        "initial": "生",
+        "rhyme": "魚",
+        "group": "遇",
+        "tone": "上",
+        "fanqie": "疎舉",
+        "position": "生開三魚上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "生開三魚上",
+            "initial": "生",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "上",
+            "fanqie": "疎舉",
+            "gloss": "說文云伐木聲也詩曰伐木所所又處所也詩曰獻于公所亦姓漢有諫議大夫所忠疎舉切七"
+          }
+        ]
+      },
+      {
+        "char": "依",
+        "index": 11,
+        "chapter": 4,
+        "initial": "影",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "於希",
+        "position": "影開三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影開三C微平",
+            "initial": "影",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "於希",
+            "gloss": "倚也祿也於希切八"
+          }
+        ]
+      },
+      {
+        "char": "小",
+        "index": 12,
+        "chapter": 4,
+        "initial": "心",
+        "rhyme": "宵",
+        "group": "效",
+        "tone": "上",
+        "fanqie": "私兆",
+        "position": "心開三宵上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三宵上",
+            "initial": "心",
+            "rhyme": "宵",
+            "group": "效",
+            "tone": "上",
+            "fanqie": "私兆",
+            "gloss": "微也私兆切三"
+          }
+        ]
+      },
+      {
+        "char": "人",
+        "index": 13,
+        "chapter": 4,
+        "initial": "日",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "平",
+        "fanqie": "如鄰",
+        "position": "日開三真平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "日開三真平",
+            "initial": "日",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "平",
+            "fanqie": "如鄰",
+            "gloss": "天地人爲三才亦漢複姓十氏左傳有寺人披齊有徒人費周有王人子突魯有雍人高宋有廚人僕鄭有大夫子人九國語吳有行人儀孔子弟子左人郢漢司空掾封人嬰後漢司徒聞人襲"
+          }
+        ]
+      },
+      {
+        "char": "所",
+        "index": 14,
+        "chapter": 4,
+        "initial": "生",
+        "rhyme": "魚",
+        "group": "遇",
+        "tone": "上",
+        "fanqie": "疎舉",
+        "position": "生開三魚上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "生開三魚上",
+            "initial": "生",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "上",
+            "fanqie": "疎舉",
+            "gloss": "說文云伐木聲也詩曰伐木所所又處所也詩曰獻于公所亦姓漢有諫議大夫所忠疎舉切七"
+          }
+        ]
+      },
+      {
+        "char": "腓",
+        "index": 15,
+        "chapter": 4,
+        "initial": "並",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "符非",
+        "position": "並三C微平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "並三C微平",
+            "initial": "並",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "符非",
+            "gloss": "腳腨腸也"
+          },
+          {
+            "position": "並三C微去",
+            "initial": "並",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "扶沸",
+            "gloss": "又音肥"
+          }
+        ]
+      },
+      {
+        "char": "四",
+        "index": 16,
+        "chapter": 4,
+        "initial": "心",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "去",
+        "fanqie": "息利",
+        "position": "心開三脂去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三脂去",
+            "initial": "心",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "息利",
+            "gloss": "說文曰陰數也象四分之形息利切十四"
+          }
+        ]
+      },
+      {
+        "char": "牡",
+        "index": 17,
+        "chapter": 4,
+        "initial": "明",
+        "rhyme": "侯",
+        "group": "流",
+        "tone": "上",
+        "fanqie": "莫厚",
+        "position": "明一侯上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明一侯上",
+            "initial": "明",
+            "rhyme": "侯",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "莫厚",
+            "gloss": "牝牡"
+          }
+        ]
+      },
+      {
+        "char": "翼",
+        "index": 18,
+        "chapter": 4,
+        "initial": "以",
+        "rhyme": "蒸",
+        "group": "曾",
+        "tone": "入",
+        "fanqie": "與職",
+        "position": "以開三蒸入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三蒸入",
+            "initial": "以",
+            "rhyme": "蒸",
+            "group": "曾",
+            "tone": "入",
+            "fanqie": "與職",
+            "gloss": "羽翼說文翍也又恭也美也助也亦州名在隴右因翼水爲名又姓晉翼侯之後漢有諫議大夫翼奉"
+          }
+        ]
+      },
+      {
+        "char": "翼",
+        "index": 19,
+        "chapter": 4,
+        "initial": "以",
+        "rhyme": "蒸",
+        "group": "曾",
+        "tone": "入",
+        "fanqie": "與職",
+        "position": "以開三蒸入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三蒸入",
+            "initial": "以",
+            "rhyme": "蒸",
+            "group": "曾",
+            "tone": "入",
+            "fanqie": "與職",
+            "gloss": "羽翼說文翍也又恭也美也助也亦州名在隴右因翼水爲名又姓晉翼侯之後漢有諫議大夫翼奉"
+          }
+        ]
+      },
+      {
+        "char": "象",
+        "index": 20,
+        "chapter": 4,
+        "initial": "邪",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "上",
+        "fanqie": "徐兩",
+        "position": "邪開三陽上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "邪開三陽上",
+            "initial": "邪",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "上",
+            "fanqie": "徐兩",
+            "gloss": "說文曰象長鼻牙南越大獸三季一乳象耳牙四足之形爾雅曰南方之美者有梁山之犀象"
+          }
+        ]
+      },
+      {
+        "char": "弭",
+        "index": 21,
+        "chapter": 4,
+        "initial": "明",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "綿婢",
+        "position": "明三A支上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明三A支上",
+            "initial": "明",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "綿婢",
+            "gloss": "弓末又息也亦無緣弓也"
+          }
+        ]
+      },
+      {
+        "char": "魚",
+        "index": 22,
+        "chapter": 4,
+        "initial": "疑",
+        "rhyme": "魚",
+        "group": "遇",
+        "tone": "平",
+        "fanqie": "語居",
+        "position": "疑開三C魚平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開三C魚平",
+            "initial": "疑",
+            "rhyme": "魚",
+            "group": "遇",
+            "tone": "平",
+            "fanqie": "語居",
+            "gloss": "說文曰水蟲也亦姓出馮翊風俗通云宋公子魚賢而有謀以字爲族又漢複姓二氏左傳晉有長魚矯史記有修魚氏語居切十"
+          }
+        ]
+      },
+      {
+        "char": "服",
+        "index": 23,
+        "chapter": 4,
+        "initial": "並",
+        "rhyme": "東",
+        "group": "通",
+        "tone": "入",
+        "fanqie": "房六",
+        "position": "並三C東入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "並三C東入",
+            "initial": "並",
+            "rhyme": "東",
+            "group": "通",
+            "tone": "入",
+            "fanqie": "房六",
+            "gloss": "服事亦衣服又行也習也用也整也亦姓漢有江夏太守服徹"
+          }
+        ]
+      },
+      {
+        "char": "豈",
+        "index": 24,
+        "chapter": 4,
+        "initial": "溪",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "袪豨",
+        "position": "溪開三C微上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "溪開三C微上",
+            "initial": "溪",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "袪豨",
+            "gloss": "安也焉也曾也袪豨切二"
+          }
+        ]
+      },
+      {
+        "char": "不",
+        "index": 25,
+        "chapter": 4,
+        "initial": "幫",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "平",
+        "fanqie": "甫鳩",
+        "position": "幫三C尤平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "幫三C尤平",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "平",
+            "fanqie": "甫鳩",
+            "gloss": "弗也又姓晉書有汲郡人不準盜發六國時魏王冢得古文竹書今之汲冢記也甫鳩切又甫九甫救二切五"
+          },
+          {
+            "position": "幫三C尤上",
+            "initial": "幫",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "方久",
+            "gloss": "弗也說文作𠀚鳥飛上翔不下來也从一一天也象形又甫鳩甫救二切"
+          },
+          {
+            "position": "幫三C文入",
+            "initial": "幫",
+            "rhyme": "文",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "分勿",
+            "gloss": "與弗同又府鳩方久二切"
+          }
+        ]
+      },
+      {
+        "char": "日",
+        "index": 26,
+        "chapter": 4,
+        "initial": "日",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "入",
+        "fanqie": "人質",
+        "position": "日開三真入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "日開三真入",
+            "initial": "日",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "入",
+            "fanqie": "人質",
+            "gloss": "說文曰實也太陽精不虧从口一象形人質切五"
+          }
+        ]
+      },
+      {
+        "char": "戒",
+        "index": 27,
+        "chapter": 4,
+        "initial": "見",
+        "rhyme": "皆",
+        "group": "蟹",
+        "tone": "去",
+        "fanqie": "古拜",
+        "position": "見開二皆去",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開二皆去",
+            "initial": "見",
+            "rhyme": "皆",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "古拜",
+            "gloss": "慎也具也備也警也易注云洗心曰齋防患曰戒"
+          }
+        ]
+      },
+      {
+        "char": "玁",
+        "index": 28,
+        "chapter": 4,
+        "initial": "曉",
+        "rhyme": "鹽",
+        "group": "咸",
+        "tone": "上",
+        "fanqie": "虛檢",
+        "position": "曉開三B鹽上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "曉開三B鹽上",
+            "initial": "曉",
+            "rhyme": "鹽",
+            "group": "咸",
+            "tone": "上",
+            "fanqie": "虛檢",
+            "gloss": "上同（獫狁）"
+          }
+        ]
+      },
+      {
+        "char": "狁",
+        "index": 29,
+        "chapter": 4,
+        "initial": "以",
+        "rhyme": "真",
+        "group": "臻",
+        "tone": "上",
+        "fanqie": "余準",
+        "position": "以合三真上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以合三真上",
+            "initial": "以",
+            "rhyme": "真",
+            "group": "臻",
+            "tone": "上",
+            "fanqie": "余準",
+            "gloss": "獫狁"
+          }
+        ]
+      },
+      {
+        "char": "孔",
+        "index": 30,
+        "chapter": 4,
+        "initial": "溪",
+        "rhyme": "東",
+        "group": "通",
+        "tone": "上",
+        "fanqie": "康董",
+        "position": "溪一東上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "溪一東上",
+            "initial": "溪",
+            "rhyme": "東",
+            "group": "通",
+            "tone": "上",
+            "fanqie": "康董",
+            "gloss": "孔穴也又空也甚也亦姓殷湯之後本自帝嚳次妃簡狄吞乙卵生契賜姓子氏至成湯以其祖吞乙卵而生故名履字太天乙後代以子加乙始爲孔氏至宋孔父嘉遭華父督之難其子奔魯故孔子生於魯康董切二"
+          }
+        ]
+      },
+      {
+        "char": "棘",
+        "index": 31,
+        "chapter": 4,
+        "initial": "見",
+        "rhyme": "蒸",
+        "group": "曾",
+        "tone": "入",
+        "fanqie": "紀力",
+        "position": "見開三C蒸入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開三C蒸入",
+            "initial": "見",
+            "rhyme": "蒸",
+            "group": "曾",
+            "tone": "入",
+            "fanqie": "紀力",
+            "gloss": "小棗亦越戟名又箴也羸瘠也又姓文士傳曰棗袛本姓棘其先避難改爲棗氏衛大夫棘子成之後也"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "text": "昔我往矣，楊柳依依。今我來思，雨雪霏霏。行道遲遲，載渴載飢。我心傷悲，莫知我哀！",
+    "entries": [
+      {
+        "char": "昔",
+        "index": 0,
+        "chapter": 5,
+        "initial": "心",
+        "rhyme": "清",
+        "group": "梗",
+        "tone": "入",
+        "fanqie": "思積",
+        "position": "心開三清入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三清入",
+            "initial": "心",
+            "rhyme": "清",
+            "group": "梗",
+            "tone": "入",
+            "fanqie": "思積",
+            "gloss": "往也始也左傳爲一昔之期明日也說文作㫺乾肉也又姓漢有烏傷令昔登思積切十四"
+          }
+        ]
+      },
+      {
+        "char": "我",
+        "index": 1,
+        "chapter": 5,
+        "initial": "疑",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "上",
+        "fanqie": "五可",
+        "position": "疑開一歌上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開一歌上",
+            "initial": "疑",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "五可",
+            "gloss": "己稱又姓我子古賢者著書五可切五"
+          }
+        ]
+      },
+      {
+        "char": "往",
+        "index": 2,
+        "chapter": 5,
+        "initial": "云",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "上",
+        "fanqie": "于兩",
+        "position": "云合三C陽上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云合三C陽上",
+            "initial": "云",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "上",
+            "fanqie": "于兩",
+            "gloss": "之也去也行也至也于兩切二"
+          }
+        ]
+      },
+      {
+        "char": "矣",
+        "index": 3,
+        "chapter": 5,
+        "initial": "云",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "上",
+        "fanqie": "于紀",
+        "position": "云開三C之上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "云開三C之上",
+            "initial": "云",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "上",
+            "fanqie": "于紀",
+            "gloss": "說文云語已詞也于紀切二"
+          }
+        ]
+      },
+      {
+        "char": "楊",
+        "index": 4,
+        "chapter": 5,
+        "initial": "以",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "與章",
+        "position": "以開三陽平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "以開三陽平",
+            "initial": "以",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "與章",
+            "gloss": "赤莖柳爾雅曰楊蒲柳又姓出弘農天水二望本自周宣王子尚父幽王邑諸楊号曰楊侯後并於晉因爲氏也"
+          }
+        ]
+      },
+      {
+        "char": "柳",
+        "index": 5,
+        "chapter": 5,
+        "initial": "來",
+        "rhyme": "尤",
+        "group": "流",
+        "tone": "上",
+        "fanqie": "力久",
+        "position": "來三尤上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "來三尤上",
+            "initial": "來",
+            "rhyme": "尤",
+            "group": "流",
+            "tone": "上",
+            "fanqie": "力久",
+            "gloss": "木名說文作桺小楊也从木丣聲丣古文酉餘倣此又姓出河東本自魯孝公子展之孫以王父字爲展氏至展禽食采於柳因爲氏魯爲楚滅柳氏入楚楚爲秦滅乃遷晉之解縣秦置河東郡故爲河東解縣人力久切十四"
+          }
+        ]
+      },
+      {
+        "char": "依",
+        "index": 6,
+        "chapter": 5,
+        "initial": "影",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "於希",
+        "position": "影開三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影開三C微平",
+            "initial": "影",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "於希",
+            "gloss": "倚也祿也於希切八"
+          }
+        ]
+      },
+      {
+        "char": "依",
+        "index": 7,
+        "chapter": 5,
+        "initial": "影",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "於希",
+        "position": "影開三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影開三C微平",
+            "initial": "影",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "於希",
+            "gloss": "倚也祿也於希切八"
+          }
+        ]
+      },
+      {
+        "char": "今",
+        "index": 8,
+        "chapter": 5,
+        "initial": "見",
+        "rhyme": "侵",
+        "group": "深",
+        "tone": "平",
+        "fanqie": "居吟",
+        "position": "見開三B侵平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開三B侵平",
+            "initial": "見",
+            "rhyme": "侵",
+            "group": "深",
+            "tone": "平",
+            "fanqie": "居吟",
+            "gloss": "對古之稱說文云是時也"
+          }
+        ]
+      },
+      {
+        "char": "我",
+        "index": 9,
+        "chapter": 5,
+        "initial": "疑",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "上",
+        "fanqie": "五可",
+        "position": "疑開一歌上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開一歌上",
+            "initial": "疑",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "五可",
+            "gloss": "己稱又姓我子古賢者著書五可切五"
+          }
+        ]
+      },
+      {
+        "char": "來",
+        "index": 10,
+        "chapter": 5,
+        "initial": "來",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "平",
+        "fanqie": "落哀",
+        "position": "來開一咍平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "來開一咍平",
+            "initial": "來",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "平",
+            "fanqie": "落哀",
+            "gloss": "至也及也還也又姓後漢來歙光武姑子蜀志云荊楚名族有黃門侍郎來桓俗作来洛哀切二十五"
+          }
+        ]
+      },
+      {
+        "char": "思",
+        "index": 11,
+        "chapter": 5,
+        "initial": "心",
+        "rhyme": "之",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "息兹",
+        "position": "心開三之平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "心開三之平",
+            "initial": "心",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "息兹",
+            "gloss": "思念也息兹切又息吏切十五"
+          },
+          {
+            "position": "心開三之去",
+            "initial": "心",
+            "rhyme": "之",
+            "group": "止",
+            "tone": "去",
+            "fanqie": "相吏",
+            "gloss": "念也又音司"
+          }
+        ]
+      },
+      {
+        "char": "雨",
+        "index": 12,
+        "chapter": 5,
+        "initial": "云",
+        "rhyme": "虞",
+        "group": "遇",
+        "tone": "上",
+        "fanqie": "王矩",
+        "position": "云合三C虞上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "云合三C虞上",
+            "initial": "云",
+            "rhyme": "虞",
+            "group": "遇",
+            "tone": "上",
+            "fanqie": "王矩",
+            "gloss": "元命包曰陰陽和爲雨大戴禮云天地之氣和則雨說文云水从雲下也一象天冂象雲水霝其閒也"
+          },
+          {
+            "position": "云合三C虞去",
+            "initial": "云",
+            "rhyme": "虞",
+            "group": "遇",
+            "tone": "去",
+            "fanqie": "王遇",
+            "gloss": "詩曰雨雪其霶又音禹"
+          }
+        ]
+      },
+      {
+        "char": "雪",
+        "index": 13,
+        "chapter": 5,
+        "initial": "心",
+        "rhyme": "仙",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "相絕",
+        "position": "心合三仙入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心合三仙入",
+            "initial": "心",
+            "rhyme": "仙",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "相絕",
+            "gloss": "凝雨也元命包曰陰陽凝爲雪釋名曰雪綏也水下遇寒氣而凝綏綏然下也又拭也除也相絕切四"
+          }
+        ]
+      },
+      {
+        "char": "霏",
+        "index": 14,
+        "chapter": 5,
+        "initial": "滂",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "芳非",
+        "position": "滂三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "滂三C微平",
+            "initial": "滂",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "芳非",
+            "gloss": "雪皃芳非切九"
+          }
+        ]
+      },
+      {
+        "char": "霏",
+        "index": 15,
+        "chapter": 5,
+        "initial": "滂",
+        "rhyme": "微",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "芳非",
+        "position": "滂三C微平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "滂三C微平",
+            "initial": "滂",
+            "rhyme": "微",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "芳非",
+            "gloss": "雪皃芳非切九"
+          }
+        ]
+      },
+      {
+        "char": "行",
+        "index": 16,
+        "chapter": 5,
+        "initial": "匣",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "胡郎",
+        "position": "匣開一唐平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "匣開一唐平",
+            "initial": "匣",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "胡郎",
+            "gloss": "伍也列也又戶庚戶浪戶孟三切"
+          },
+          {
+            "position": "匣開二庚平",
+            "initial": "匣",
+            "rhyme": "庚",
+            "group": "梗",
+            "tone": "平",
+            "fanqie": "戶庚",
+            "gloss": "行步也適也往也去也又姓周有大行人之官其後氏焉戶庚切又戶剛戶浪下孟三切十"
+          },
+          {
+            "position": "匣開一唐去",
+            "initial": "匣",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "去",
+            "fanqie": "下浪",
+            "gloss": "次第"
+          },
+          {
+            "position": "匣開二庚去",
+            "initial": "匣",
+            "rhyme": "庚",
+            "group": "梗",
+            "tone": "去",
+            "fanqie": "下更",
+            "gloss": "景迹又事也言也下更切又胡郎胡浪胡庚三切五三"
+          }
+        ]
+      },
+      {
+        "char": "道",
+        "index": 17,
+        "chapter": 5,
+        "initial": "定",
+        "rhyme": "豪",
+        "group": "效",
+        "tone": "上",
+        "fanqie": "徒晧",
+        "position": "定開一豪上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "定開一豪上",
+            "initial": "定",
+            "rhyme": "豪",
+            "group": "效",
+            "tone": "上",
+            "fanqie": "徒晧",
+            "gloss": "理也路也直也眾妙皆道也說文曰所行道也一達謂之道徒晧切七"
+          }
+        ]
+      },
+      {
+        "char": "遲",
+        "index": 18,
+        "chapter": 5,
+        "initial": "澄",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "直尼",
+        "position": "澄開三脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "澄開三脂平",
+            "initial": "澄",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "直尼",
+            "gloss": "徐也久也緩也亦姓晉湘東太守遲超又虜姓後魏書尉遲氏後改爲尉氏又音稺"
+          }
+        ]
+      },
+      {
+        "char": "遲",
+        "index": 19,
+        "chapter": 5,
+        "initial": "澄",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "直尼",
+        "position": "澄開三脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "澄開三脂平",
+            "initial": "澄",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "直尼",
+            "gloss": "徐也久也緩也亦姓晉湘東太守遲超又虜姓後魏書尉遲氏後改爲尉氏又音稺"
+          }
+        ]
+      },
+      {
+        "char": "載",
+        "index": 20,
+        "chapter": 5,
+        "initial": "精",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "作亥",
+        "position": "精開一咍上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "精開一咍上",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "作亥",
+            "gloss": "年也出方言又音再"
+          },
+          {
+            "position": "精開一咍去",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "作代",
+            "gloss": "年也事也則也乘也始也盟辭也又姓風俗通云姬姓之後作代切又材代切六"
+          },
+          {
+            "position": "從開一咍去",
+            "initial": "從",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "昨代",
+            "gloss": "運也昨代切七"
+          }
+        ]
+      },
+      {
+        "char": "渴",
+        "index": 21,
+        "chapter": 5,
+        "initial": "溪",
+        "rhyme": "寒",
+        "group": "山",
+        "tone": "入",
+        "fanqie": "苦曷",
+        "position": "溪開一寒入",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "溪開一寒入",
+            "initial": "溪",
+            "rhyme": "寒",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "苦曷",
+            "gloss": "飢渴又虜複姓二氏後魏書渴侯氏後改爲緱氏渴單氏後改爲單氏亦虜三字姓後魏書北方渴燭渾氏後改爲朱氏苦曷切八"
+          },
+          {
+            "position": "羣開三B仙入",
+            "initial": "羣",
+            "rhyme": "仙",
+            "group": "山",
+            "tone": "入",
+            "fanqie": "渠列",
+            "gloss": "水盡也"
+          }
+        ]
+      },
+      {
+        "char": "載",
+        "index": 22,
+        "chapter": 5,
+        "initial": "精",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "上",
+        "fanqie": "作亥",
+        "position": "精開一咍上",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "精開一咍上",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "上",
+            "fanqie": "作亥",
+            "gloss": "年也出方言又音再"
+          },
+          {
+            "position": "精開一咍去",
+            "initial": "精",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "作代",
+            "gloss": "年也事也則也乘也始也盟辭也又姓風俗通云姬姓之後作代切又材代切六"
+          },
+          {
+            "position": "從開一咍去",
+            "initial": "從",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "去",
+            "fanqie": "昨代",
+            "gloss": "運也昨代切七"
+          }
+        ]
+      },
+      {
+        "char": "飢",
+        "index": 23,
+        "chapter": 5,
+        "initial": "見",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "居夷",
+        "position": "見開三B脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "見開三B脂平",
+            "initial": "見",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "居夷",
+            "gloss": "飢餓也又姓左傳殷人七族有飢氏居夷切四"
+          }
+        ]
+      },
+      {
+        "char": "我",
+        "index": 24,
+        "chapter": 5,
+        "initial": "疑",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "上",
+        "fanqie": "五可",
+        "position": "疑開一歌上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開一歌上",
+            "initial": "疑",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "五可",
+            "gloss": "己稱又姓我子古賢者著書五可切五"
+          }
+        ]
+      },
+      {
+        "char": "心",
+        "index": 25,
+        "chapter": 5,
+        "initial": "心",
+        "rhyme": "侵",
+        "group": "深",
+        "tone": "平",
+        "fanqie": "息林",
+        "position": "心開三侵平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "心開三侵平",
+            "initial": "心",
+            "rhyme": "侵",
+            "group": "深",
+            "tone": "平",
+            "fanqie": "息林",
+            "gloss": "火藏釋名曰心纖也所識纖微無不貫也息林切四"
+          }
+        ]
+      },
+      {
+        "char": "傷",
+        "index": 26,
+        "chapter": 5,
+        "initial": "書",
+        "rhyme": "陽",
+        "group": "宕",
+        "tone": "平",
+        "fanqie": "式羊",
+        "position": "書開三陽平",
+        "review": "多音待校订",
+        "candidates": [
+          {
+            "position": "書開三陽平",
+            "initial": "書",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "平",
+            "fanqie": "式羊",
+            "gloss": "傷損"
+          },
+          {
+            "position": "書開三陽去",
+            "initial": "書",
+            "rhyme": "陽",
+            "group": "宕",
+            "tone": "去",
+            "fanqie": "式亮",
+            "gloss": "未成人死或作殤又音商"
+          }
+        ]
+      },
+      {
+        "char": "悲",
+        "index": 27,
+        "chapter": 5,
+        "initial": "幫",
+        "rhyme": "脂",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "府眉",
+        "position": "幫三B脂平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "幫三B脂平",
+            "initial": "幫",
+            "rhyme": "脂",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "府眉",
+            "gloss": "痛也府眉切一"
+          }
+        ]
+      },
+      {
+        "char": "莫",
+        "index": 28,
+        "chapter": 5,
+        "initial": "明",
+        "rhyme": "唐",
+        "group": "宕",
+        "tone": "入",
+        "fanqie": "慕各",
+        "position": "明一唐入",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "明一唐入",
+            "initial": "明",
+            "rhyme": "唐",
+            "group": "宕",
+            "tone": "入",
+            "fanqie": "慕各",
+            "gloss": "無也定也說文本模故切日且冥也从日在茻中茻音莽又州名開元十三年改鄚州去邑亦姓楚莫敖之後又虜複姓五氏西秦錄有左衛將軍莫者羖羝南涼州刺史莫侯悌眷後魏末有亂寇莫折念生又有莫輿氏莫盧氏又虜三字姓周太祖賜廣寧楊纂姓莫胡盧氏慕各切十六"
+          }
+        ]
+      },
+      {
+        "char": "知",
+        "index": 29,
+        "chapter": 5,
+        "initial": "知",
+        "rhyme": "支",
+        "group": "止",
+        "tone": "平",
+        "fanqie": "陟離",
+        "position": "知開三支平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "知開三支平",
+            "initial": "知",
+            "rhyme": "支",
+            "group": "止",
+            "tone": "平",
+            "fanqie": "陟離",
+            "gloss": "覺也欲也陟離切六"
+          }
+        ]
+      },
+      {
+        "char": "我",
+        "index": 30,
+        "chapter": 5,
+        "initial": "疑",
+        "rhyme": "歌",
+        "group": "果",
+        "tone": "上",
+        "fanqie": "五可",
+        "position": "疑開一歌上",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "疑開一歌上",
+            "initial": "疑",
+            "rhyme": "歌",
+            "group": "果",
+            "tone": "上",
+            "fanqie": "五可",
+            "gloss": "己稱又姓我子古賢者著書五可切五"
+          }
+        ]
+      },
+      {
+        "char": "哀",
+        "index": 31,
+        "chapter": 5,
+        "initial": "影",
+        "rhyme": "咍",
+        "group": "蟹",
+        "tone": "平",
+        "fanqie": "烏開",
+        "position": "影開一咍平",
+        "review": "单一候选",
+        "candidates": [
+          {
+            "position": "影開一咍平",
+            "initial": "影",
+            "rhyme": "咍",
+            "group": "蟹",
+            "tone": "平",
+            "fanqie": "烏開",
+            "gloss": "悲哀也又姓漢有哀章烏開切六"
+          }
+        ]
+      }
+    ]
+  }
+]
