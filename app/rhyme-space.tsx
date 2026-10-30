@@ -1,6 +1,11 @@
 'use client';
 
 import precomputed from '../data/bundles-precomputed.json';
+import lumingData from '../data/luming-display.json';
+import shuoshuData from '../data/shuoshu-display.json';
+import mangData from '../data/mang-display.json';
+import beifengData from '../data/beifeng-display.json';
+import jiguData from '../data/jigu-display.json';
 import audioManifest from '../data/audio-manifest.json';
 import qiyueData from '../data/qiyue-display.json';
 import jianjiaData from '../data/jianjia-display.json';
@@ -33,7 +38,9 @@ function FieldPlane({ axis, position, color }: { axis: 'x' | 'y' | 'z'; position
   return <mesh position={at} rotation={rotation}><planeGeometry args={[15, 10]} /><meshBasicMaterial color={color} transparent opacity={0.027} depthWrite={false} side={THREE.DoubleSide} blending={THREE.AdditiveBlending} /></mesh>;
 }
 
-function CameraRail({ selected }: { selected: Entry | null }) {
+const DEFAULT_VIEW: [number, number, number] = [0, 19, 18];
+
+function CameraRail({ selected, filmStart }: { selected: Entry | null; filmStart: number | null }) {
   const controls = useRef<React.ElementRef<typeof OrbitControls>>(null);
   const motion = useRef({ active: false, elapsed: 0, fromPosition: new THREE.Vector3(), toPosition: new THREE.Vector3(), fromTarget: new THREE.Vector3(), toTarget: new THREE.Vector3() });
 
@@ -41,13 +48,29 @@ function CameraRail({ selected }: { selected: Entry | null }) {
     const orbit = controls.current;
     if (!orbit) return;
     const nextTarget = selected ? new THREE.Vector3(...selected.coord) : new THREE.Vector3(0, 0, 0);
-    const nextPosition = selected ? new THREE.Vector3(selected.coord[0] + 2.7, selected.coord[1] + 1.6, selected.coord[2] + 6.4) : new THREE.Vector3(11, 8, 19);
+    const nextPosition = selected ? new THREE.Vector3(selected.coord[0] + 2.7, selected.coord[1] + 1.6, selected.coord[2] + 6.4) : new THREE.Vector3(...DEFAULT_VIEW);
     motion.current = { active: true, elapsed: 0, fromPosition: orbit.object.position.clone(), toPosition: nextPosition, fromTarget: orbit.target.clone(), toTarget: nextTarget };
   }, [selected]);
 
   useFrame((state, delta) => {
     const orbit = controls.current;
     const path = motion.current;
+    if (orbit && filmStart !== null) {
+      const t=(performance.now()-filmStart)/1000;
+      const ease=(x:number)=>{const a=Math.max(0,Math.min(1,x));return a*a*(3-2*a);};
+      const home=new THREE.Vector3(...DEFAULT_VIEW);
+      const letter=new THREE.Vector3(-2.75,2.4,1.8);
+      const close=letter.clone().add(new THREE.Vector3(2.5,4.5,9));
+      let position=home.clone();let target=new THREE.Vector3();
+      if(t<12){const a=ease((t-3)/4);position.lerpVectors(home,close,a);target.lerpVectors(new THREE.Vector3(),letter,a);}
+      else if(t<19){const a=ease((t-12)/5);position.lerpVectors(close,home,a);target.lerpVectors(letter,new THREE.Vector3(),a);}
+      if(new URLSearchParams(location.search).get('film')==='axes'){
+        if(t<10){const x=9.25-18.5*ease(t/10);target.set(x,-3.35,5.76);position.copy(target).add(new THREE.Vector3(1.4,1.7,5.7));}
+        else if(t<16){const z=-5.4+10.8*ease((t-10)/6);target.set(-9.5,-3.2,z);position.copy(target).add(new THREE.Vector3(-3.2,2.2,4.4));}
+        else{const y=2.4-4.8*ease((t-16)/4);target.set(-9.5,y,5.76);position.copy(target).add(new THREE.Vector3(-2,1.1,5.3));}
+      }
+      orbit.object.position.copy(position);orbit.target.copy(target);orbit.update();state.invalidate();return;
+    }
     if (!orbit || !path.active) return;
     state.invalidate();
     path.elapsed = Math.min(path.elapsed + delta, 1.35);
@@ -59,7 +82,7 @@ function CameraRail({ selected }: { selected: Entry | null }) {
     if (raw >= 1) path.active = false;
   });
 
-  return <OrbitControls ref={controls} makeDefault enableDamping dampingFactor={0.065} enablePan={false} minDistance={3.2} maxDistance={38} minPolarAngle={0.38} maxPolarAngle={2.28} rotateSpeed={0.48} zoomSpeed={0.65} />;
+  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan={false} minDistance={3.2} maxDistance={38} minPolarAngle={0.38} maxPolarAngle={2.28} rotateSpeed={0.48} zoomSpeed={0.65} />;
 }
 
 function Glyph({ entries, entry, index, selected, onSelect }: { entries: Entry[]; entry: Entry; index: number; selected: boolean; onSelect: () => void }) {
@@ -174,7 +197,7 @@ function BundledPaths({ onLineSelect, paths, strength, highlighted, inspection, 
   const [hovered,setHovered]=useState<number[]>([]);
   const [pinned,setPinned]=useState<number[]>([]);
   const curves=useMemo(()=>{
-    const key=paths.map(path=>path.map(e=>e.position).join(',')).join('|');
+    const key=paths.map(path=>path.map(e=>`${e.chapter}:${e.index}:${e.char}:${e.position}`).join(',')).join('|');
     const saved=(precomputed as Record<string,{points:number[][];id:string;pair:string;transition:string;width:number}[]>)[key];
     if(strength && saved)return saved.map(curve=>({...curve,points:curve.points.map(p=>new THREE.Vector3(p[0],p[1],p[2]))}));
 
@@ -255,11 +278,11 @@ function FadingContext({ opacity, children }: { opacity: number; children: React
   return <group ref={group} visible={opacity>.005}>{children}</group>;
 }
 
-function Scene({ onLineSelect, inspection, onInspect, traceView, highlighted, contextOpacity, entries, paths, strength, selected, onSelect, generation }: { onLineSelect:(id:string)=>void; inspection: Inspection | null; onInspect: (value: Inspection)=>void; traceView: boolean; highlighted: string | null; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number }) {
+function Scene({ filmStart, onLineSelect, inspection, onInspect, traceView, highlighted, contextOpacity, entries, paths, strength, selected, onSelect, generation }: { filmStart: number | null; onLineSelect:(id:string)=>void; inspection: Inspection | null; onInspect: (value: Inspection)=>void; traceView: boolean; highlighted: string | null; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number }) {
   const [activeNode,setActiveNode]=useState<string|null>(null);
   const unique=entries.filter((entry,i)=>entries.findIndex(e=>e.coord.join()===entry.coord.join())===i);
   return <>
-    <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected}/><AxisScaffold/>
+    <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected} filmStart={filmStart}/><AxisScaffold/>
     {contextOpacity>.005 && <FadingContext opacity={contextOpacity}>{unique.map((entry,index)=><ConstructionLight key={`light-${generation}-${index}`} entry={entry} delay={paths.length>1?index*.025:0} selected={selected?.position===entry.position}/>)}</FadingContext>}
     {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength} highlighted={highlighted} inspection={inspection} onInspect={onInspect}/>:<PoemPath entries={entries}/>}
     {traceView && unique.map((entry,i)=><TraceNode key={`node-${i}`} entry={entry} entries={entries} activeNode={activeNode} onNodeSelect={setActiveNode}/>)}
@@ -268,7 +291,11 @@ function Scene({ onLineSelect, inspection, onInspect, traceView, highlighted, co
 }
 
 export function RhymeSpace() {
-  const poems={qiyue:{title:'七月',section:'豳风',data:qiyueData},jianjia:{title:'蒹葭',section:'秦风',data:jianjiaData},taoyao:{title:'桃夭',section:'周南',data:taoyaoData},wuyi:{title:'无衣',section:'秦风',data:wuyiData},caiwei:{title:'采薇',section:'小雅',data:caiweiData}};
+  const poems={qiyue:{title:'七月',section:'豳风',data:qiyueData},jianjia:{title:'蒹葭',section:'秦风',data:jianjiaData},taoyao:{title:'桃夭',section:'周南',data:taoyaoData},wuyi:{title:'无衣',section:'秦风',data:wuyiData},caiwei:{title:'采薇',section:'小雅',data:caiweiData},luming:{title:'鹿鸣',section:'小雅',data:lumingData},shuoshu:{title:'硕鼠',section:'魏风',data:shuoshuData},mang:{title:'氓',section:'卫风',data:mangData},beifeng:{title:'北风',section:'邶风',data:beifengData},jigu:{title:'击鼓',section:'邶风',data:jiguData}};
+  const [filmReady,setFilmReady]=useState(false);
+  const [filmStart,setFilmStart]=useState<number|null>(null);
+  const [filmLetter,setFilmLetter]=useState(false);
+  useEffect(()=>{setFilmReady(new URLSearchParams(location.search).has('film'));},[]);
   const [poemId,setPoemId]=useState<keyof typeof poems>('qiyue');
   const {data:qiyue,title:poemTitle,section:poemSection}=poems[poemId];
   const renderForExport=useRef<(()=>void)|null>(null);
@@ -304,6 +331,24 @@ export function RhymeSpace() {
   const [generation, setGeneration] = useState(0);
   const [inputMessage, setInputMessage] = useState('三向光束定位 → 字浮现 → 依字序连线');
 
+  useEffect(()=>{
+    if(filmStart===null)return;
+    const timers:ReturnType<typeof setTimeout>[]=[];
+    const cue=(seconds:number,action:()=>void)=>timers.push(setTimeout(action,seconds*1000));
+    const reset=(poem:keyof typeof poems)=>{setPoemId(poem);setSelected(null);setInspection(null);setHighlighted(null);setChapter(0);setSentence(0);setMode('all');setTraceView(true);setContextOpacity(0);setFilmLetter(false);setGeneration(n=>n+1);};
+    if(new URLSearchParams(location.search).get('film')==='axes'){reset('qiyue');return;}
+    setPoemId('qiyue');setMode('sentence');setTraceView(false);setContextOpacity(1);setFilmLetter(true);setChapter(0);setSentence(0);setSelected(null);setGeneration(n=>n+1);
+    cue(6,()=>{const e=qiyueData[0].entries[0];setSelected({...e,coord:locate(e.initial,e.tone,e.group)});});
+    cue(12,()=>{setSelected(null);setFilmLetter(false);setGeneration(n=>n+1);});
+    cue(21,()=>{setMode('all');setTraceView(true);setContextOpacity(.18);setGeneration(n=>n+1);});
+    for(let j=0;j<10;j++)cue(24+j*.12,()=>setContextOpacity(.18*(1-j/9)));
+    cue(28,()=>reset('jianjia'));cue(34,()=>reset('luming'));cue(40,()=>reset('mang'));cue(46,()=>reset('qiyue'));
+    cue(50,()=>{setHighlighted('0-0');const el=root.current?.querySelector('[data-sentence-id="0-0"]');el?.scrollIntoView({behavior:'smooth',block:'center'});});
+    cue(54,()=>{const e=qiyueData[0].entries[0];setSelected({...e,coord:locate(e.initial,e.tone,e.group)});});
+    cue(58,()=>{setSelected(null);setHighlighted(null);});
+    return()=>timers.forEach(clearTimeout);
+  },[filmStart]);
+
   const paragraphs = useMemo(()=>qiyue.map(c=>{
     let offset=0;
     return (c.text.match(/[^。？！]+[。？！]?/g)||[]).map(text=>{const count=[...text.replace(/[^\p{Script=Han}]/gu,'')].length;const result={text,entries:c.entries.slice(offset,offset+count)};offset+=count;return result;});
@@ -311,14 +356,14 @@ export function RhymeSpace() {
   const sentences=paragraphs[chapter].map(s=>s.text);
   const paths=useMemo<Entry[][]>(()=>{
     const source=mode==='all'?paragraphs.flat():mode==='paragraph'?paragraphs[chapter]:[paragraphs[chapter][sentence]];
-    return source.map(line=>line.entries.map(e=>{
+    return source.map(line=>(filmLetter?line.entries.slice(0,1):line.entries).map(e=>{
       const choice=overrides[`${e.chapter}-${e.index}`];const reading=choice===undefined?e:{...e,...e.candidates[choice],review:'手动选读'};
       return {...reading,coord:locate(reading.initial,reading.tone,reading.group)};
     }));
-  },[mode,chapter,sentence,overrides,paragraphs]);
+  },[mode,chapter,sentence,overrides,paragraphs,filmLetter]);
   const entries=useMemo(()=>paths.flat(),[paths]);
   const mapped=entries.filter(e=>e.initial);
-  const chooseSentence=(paragraph:number,line:number)=>{if(traceView){setHighlighted(`${paragraph}-${paragraphs[paragraph][line].entries[0].index}`);return;}setInspection(null);setMode('sentence');setChapter(paragraph);setSentence(line);setSelected(null);setGeneration(n=>n+1);};
+  const chooseSentence=(paragraph:number,line:number)=>{if(traceView){setChapter(paragraph);setSentence(line);setHighlighted(`${paragraph}-${paragraphs[paragraph][line].entries[0].index}`);return;}setInspection(null);setMode('sentence');setChapter(paragraph);setSentence(line);setSelected(null);setGeneration(n=>n+1);};
   const generatePoem = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault(); setSelected(null); setGenerated(true); setGeneration(n=>n+1);
     setInputMessage('三向光束定位 → 字浮现 → 依字序连线');
@@ -335,10 +380,10 @@ export function RhymeSpace() {
 
   useGSAP(() => { if (selected) gsap.fromTo('.detail-panel', { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 0.7, ease: 'power3.out' }); }, { scope: root, dependencies: [selected], revertOnUpdate: true });
   return <main ref={root} className="rhyme-app" style={{'--context-opacity':contextOpacity} as React.CSSProperties}>
-    <header className="masthead"><div className="brand-mark">诗</div><div><h1>音韵空间</h1><p>《诗经·{poemSection}·{poemTitle}》 · 声音的行迹</p></div><button className="text-action" type="button" onClick={() => setSelected(null)}>全览</button></header>
+    {filmReady && <button className="film-start" style={{position:'fixed',right:24,bottom:22,zIndex:80}} onClick={()=>setFilmStart(performance.now())}>{filmStart===null?'开始拍摄演示':'重播演示'}</button>}<header className="masthead"><div className="brand-mark">诗</div><div><h1>音韵空间</h1><p>《诗经·{poemSection}·{poemTitle}》 · 声音的行迹</p></div><button className="text-action" type="button" onClick={() => setSelected(null)}>全览</button></header>
     <aside className="poem-reader" aria-label={`${poemTitle}全文`}><div className="reader-title"><h2>{poemTitle}</h2><label className="poem-switch">切换诗篇<select aria-label="切换诗篇" value={poemId} onChange={event=>{setPoemId(event.target.value as keyof typeof poems);setChapter(0);setSentence(0);setOverrides({});setHighlighted(null);setSelected(null);setInspection(null);setMode('all');setGeneration(n=>n+1);}}>{Object.entries(poems).map(([id,poem])=><option key={id} value={id}>{poem.title} · {poem.section}</option>)}</select></label><p>{poemSection} · 点选诗句，观看声音的路径</p></div><div className="poem-scroll">{qiyue.map((paragraph,p)=><p className="poem-paragraph" key={p}>{(paragraphs[p].map(s=>s.text)).map((line,l)=><button key={l} data-sentence-id={`${p}-${paragraphs[p][l].entries[0].index}`} type="button" className={inspection?.ids.includes(`${p}-${paragraphs[p][l].entries[0].index}`)||highlighted===`${p}-${paragraphs[p][l].entries[0].index}`||(!highlighted&&(mode==='all'||(chapter===p&&(mode==='paragraph'||sentence===l))))?'is-active':''} aria-pressed={chapter===p&&sentence===l} onClick={()=>chooseSentence(p,l)}>{line}</button>)}</p>)}</div></aside>
     <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`}>
-      <Canvas frameloop={traceView?'demand':'always'} camera={{ position: [11, 8, 19], fov: 46 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onCreated={({gl,scene,get})=>{renderForExport.current=()=>gl.render(scene,get().camera);}}><Scene key={`${poemId}-${chapter}-${sentence}-${generation}`} onLineSelect={id=>{setHighlighted(id);setInspection(null);const el=root.current?.querySelector(`[data-sentence-id="${id}"]`);el?.scrollIntoView({behavior:'smooth',block:'center'});}} inspection={inspection} onInspect={handleInspect} traceView={traceView} highlighted={highlighted} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={strength} selected={selected} onSelect={entry=>{setSelected(entry);playReading(entry);}} generation={generation} /></Canvas>
+      <Canvas frameloop={filmStart!==null?'always':traceView?'demand':'always'} camera={{ position: DEFAULT_VIEW, fov: 46 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onCreated={({gl,scene,get})=>{renderForExport.current=()=>gl.render(scene,get().camera);}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${generation}`} onLineSelect={id=>{setHighlighted(id);setInspection(null);const el=root.current?.querySelector(`[data-sentence-id="${id}"]`);el?.scrollIntoView({behavior:'smooth',block:'center'});}} inspection={inspection} onInspect={handleInspect} traceView={traceView} highlighted={highlighted} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={strength} selected={selected} onSelect={entry=>{setSelected(entry);playReading(entry);}} generation={generation} /></Canvas>
       <div className="evolution-controls"><button aria-pressed={mode==='paragraph'} onClick={()=>{setMode('paragraph');setSelected(null);setGeneration(n=>n+1);}}>整段演化</button><button aria-pressed={mode==='all'} onClick={()=>{setMode('all');setSelected(null);setGeneration(n=>n+1);}}>全诗演化</button>{mode!=='sentence'&&<button role="switch" aria-checked={bundlingEnabled} onClick={()=>setBundlingEnabled(value=>!value)}>{bundlingEnabled?'聚束：开':'聚束：关'}</button>}</div><div className="trace-controls"><button aria-pressed={contextOpacity===1} onClick={()=>{setContextOpacity(1);setTraceView(false);setHighlighted(null);}}>读诗</button><button aria-pressed={contextOpacity===0} onClick={()=>{setTraceView(true);setHighlighted(null);setContextOpacity(0);setMode('all');setSelected(null);setGeneration(n=>n+1);}}>观迹</button><label>光束与诗字<input aria-label="光束与诗字显隐" type="range" min="0" max="1" step=".01" value={contextOpacity} onChange={e=>setContextOpacity(Number(e.target.value))}/></label><button onClick={exportImage}>导出声迹 ↓</button><span aria-live="polite">{exportMessage}</span></div><div className="orbit-hint">{traceView?'悬停线段看字 · 点击线段定位原文 · 点击节点查看字':'拖动转观 · 滚轮缩放 · 点字寻音'}</div>
       <div className="light-legend"><span><i />声母</span><span><i />十六摄</span><span><i />四声</span></div>
     </section>

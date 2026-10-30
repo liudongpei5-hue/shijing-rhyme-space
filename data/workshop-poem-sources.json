@@ -1,0 +1,18 @@
+{
+  "note": "原文采用公有领域《诗经》正文，分段依通行章次；标点用于页面按句阅读。多音字暂选字库首候选，未作语境校订。",
+  "texts": {
+    "luming": "https://zh.wikisource.org/wiki/詩經/鹿鳴",
+    "shuoshu": "https://zh.wikisource.org/wiki/詩經/碩鼠",
+    "mang": "https://zh.wikisource.org/wiki/詩經/氓",
+    "beifeng": "https://zh.wikisource.org/wiki/詩經/北風",
+    "jigu": "https://zh.wikisource.org/wiki/詩經/擊鼓"
+  },
+  "aliases": {
+    "踴": {
+      "query": "踊",
+      "source": "https://dict.variants.moe.edu.tw/dictView.jsp?ID=43993&la=0&powerMode=2",
+      "note": "原文保留踴，字库查询使用有依据的异体踊。"
+    }
+  },
+  "phonology": "TshetUinh 0.15.4; 简化中古分类映射，不作为先秦读音复原。"
+}

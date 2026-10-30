@@ -66,6 +66,6 @@ function calculate(paths:Entry[][],strength:number){
 }
 const data=JSON.parse(fs.readFileSync(process.argv[2]||'data/qiyue-display.json','utf8'));
 const paragraphs=data.map(c=>{let offset=0;return (c.text.match(/[^。？！]+[。？！]?/g)||[]).map(text=>{const length=[...text.replace(/[^\p{Script=Han}]/gu,'')].length;const line=c.entries.slice(offset,offset+length).map(e=>({...e,coord:locate(e.initial,e.tone,e.group)}));offset+=length;return line;});});
-const key=paths=>paths.map(path=>path.map(e=>e.position).join(',')).join('|');const output=JSON.parse(fs.readFileSync('data/bundles-precomputed.json','utf8'));
+const key=paths=>paths.map(path=>path.map(e=>`${e.chapter}:${e.index}:${e.char}:${e.position}`).join(',')).join('|');const output=JSON.parse(fs.readFileSync('data/bundles-precomputed.json','utf8'));
 for(const paths of [...paragraphs,paragraphs.flat()]){const start=performance.now();output[key(paths)]=calculate(paths,1).map(c=>({...c,points:c.points.map(p=>p.toArray().map(n=>Math.round(n*10000)/10000))}));console.log(paths.length+' sentences: '+Math.round(performance.now()-start)+' ms');}
 fs.writeFileSync('data/bundles-precomputed.json',JSON.stringify(output));
