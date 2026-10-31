@@ -61,38 +61,6 @@
 .detail-audio .glow-btn{padding:8px 14px;font-size:11px;letter-spacing:.1em}
 .detail-phoneme{font:12px "Menlo",monospace;color:#8fb9a6;letter-spacing:.04em}
 
-/* ---------- 进门动效 ---------- */
-.intro-overlay{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 120% at 50% 42%,#111e1c 0%,#0b1315 62%);display:grid;place-items:center;transition:opacity .95s ease}
-.intro-overlay.phase-leaving{opacity:0;pointer-events:none}
-.intro-svg{position:absolute;width:min(720px,92vw);height:auto;overflow:visible;transition:opacity .9s ease,transform .9s ease}
-.phase-contact .intro-svg,.phase-leaving .intro-svg{opacity:0;transform:translateY(-18px) scale(.98)}
-.intro-svg path,.intro-svg circle{fill:none;stroke:#e8d9ad;stroke-width:1.9;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:intro-draw 1.05s ease forwards;filter:drop-shadow(0 0 6px #e8d9ad55)}
-.intro-svg .intro-fingers path{stroke:#9fd6cc;stroke-width:2.4}
-.intro-svg .intro-cradle path{stroke:#f2dfae}
-.intro-svg .intro-thread,.intro-svg .intro-pull{stroke:#e7c98d}
-.intro-svg .intro-axes path{stroke:#9ce4dc;stroke-width:2.6}
-.intro-svg circle{stroke:#d9bd62;stroke-width:1.4}
-@keyframes intro-draw{to{stroke-dashoffset:0}}
-.intro-ax-label{fill:#cfe3d8;font-size:15px;font-family:"Songti SC",serif;letter-spacing:.12em;opacity:0;animation:intro-fade .9s ease forwards}
-@keyframes intro-fade{from{opacity:0;transform:translateY(6px)}to{opacity:.92;transform:none}}
-.intro-title{position:absolute;top:calc(50% - 210px);text-align:center;opacity:0;animation:intro-fade 1.4s ease 3.9s forwards}
-.intro-title h1{margin:0;font-size:30px;font-weight:400;letter-spacing:.42em;color:#f4e8c6;text-shadow:0 0 24px #d9bd6255}
-.intro-title p{margin:12px 0 0;font-size:12px;letter-spacing:.3em;color:#8ba79b}
-.phase-contact .intro-title,.phase-leaving .intro-title{opacity:0;transition:opacity .5s}
-.intro-card{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 1s .25s}
-.phase-contact .intro-card{opacity:1}
-.intro-card-inner{text-align:center;padding:0 8vw}
-.intro-card .c-line{display:block;opacity:0;transform:translateY(16px);animation:c-rise .9s ease forwards}
-@keyframes c-rise{to{opacity:1;transform:none}}
-.intro-kicker{font-size:11px;letter-spacing:.42em;color:#8ba79b;margin:0 0 14px}
-.intro-card h2{margin:0 0 22px;font-size:40px;font-weight:400;letter-spacing:.3em;color:#f6ead0;text-shadow:0 0 30px #d9bd6244}
-.intro-who{font-size:15px;letter-spacing:.24em;color:#dbe6d2;margin-bottom:12px}
-.intro-url{font-size:13px;letter-spacing:.16em;color:#b9c9b8;margin-bottom:10px;text-decoration:none;transition:color .3s}
-.intro-url.dim{color:#7e968d;font-size:11px}
-.intro-url.link:hover{color:#ffe4a8}
-.intro-enter{margin-top:20px}
-.intro-skip{position:absolute;right:28px;top:26px;padding:7px 16px;font-size:11px}
-@media(max-width:720px){.intro-card h2{font-size:28px}.intro-title h1{font-size:22px}}
 
 /* =========================================================================
    响应式适配
@@ -220,19 +188,6 @@
   .trace-hover-letter{font-size:15px;padding:2px 5px}
   .node-word-tooltip{max-width:180px;font-size:13px;line-height:1.6;padding:7px 10px}
 
-  /* 进门动效层：相对单位定位，避免溢出 */
-  .intro-svg{width:92vw}
-  .intro-ax-label{font-size:20px}
-  .intro-title{top:max(calc(6% + var(--safe-t)),calc(50% - 29vw - 56px))}
-  .intro-title h1{font-size:20px;letter-spacing:.28em}
-  .intro-title p{margin:8px 0 0;font-size:10px;letter-spacing:.18em}
-  .intro-card-inner{padding:0 7vw}
-  .intro-kicker{font-size:10px;letter-spacing:.3em;margin:0 0 10px}
-  .intro-card h2{font-size:26px;letter-spacing:.2em;margin:0 0 16px}
-  .intro-who{font-size:13px;letter-spacing:.16em;margin-bottom:10px}
-  .intro-url{font-size:12px;letter-spacing:.1em;overflow-wrap:anywhere}
-  .intro-enter{margin-top:16px}
-  .intro-skip{right:calc(10px + var(--safe-r));top:calc(12px + var(--safe-t))}
 
   /* 性能：缩小流光层尺寸 + 降低转速，保证不掉帧 */
   .glow-btn:before{inset:-42%;animation-duration:9s}
@@ -260,9 +215,6 @@
   .detail-panel dl div{grid-template-columns:44px 1fr}
   .sound-glyph{min-width:44px;height:48px}
   .glyph-char{font-size:22px}
-  .intro-svg{width:94vw}
-  .intro-card h2{font-size:22px}
-  .intro-title h1{font-size:17px;letter-spacing:.2em}
 }
 
 /* ---------- 横屏矮屏（手机横放 / 高度 <560px） ---------- */
@@ -300,14 +252,6 @@
   .rhyme-app:has(.detail-panel) .action-dock{opacity:0;transform:translateY(120%);pointer-events:none}
   .detail-panel h2{font-size:26px;margin:6px 0 10px}
   .detail-panel dl{grid-template-columns:1fr 1fr}
-  .intro-svg{width:min(92vw,58vh)}
-  .intro-title{top:calc(6% + var(--safe-t))}
-  .intro-title h1{font-size:17px;letter-spacing:.22em}
-  .intro-title p{font-size:9.5px}
-  .intro-card h2{font-size:20px;margin-bottom:10px}
-  .intro-who{font-size:12px}
-  .intro-url{font-size:11px}
-  .intro-enter{margin-top:12px}
 }
 
 /* ---------- 触屏：把 hover 效果降级为 :active ---------- */
@@ -321,11 +265,5 @@
   .sound-glyph:hover:not(.is-selected) .glyph-coordinate{opacity:0}
 }
 
-/* ---------- 结尾屏二维码 ---------- */
-.intro-qr{display:flex;flex-direction:column;align-items:center;gap:10px;margin:22px 0 4px}
-.intro-qr img{width:132px;height:132px;border-radius:10px;padding:8px;background:#f0e2b80d;box-shadow:0 0 26px #d8c38a2e,0 0 0 1px #d8c38a3d}
-.intro-qr small{font-size:10px;letter-spacing:.2em;color:#7e968d}
-@media(max-width:720px){.intro-qr img{width:104px;height:104px}.intro-qr{margin:16px 0 2px}}
-@media(orientation:landscape) and (max-height:560px){.intro-qr{display:none}}
 
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.glow-btn:before{animation:none}}

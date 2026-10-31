@@ -18,6 +18,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import * as THREE from 'three';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { IntroOverlay } from './intro-overlay';
 
 type Entry = { index: number; chapter: number; review: string; candidates: {position:string;initial:string;rhyme:string;group:string;tone:string;fanqie:string;gloss:string;originalPosition:string}[]; char: string; initial: string; rhyme: string; group: string; tone: string; fanqie: string; position: string; originalPosition: string; coord: [number, number, number] };
 
@@ -31,15 +32,6 @@ const GROUP_STEP = 0.72;
 const initialX = (initial: string) => (initials.indexOf(initial) - (initials.length - 1) / 2) * 0.5;
 const groupZ = (group: string) => ((rhymeGroups.length - 1) / 2 - rhymeGroups.indexOf(group)) * 0.72;
 const locate = (initial: string, tone: string, group: string): [number, number, number] => [initialX(initial), toneY[tone], groupZ(group)];
-
-// 联系方式（结尾屏展示，待补充邮箱等）
-const CONTACT = {
-  name: '刘东沛',
-  role: '设计与开发',
-  mail: '134011730@qq.com',
-  site: 'https://liudongpei5-hue.github.io/shijing-rhyme-space/',
-  repo: 'https://github.com/liudongpei5-hue/shijing-rhyme-space',
-};
 
 const DEFAULT_VIEW: [number, number, number] = [0, 4.4, 21.5];
 
@@ -80,7 +72,7 @@ function CameraRail({ selected, filmStart }: { selected: Entry | null; filmStart
     if (raw >= 1) path.active = false;
   });
 
-  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan={false} minDistance={3.2} maxDistance={40} minPolarAngle={0.3} maxPolarAngle={2.35} rotateSpeed={0.48} zoomSpeed={0.65} />;
+  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan minDistance={3.2} maxDistance={40} minPolarAngle={0.3} maxPolarAngle={2.35} rotateSpeed={0.48} zoomSpeed={0.65} />;
 }
 
 function Glyph({ entries, entry, index, selected, onSelect }: { entries: Entry[]; entry: Entry; index: number; selected: boolean; onSelect: () => void }) {
@@ -279,96 +271,17 @@ function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, pa
   return <>
     <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected} filmStart={filmStart}/><AxisScaffold/>
     {contextOpacity>.005 && <FadingContext opacity={contextOpacity}>{unique.map((entry,index)=><ConstructionLight key={`light-${generation}-${index}`} entry={entry} delay={paths.length>1?index*.025:0} selected={selected?.position===entry.position}/>)}</FadingContext>}
-    {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength}/>:<PoemPath entries={entries}/>}
+    {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength}/>:<PoemPath key={generation} entries={entries}/>}
     {traceView && unique.map((entry,i)=><TraceNode key={`node-${i}`} entry={entry} entries={entries} activeNode={activeNode} onNodeSelect={setActiveNode}/>)}
     {contextOpacity>.005 && unique.map((entry,index)=><Glyph entries={entries} key={`${generation}-${index}`} entry={entry} index={paths.length>1?0:index} selected={selected?.position===entry.position} onSelect={()=>onSelect(entry)}/>)}
   </>;
-}
-
-/* ---------- 进门动效：挑线 → 拉线 → 坐标轴 → 联系方式 ---------- */
-
-function IntroOverlay({ onDone }: { onDone: () => void }) {
-  const [phase,setPhase]=useState<'string'|'contact'|'leaving'>('string');
-  useEffect(()=>{
-    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){onDone();return;}
-    const t=setTimeout(()=>setPhase('contact'),5400);
-    return()=>clearTimeout(t);
-  },[]);
-  useEffect(()=>{
-    if(phase!=='contact')return;
-    const t=setTimeout(()=>setPhase('leaving'),12000);
-    return()=>clearTimeout(t);
-  },[phase]);
-  useEffect(()=>{
-    if(phase!=='leaving')return;
-    const t=setTimeout(onDone,950);
-    return()=>clearTimeout(t);
-  },[phase]);
-  const leave=()=>setPhase(p=>p==='leaving'?p:'leaving');
-  return <div className={`intro-overlay phase-${phase}`}>
-    <svg className="intro-svg" viewBox="0 0 680 420" aria-hidden="true">
-      {/* 线团 */}
-      <g className="intro-ball">
-        <circle cx="118" cy="318" r="46" pathLength={1} style={{animationDelay:'.15s'}}/>
-        <path pathLength={1} style={{animationDelay:'.45s'}} d="M80 300 C 100 284, 138 282, 158 298"/>
-        <path pathLength={1} style={{animationDelay:'.65s'}} d="M78 322 C 100 338, 142 340, 160 324"/>
-        <path pathLength={1} style={{animationDelay:'.85s'}} d="M96 284 C 88 308, 90 338, 104 356"/>
-        <path pathLength={1} style={{animationDelay:'1.05s'}} d="M142 284 C 152 308, 150 340, 134 356"/>
-      </g>
-      {/* 从线团牵出的线 */}
-      <path className="intro-thread" pathLength={1} style={{animationDelay:'1.3s'}} d="M160 302 C 220 298, 246 262, 284 236 C 312 216, 336 196, 358 178"/>
-      {/* 手指（抽象为两组指形线） */}
-      <g className="intro-fingers">
-        <path pathLength={1} style={{animationDelay:'1.6s'}} d="M344 92 C 352 118, 354 138, 348 158"/>
-        <path pathLength={1} style={{animationDelay:'1.72s'}} d="M362 86 C 368 112, 369 134, 363 154"/>
-        <path pathLength={1} style={{animationDelay:'1.84s'}} d="M452 86 C 446 112, 445 134, 451 154"/>
-        <path pathLength={1} style={{animationDelay:'1.96s'}} d="M470 92 C 462 118, 460 138, 466 158"/>
-      </g>
-      {/* 挑线花样（菱形线网） */}
-      <g className="intro-cradle">
-        <path pathLength={1} style={{animationDelay:'2.2s'}} d="M348 158 L 407 118 L 466 158 L 407 198 Z"/>
-        <path pathLength={1} style={{animationDelay:'2.5s'}} d="M348 158 L 466 158"/>
-        <path pathLength={1} style={{animationDelay:'2.7s'}} d="M407 118 L 407 198"/>
-        <path pathLength={1} style={{animationDelay:'2.9s'}} d="M362 142 L 452 176"/>
-        <path pathLength={1} style={{animationDelay:'3.05s'}} d="M452 140 L 362 176"/>
-      </g>
-      {/* 被拉出去的那根线 */}
-      <path className="intro-pull" pathLength={1} style={{animationDelay:'3.3s'}} d="M466 158 C 522 168, 562 218, 566 282"/>
-      {/* 坐标轴 */}
-      <g className="intro-axes">
-        <path pathLength={1} style={{animationDelay:'3.8s'}} d="M566 282 L 662 282"/>
-        <path pathLength={1} style={{animationDelay:'4.05s'}} d="M566 282 L 566 180"/>
-        <path pathLength={1} style={{animationDelay:'4.3s'}} d="M566 282 L 492 340"/>
-      </g>
-      <text className="intro-ax-label" style={{animationDelay:'4.5s'}} x="664" y="286">声母</text>
-      <text className="intro-ax-label" style={{animationDelay:'4.65s'}} x="572" y="188">四声</text>
-      <text className="intro-ax-label" style={{animationDelay:'4.8s'}} x="472" y="358">十六摄</text>
-    </svg>
-    <div className="intro-title">
-      <h1>诗经 · 声迹</h1>
-      <p>一根线，牵出声音的空间</p>
-    </div>
-    <div className="intro-card">
-      <div className="intro-card-inner">
-        <p className="intro-kicker c-line" style={{animationDelay:'.15s'}}>诗经 · 声迹</p>
-        <h2 className="c-line" style={{animationDelay:'.35s'}}>声音的行迹</h2>
-        <span className="c-line intro-who" style={{animationDelay:'.75s'}}>{CONTACT.name} · {CONTACT.role}</span>
-        <span className="c-line intro-url" style={{animationDelay:'1s'}}>{CONTACT.mail}</span>
-        <a className="c-line intro-url link" style={{animationDelay:'1.2s'}} href={CONTACT.site} target="_blank" rel="noopener noreferrer">{CONTACT.site.replace('https://','')}</a>
-        <a className="c-line intro-url dim link" style={{animationDelay:'1.4s'}} href={CONTACT.repo} target="_blank" rel="noopener noreferrer">{CONTACT.repo.replace('https://','')}</a>
-        <span className="c-line intro-qr" style={{animationDelay:'1.7s'}}><img src="./qr/shijing-qr-small.png" alt="扫码在手机打开《诗经·声迹》" width={132} height={132}/><small>扫码在手机上观赏</small></span>
-        <span className="c-line" style={{animationDelay:'1.9s'}}><button className="glow-btn intro-enter" type="button" onClick={leave}><span>进入声迹</span></button></span>
-      </div>
-    </div>
-    {phase==='string'&&<button className="glow-btn intro-skip" type="button" onClick={leave}><span>跳过 ›</span></button>}
-  </div>;
 }
 
 /* ---------- 主组件 ---------- */
 
 export function RhymeSpace() {
   const poems={qiyue:{title:'七月',section:'豳风',data:qiyueData},jianjia:{title:'蒹葭',section:'秦风',data:jianjiaData},taoyao:{title:'桃夭',section:'周南',data:taoyaoData},wuyi:{title:'无衣',section:'秦风',data:wuyiData},caiwei:{title:'采薇',section:'小雅',data:caiweiData},luming:{title:'鹿鸣',section:'小雅',data:lumingData},shuoshu:{title:'硕鼠',section:'魏风',data:shuoshuData},mang:{title:'氓',section:'卫风',data:mangData},beifeng:{title:'北风',section:'邶风',data:beifengData},jigu:{title:'击鼓',section:'邶风',data:jiguData}};
-  const [introDone,setIntroDone]=useState(false);
+  const [introDone,setIntroDone]=useState(()=>new URLSearchParams(location.search).has('film'));
   const [filmStart,setFilmStart]=useState<number|null>(null);
   useEffect(()=>{
     if(!new URLSearchParams(location.search).has('film'))return;
@@ -388,6 +301,7 @@ export function RhymeSpace() {
   const [generation, setGeneration] = useState(0);
   const [animating, setAnimating] = useState(false);
   const animTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const charAudio = (audioManifest.characters ?? {}) as Record<string, string>;
   const charReading = ((audioManifest as { readings?: Record<string, string> }).readings ?? {}) as Record<string, string>;
@@ -407,7 +321,7 @@ export function RhymeSpace() {
     const ph = charReading[entry.char];
     startAudio(url, `朗读「${entry.char}」${ph ? `　中古音 ${ph}` : ''}`);
   };
-  useEffect(()=>()=>{player.current?.pause();},[]);
+  useEffect(()=>()=>{player.current?.pause();if(animTimer.current)clearTimeout(animTimer.current);if(fadeTimer.current)clearTimeout(fadeTimer.current);},[]);
 
   const paragraphs = useMemo(()=>qiyue.map(c=>{
     let offset=0;
@@ -428,12 +342,13 @@ export function RhymeSpace() {
 
   // 点一句：只留这一句，重新演绎
   const chooseSentence=(p:number,l:number)=>{
+    if(fadeTimer.current)clearTimeout(fadeTimer.current);
     setChapter(p);setSentence(l);setMode('sentence');setSelected(null);setContextOpacity(1);kickAnimation();
   };
   // 回全诗（不重演）
-  const showAll=()=>{setMode('all');setSelected(null);setContextOpacity(0);};
+  const showAll=()=>{if(fadeTimer.current)clearTimeout(fadeTimer.current);setMode('all');setSelected(null);setContextOpacity(0);};
   // 全诗演化（重演）
-  const playAll=()=>{setMode('all');setSelected(null);setContextOpacity(1);kickAnimation();setTimeout(()=>setContextOpacity(0),4500);};
+  const playAll=()=>{if(fadeTimer.current)clearTimeout(fadeTimer.current);setMode('all');setSelected(null);setContextOpacity(1);kickAnimation();fadeTimer.current=setTimeout(()=>setContextOpacity(0),4500);};
 
   const soloByLineId=(id:string)=>{
     const dash=id.indexOf('-');if(dash<0)return;
@@ -494,7 +409,7 @@ export function RhymeSpace() {
     </aside>
 
     <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`}>
-      <Canvas frameloop={filmStart!==null||animating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={()=>{if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}-${generation}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
+      <Canvas frameloop={filmStart!==null||animating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={()=>{if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
 
       {/* 底部悬浮操作坞：朗读 / 重演光路 / 全诗演化 */}
       <div className="action-dock">

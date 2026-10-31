@@ -1,0 +1,155 @@
+/* =========================================================================
+   《诗经·声迹》进门动效 —— IntroOverlay
+   全部类名 intro- 前缀，自包含，不依赖也不覆盖 globals.css
+   ========================================================================= */
+
+.intro-veil{
+  position:fixed;inset:0;z-index:120;overflow:hidden;
+  background:transparent;
+  -webkit-user-select:none;user-select:none;
+  pointer-events:none; /* 遮罩不拦截交互；仅跳过按钮可点 */
+  transition:opacity .8s ease;
+}
+.intro-veil.is-out{opacity:0}
+
+/* 阶段1–3 的不透明暗底；阶段4 起必须透出背后的三维场景 */
+.intro-backdrop{
+  position:absolute;inset:0;background:#0b1315;
+  opacity:1;transition:opacity 1.5s ease;
+}
+.intro-veil.is-thread .intro-backdrop{opacity:0}
+.intro-veil.is-out .intro-backdrop{opacity:0;transition-duration:.35s}
+
+/* ---------- 照片层 ---------- */
+.intro-shot{
+  position:absolute;inset:0;
+  opacity:var(--intro-shot-op,0);
+  --intro-hole-x:0px;
+  --intro-hole-y:0px;
+  --intro-hole-cx1:17vw;
+  --intro-hole-cy1:58vh;
+  --intro-hole-cx2:83vw;
+  --intro-hole-cy2:58vh;
+  /* 双手撤出的两个柔和椭圆洞：透明核心区 0–42% 半径，之后软边过渡到不透明；洞心由 JS 按实际显示几何反算 */
+  -webkit-mask-image:
+    radial-gradient(ellipse var(--intro-hole-x) var(--intro-hole-y) at var(--intro-hole-cx1) var(--intro-hole-cy1),rgba(0,0,0,0) 0,rgba(0,0,0,0) 42%,#000 100%),
+    radial-gradient(ellipse var(--intro-hole-x) var(--intro-hole-y) at var(--intro-hole-cx2) var(--intro-hole-cy2),rgba(0,0,0,0) 0,rgba(0,0,0,0) 42%,#000 100%);
+  mask-image:
+    radial-gradient(ellipse var(--intro-hole-x) var(--intro-hole-y) at var(--intro-hole-cx1) var(--intro-hole-cy1),rgba(0,0,0,0) 0,rgba(0,0,0,0) 42%,#000 100%),
+    radial-gradient(ellipse var(--intro-hole-x) var(--intro-hole-y) at var(--intro-hole-cx2) var(--intro-hole-cy2),rgba(0,0,0,0) 0,rgba(0,0,0,0) 42%,#000 100%);
+  -webkit-mask-composite:source-in,source-in;
+  mask-composite:intersect,intersect;
+}
+.intro-shot-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transform:scale(var(--intro-zoom,1));
+  transform-origin:52% 46%;
+  will-change:transform;
+}
+/* 窄视口（手机竖屏等）：照片整幅可见，保证双手不被裁掉 */
+.intro-shot.is-contain .intro-shot-img{object-fit:contain}
+/* 丝线区域的呼吸微光 */
+.intro-shot-breath{
+  position:absolute;inset:0;mix-blend-mode:screen;
+  background:radial-gradient(46% 34% at 50% 43%,rgba(240,233,203,.17) 0,rgba(240,233,203,.05) 46%,rgba(240,233,203,0) 78%);
+  opacity:.26;
+  animation:intro-breathe 4.4s ease-in-out infinite alternate;
+}
+@keyframes intro-breathe{from{opacity:.26}to{opacity:.7}}
+/* 阶段2 的整体压暗：中心留一线亮，四周沉入黑场 */
+.intro-shot-dim{
+  position:absolute;inset:0;
+  opacity:var(--intro-dim,0);
+  background:radial-gradient(72% 58% at 50% 44%,rgba(11,19,21,.45) 0,rgba(11,19,21,.9) 62%,#0b1315 100%);
+}
+
+/* ---------- 丝线画布 ---------- */
+.intro-thread-canvas{
+  position:absolute;inset:0;display:block;width:100%;height:100%;
+  opacity:0;pointer-events:none;
+}
+
+/* ---------- 文字 ---------- */
+.intro-copy{
+  position:absolute;inset:0;pointer-events:none;
+  transition:opacity .8s ease;
+}
+.intro-copy.is-out{opacity:0}
+.intro-hero{
+  position:absolute;left:50%;top:16%;width:92vw;
+  transform:translate(-50%,10px);opacity:0;
+  transition:opacity 1.1s ease,transform 1.1s ease;
+  text-align:center;
+}
+.intro-hero.is-in{opacity:1;transform:translate(-50%,0)}
+.intro-hero-title{
+  margin:0;font-size:30px;font-weight:400;
+  letter-spacing:.4em;text-indent:.4em;
+  color:#ecd5a4;text-shadow:0 0 26px rgba(236,213,164,.35);
+}
+.intro-hero-sub{margin:14px 0 0;font-size:11px;letter-spacing:.3em;text-indent:.3em;color:#8ba79b}
+.intro-contact{
+  position:absolute;left:50%;bottom:13%;width:92vw;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  transform:translate(-50%,10px);opacity:0;
+  transition:opacity 1.1s ease,transform 1.1s ease;
+  text-align:center;
+}
+.intro-contact.is-in{opacity:1;transform:translate(-50%,0)}
+.intro-mail{font-size:13px;letter-spacing:.16em;text-indent:.16em;color:#e5e4d6}
+.intro-site{font-size:11px;letter-spacing:.12em;text-indent:.12em;line-height:1.6;color:#7f9a90;overflow-wrap:anywhere}
+
+/* ---------- 跳过按钮（独立实现 glow 样式，不依赖 .glow-btn） ---------- */
+.intro-skip-btn{
+  position:fixed;z-index:130;
+  top:calc(18px + env(safe-area-inset-top,0px));
+  right:calc(18px + env(safe-area-inset-right,0px));
+  pointer-events:auto;cursor:pointer;
+  isolation:isolate;overflow:hidden;
+  border:0;border-radius:999px;
+  padding:7px 16px;
+  background:#0c1918d9;color:#e9dcb4;
+  font-family:"Noto Serif CJK SC","Songti SC","STSong",serif;
+  font-size:11px;letter-spacing:.18em;line-height:1.5;
+  backdrop-filter:blur(10px);
+  box-shadow:0 0 18px #00000055,inset 0 0 12px #d8c38a1a;
+  transition:color .3s,box-shadow .3s;
+}
+.intro-skip-btn:before{
+  content:"";position:absolute;inset:-70%;z-index:-2;
+  background:conic-gradient(from 0deg,transparent 0%,#ffe4a8 9%,transparent 21%,transparent 47%,#9ce4dc 59%,transparent 72%);
+  animation:intro-spin 5s linear infinite;
+}
+.intro-skip-btn:after{
+  content:"";position:absolute;inset:1px;z-index:-1;
+  border-radius:inherit;background:#0c1918f2;
+}
+.intro-skip-btn:hover{color:#fff5d8;box-shadow:0 0 26px #d8c38a44,inset 0 0 16px #d8c38a26}
+.intro-skip-btn:active{transform:scale(.97)}
+@keyframes intro-spin{to{transform:rotate(360deg)}}
+
+/* ---------- 移动端 ---------- */
+@media (max-width:720px){
+  .intro-hero{top:13%}
+  .intro-hero-title{font-size:22px;letter-spacing:.32em;text-indent:.32em}
+  .intro-hero-sub{font-size:10px;letter-spacing:.22em}
+  .intro-contact{bottom:11%}
+  .intro-mail{font-size:12px}
+  .intro-site{font-size:10px}
+}
+
+/* ---------- 触屏：跳过按钮够得着（≥40px 触控基线），hover 降级为 :active ---------- */
+@media (max-width:1023px),(hover:none){
+  .intro-skip-btn{min-height:40px;padding:8px 18px}
+}
+@media (hover:none){
+  .intro-skip-btn:hover{color:#e9dcb4;box-shadow:0 0 18px #00000055,inset 0 0 12px #d8c38a1a}
+  .intro-skip-btn:active{color:#fff5d8;box-shadow:0 0 24px #d8c38a55,inset 0 0 15px #d8c38a33}
+}
+
+/* ---------- 减弱动态 ---------- */
+@media (prefers-reduced-motion:reduce){
+  .intro-shot-breath,.intro-skip-btn:before{animation:none}
+  .intro-veil,.intro-copy,.intro-hero,.intro-contact,.intro-backdrop{transition-duration:.01ms}
+}
