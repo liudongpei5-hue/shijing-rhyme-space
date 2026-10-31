@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>诗经 · 声迹 — 扫码进入</title>
+<style>
+  :root {
+    --bg: #0b1315;
+    --gold: #ecd5a4;
+    --gold-soft: #f0e2b8;
+    --teal: #9ce4dc;
+    --dim: rgba(236, 213, 164, 0.55);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(1200px 600px at 50% -10%, rgba(156, 228, 220, 0.07), transparent 60%),
+      radial-gradient(900px 500px at 50% 115%, rgba(236, 213, 164, 0.06), transparent 60%),
+      var(--bg);
+    color: var(--gold);
+    font-family: "Songti SC", "STSong", "SimSun", serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+    text-align: center;
+  }
+  .seal {
+    width: 54px; height: 54px;
+    border: 1px solid var(--teal);
+    border-radius: 12px;
+    color: var(--gold-soft);
+    font-size: 30px;
+    line-height: 52px;
+    margin-bottom: 22px;
+    box-shadow: 0 0 24px rgba(156, 228, 220, 0.15);
+  }
+  h1 {
+    font-size: 34px;
+    font-weight: 500;
+    letter-spacing: 0.32em;
+    text-indent: 0.32em;
+  }
+  .sub {
+    margin-top: 10px;
+    color: var(--dim);
+    font-size: 14px;
+    letter-spacing: 0.5em;
+    text-indent: 0.5em;
+  }
+  .card {
+    margin: 36px 0 24px;
+    padding: 22px;
+    border: 1px solid rgba(236, 213, 164, 0.22);
+    border-radius: 20px;
+    background: rgba(11, 19, 21, 0.7);
+    box-shadow: 0 0 60px rgba(236, 213, 164, 0.08);
+  }
+  .card img {
+    display: block;
+    width: min(320px, 78vw);
+    height: auto;
+    border-radius: 10px;
+  }
+  .hint {
+    color: var(--teal);
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    text-indent: 0.25em;
+  }
+  .url {
+    margin-top: 14px;
+    font-size: 12px;
+    color: var(--dim);
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    letter-spacing: 0.04em;
+    word-break: break-all;
+  }
+  .links {
+    margin-top: 30px;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .links a {
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    padding: 9px 18px;
+    border: 1px solid rgba(236, 213, 164, 0.35);
+    border-radius: 999px;
+    transition: background 0.25s, color 0.25s;
+  }
+  .links a:hover {
+    background: var(--gold);
+    color: var(--bg);
+  }
+</style>
+</head>
+<body>
+  <div class="seal">诗</div>
+  <h1>诗经 · 声迹</h1>
+  <p class="sub">三维音韵可视化</p>
+
+  <div class="card">
+    <img src="./shijing-qr-small.png" alt="诗经·声迹网站二维码" width="320" height="320" />
+  </div>
+  <p class="hint">手机扫码 · 即刻进入</p>
+  <p class="url">https://liudongpei5-hue.github.io/shijing-rhyme-space/</p>
+
+  <div class="links">
+    <a href="./shijing-qr.png" download>下载 PNG · 1000px</a>
+    <a href="./shijing-qr.svg" download>下载 SVG · 印刷用</a>
+    <a href="./README.txt">说明文档</a>
+  </div>
+</body>
+</html>

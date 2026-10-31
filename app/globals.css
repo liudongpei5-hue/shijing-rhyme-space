@@ -1,22 +1,331 @@
 @import 'tailwindcss';
-:root { --ink:#0b1315; --paper:#e5e4d6; --mist:#98b6b0; }
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--ink)}body{color:var(--paper);font-family:"Noto Serif CJK SC","Songti SC","STSong","SimSun",serif}button,input{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible{outline:2px solid #9ce4dc;outline-offset:5px}.rhyme-app{position:relative;height:100dvh;min-height:560px;overflow:hidden;background:var(--ink)}
-.masthead{position:absolute;z-index:20;top:0;left:0;right:0;height:96px;display:flex;align-items:center;gap:20px;padding:20px 4vw;background:linear-gradient(#0b1315e6,transparent)}.brand-mark{font-size:30px;font-weight:400;color:#d5e7e0;padding-right:20px;border-right:1px solid #b9ded32b}.masthead h1{margin:0;font-size:19px;letter-spacing:.3em;font-weight:400}.masthead p{margin:7px 0 0;color:#9bb2ae;font-size:11px;letter-spacing:.16em}.text-action{margin-left:auto;color:#b7cfca;background:none;border:0;border-bottom:1px solid #b7cfca45;padding:8px 2px;letter-spacing:.18em;font-size:12px}.text-action:hover{color:#fff1cf}.space-stage{position:absolute;inset:0}.orbit-hint{position:absolute;top:114px;left:50%;transform:translateX(-50%);pointer-events:none;color:#8ba49f;font-size:10px;letter-spacing:.16em;white-space:nowrap}.space-caption{position:absolute;left:4vw;top:160px;pointer-events:none}.space-caption span{font-size:11px;letter-spacing:.3em;color:#8caaa3}.space-caption p{font-size:14px;letter-spacing:.14em;margin-top:12px;color:#d5e1d6}.light-legend{position:absolute;right:4vw;bottom:176px;display:flex;gap:18px;font-size:10px;letter-spacing:.16em;color:#a4b9b3;pointer-events:none}.light-legend span{display:flex;align-items:center;gap:7px}.light-legend i{width:16px;height:1px;background:#9ce4dc;box-shadow:0 0 7px #9ce4dc}.light-legend span:nth-child(2) i{background:#ecd5a4;box-shadow:0 0 7px #ecd5a4}.light-legend span:nth-child(3) i{background:#94b6dc;box-shadow:0 0 7px #94b6dc}
-.sound-glyph{position:relative;min-width:58px;height:62px;border:0;display:grid;place-items:center;color:#e6f2e8;background:transparent;transition:color .3s;text-shadow:0 0 12px #8fd8cbb0,0 2px 6px #031011;}.sound-glyph:before{content:"";position:absolute;inset:-5px;pointer-events:none;background:radial-gradient(ellipse,#7bd4cb18,transparent 65%)}.glyph-char{font-size:29px;font-weight:400;line-height:1}.glyph-order{position:absolute;top:-5px;left:50%;transform:translateX(-50%);color:#94b9af;font:9px ui-monospace,monospace;letter-spacing:.1em;white-space:nowrap}.glyph-coordinate{position:absolute;top:100%;left:50%;transform:translateX(-50%);white-space:nowrap;color:#d5e6d8;font-size:9px;letter-spacing:.12em;opacity:0;transition:opacity .3s;text-shadow:0 2px 6px #031011}.sound-glyph:hover,.sound-glyph.is-selected{color:#ffebbf;text-shadow:0 0 16px #e0c084aa}.sound-glyph:hover .glyph-coordinate,.sound-glyph:focus-visible .glyph-coordinate,.sound-glyph.is-selected .glyph-coordinate{opacity:1}.sound-glyph.is-selected .glyph-order{color:#efce91}.sound-glyph.is-arriving{animation:glyph-arrive 1.2s ease-out both}@keyframes glyph-arrive{from{opacity:0;filter:blur(4px)}to{opacity:1;filter:blur(0)}}
-.poem-sequence{position:absolute;bottom:108px;left:50%;transform:translateX(-50%);z-index:20;display:flex;align-items:center;gap:10px;padding:8px 18px;background:#0b1315b8;border-top:1px solid #afcabc25;border-bottom:1px solid #afcabc25;backdrop-filter:blur(12px)}.sequence-label{font-size:10px;color:#90aaa1;letter-spacing:.2em;margin-right:8px;white-space:nowrap}.poem-sequence button{display:flex;flex-direction:column;align-items:center;gap:5px;width:35px;padding:5px 0;border:0;color:#d5e5dd;background:none;font-size:20px;transition:color .25s}.poem-sequence small{font:8px ui-monospace,monospace;color:#77988f}.poem-sequence button:hover,.poem-sequence button[aria-pressed=true]{color:#f5ddb0}.poem-sequence button[aria-pressed=true] small{color:#d1b77f}.footer-poem{position:absolute;z-index:20;left:4vw;right:4vw;bottom:32px;display:flex;justify-content:space-between;align-items:center;gap:24px}.poem-form{position:relative;display:flex;align-items:center;border-bottom:1px solid #a6c5b74d}.poem-form input{width:410px;border:0;background:transparent;color:var(--paper);padding:8px 110px 8px 0;font-size:18px;letter-spacing:.18em}.poem-form button{position:absolute;right:0;border:0;background:none;color:#d4d9bb;padding:8px 0;font-size:11px;letter-spacing:.1em}.poem-form small{position:absolute;top:43px;left:0;color:#91aaa1;font-size:10px;letter-spacing:.1em;white-space:nowrap}.system-note{color:#78978f;font-size:10px;letter-spacing:.16em;text-align:right}
-.detail-panel{position:absolute;z-index:22;top:150px;right:3.5vw;width:264px;padding:26px;overflow:hidden;border:1px solid #a2c6b62e;border-top-color:#d6d7b666;background:linear-gradient(135deg,#152a29eb,#0b1315d9);box-shadow:-16px 20px 70px #020a0a55;backdrop-filter:blur(20px)}.detail-close{position:absolute;right:13px;top:8px;border:0;background:none;color:#c3d6cc;font-size:24px}.detail-kicker{color:#b5cfc2;letter-spacing:.18em;font-size:10px}.detail-panel h2{margin:18px 0 24px;font-size:54px;font-weight:400;line-height:1;color:#f2e5c7}.detail-panel dl{margin:0}.detail-panel dl div{display:grid;grid-template-columns:58px 1fr;padding:9px 0}.detail-panel dt{color:#92ada2;font-size:11px;letter-spacing:.14em}.detail-panel dd{margin:0;color:#e1e7d9;font-size:14px}.detail-source{margin-top:18px;padding-top:14px;border-top:1px solid #b9d6c523;color:#93aba0;font-size:10px;line-height:1.9}
-@media(max-width:720px){.rhyme-app{min-height:600px}.masthead{height:80px;padding:16px 20px;gap:14px}.masthead h1{font-size:17px}.masthead p{font-size:10px}.brand-mark{font-size:26px;padding-right:14px}.orbit-hint{top:94px;font-size:9px}.space-caption{top:133px;left:20px}.space-caption p{font-size:12px}.space-caption span{font-size:10px}.light-legend{right:20px;bottom:212px;gap:12px;font-size:9px}.poem-sequence{bottom:135px;gap:3px;padding:6px 9px}.poem-sequence button{width:31px;font-size:18px}.sequence-label{margin-right:4px}.footer-poem{left:20px;right:20px;bottom:55px;display:block}.poem-form input{width:100%;font-size:16px;padding-right:100px}.poem-form{width:100%}.system-note{display:none}.poem-form small{font-size:9px}.detail-panel{top:auto;bottom:208px;left:20px;right:20px;width:auto;padding:17px 20px}.detail-panel h2{font-size:34px;margin:9px 0 12px}.detail-panel dl{display:grid;grid-template-columns:1fr 1fr}.detail-panel dl div{padding:5px 0}.detail-source{margin:12px 0 0;padding-top:9px}.sound-glyph{min-width:48px;height:52px}.glyph-char{font-size:25px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
-.chapter-nav{position:absolute;z-index:20;top:105px;left:4vw;display:flex;gap:6px;flex-wrap:wrap;max-width:65vw}.chapter-nav button{background:#0b1315c9;border:1px solid #9cc5b52b;color:#99b5aa;padding:7px 10px;font-size:11px}.chapter-nav button[aria-pressed=true]{color:#f1deb7;border-color:#d1bd7f99}.orbit-hint{top:145px}.space-caption{top:182px}.poem-sequence{max-width:90vw;overflow-x:auto;justify-content:flex-start}.poem-sequence button{flex-shrink:0}.poem-form textarea{width:min(650px,70vw);height:66px;resize:none;background:transparent;border:0;color:var(--paper);padding:4px 110px 4px 0;font:13px/1.9 "Songti SC",serif;letter-spacing:.1em}.poem-form small{top:70px}.footer-poem{bottom:30px}.reading-status{font-size:11px;color:#dfc78e}.reading-choice{font-size:11px;color:#9dbbad;display:block}.reading-choice select{display:block;width:100%;margin-top:8px;background:#142724;color:#e4e6d1;padding:7px;border:1px solid #abc8b94d;font-size:11px}.detail-panel{max-height:65vh;overflow:auto}@media(max-width:720px){.chapter-nav{top:90px;max-width:93vw;left:15px;gap:3px}.chapter-nav button{font-size:9px;padding:5px 6px}.orbit-hint{top:132px}.space-caption{top:160px}.poem-form textarea{width:100%;height:65px;font-size:11px}.footer-poem{bottom:33px}.poem-sequence{bottom:129px}.detail-panel{max-height:45vh}}
-.sentence-nav{position:absolute;z-index:20;top:154px;left:4vw;display:flex;align-items:center;gap:16px;color:#b6c9bd;font-size:11px}.sentence-nav button{background:none;color:#d9ddc5;border:0;padding:6px}.sentence-nav button:disabled{opacity:.3;cursor:default}.space-caption{top:202px}.system-note a{color:#c5d7c5;text-decoration:none;display:inline-block;margin-top:6px}@media(max-width:720px){.sentence-nav{top:145px;left:15px}.space-caption{top:185px}.system-note{display:block;font-size:9px;text-align:left;margin-top:22px}.footer-poem{bottom:18px}.poem-form textarea{height:40px}.poem-form small{top:42px}}
-.poem-reader{position:absolute;z-index:21;left:24px;top:105px;bottom:26px;width:218px;display:flex;flex-direction:column;border-right:1px solid #a4c1b02b;background:linear-gradient(90deg,#0b1315f2,#0b1315c4);padding:0 16px 0 0}.reader-title h2{font-size:23px;font-weight:400;letter-spacing:.25em;margin:12px 0}.reader-title p{font-size:9px;line-height:1.8;color:#90aa9d;margin:0 0 19px}.poem-scroll{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#5b7d6d55 transparent;padding-right:8px}.poem-paragraph{margin:0 0 24px;display:flex;flex-wrap:wrap;gap:2px 0}.poem-paragraph button{position:relative;display:inline;text-align:left;border:0;background:transparent;color:#9eb1a4;font-size:13px;line-height:2.25;padding:2px 4px;letter-spacing:.09em;transition:background .25s,color .25s,transform .25s,text-shadow .25s;border-radius:3px}.poem-paragraph button:hover{color:#f6e6bb;background:#acc6ad12;transform:translateX(3px);text-shadow:0 0 12px #e4c27b55}.poem-paragraph button.is-active{color:#f5e4b8;background:linear-gradient(90deg,#d6be7840,#d6be780d);box-shadow:inset 2px 0 #d8bf81;text-shadow:0 0 16px #d9bd6260}.space-stage{left:254px}.footer-poem{left:278px}.poem-sequence{left:calc(50% + 127px);max-width:calc(100vw - 310px)}.sound-glyph:before{background:none}.sound-glyph.is-arriving{animation:glyph-arrive .65s ease-out both}@keyframes glyph-arrive{from{opacity:0;transform:translateY(10px);filter:blur(5px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}.light-legend i{height:7px;width:18px;opacity:.65}.orbit-hint{top:111px}.system-note{max-width:210px}.poem-form textarea{width:min(400px,40vw)}.detail-panel{width:240px}.glyph-order{display:none}@media(max-width:720px){.poem-reader{left:10px;top:88px;bottom:15px;width:125px;padding-right:8px}.reader-title h2{font-size:19px}.reader-title p{font-size:8px}.poem-paragraph button{font-size:11px;padding:2px;line-height:2.2}.poem-paragraph{margin-bottom:18px}.space-stage{left:140px}.footer-poem{left:153px;right:12px}.poem-form textarea{width:100%;padding-right:0;font-size:12px}.poem-form button{position:static;white-space:nowrap;font-size:9px}.poem-sequence{left:calc(50% + 70px);max-width:calc(100vw - 165px);gap:1px;padding:5px}.poem-sequence button{width:25px}.sequence-label{display:none}.system-note{font-size:8px}.orbit-hint{font-size:8px;white-space:normal;width:90%;text-align:center}.light-legend{font-size:8px;gap:7px;right:12px}.detail-panel{left:150px;right:12px;width:auto;padding:12px}.detail-panel dl{display:block}.detail-panel h2{font-size:30px}}
-.space-stage{left:270px;right:18px;top:70px;bottom:160px}.orbit-hint{top:65px}.evolution-controls{position:absolute;top:18px;left:24px;display:flex;gap:10px;align-items:center;z-index:20}.evolution-controls button{border:1px solid #98baa54d;color:#c5d8c9;background:#10201fe0;padding:8px 12px;font-size:11px}.evolution-controls button[aria-pressed=true]{border-color:#dfcb93;color:#f5dfae}.evolution-controls label{color:#a9bdad;font-size:10px;display:flex;align-items:center;gap:8px}.evolution-controls input{width:90px;accent-color:#c5d6ac}.light-legend{bottom:8px}.poem-sequence{bottom:90px}.poem-paragraph button{display:block;width:100%;line-height:1.9;margin-bottom:5px}.poem-form textarea{height:42px}.footer-poem{bottom:28px}.poem-form small{top:45px}@media(max-width:720px){.space-stage{left:145px;right:5px;top:80px;bottom:185px}.evolution-controls{left:4px;top:5px;gap:4px;flex-wrap:wrap}.evolution-controls button{padding:5px;font-size:9px}.orbit-hint{top:80px}.evolution-controls input{width:60px}}
-.light-legend span:nth-child(2) i{background:#91bddf;box-shadow:0 0 7px #91bddf}.light-legend span:nth-child(3) i{background:#f4d79a;box-shadow:0 0 7px #f4d79a}
-.sound-glyph{opacity:var(--context-opacity,1)}.sound-glyph.is-arriving{animation-name:glyph-emerge}@keyframes glyph-emerge{from{opacity:0;transform:translateY(10px);filter:blur(5px)}to{opacity:var(--context-opacity,1);transform:none;filter:none}}.trace-controls{position:absolute;z-index:20;top:62px;left:24px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}.trace-controls button{border:1px solid #a9c3ac40;background:#10201fe6;color:#b6cebb;padding:7px 12px;font-size:11px}.trace-controls button[aria-pressed=true]{color:#f4deb0;border-color:#d8c18a}.trace-controls label{font-size:10px;color:#a9bdad;display:flex;align-items:center;gap:8px}.trace-controls input{width:100px;accent-color:#d0c292}.trace-controls span{font-size:10px;color:#c6d8ba}.orbit-hint{top:110px}.light-legend{opacity:var(--context-opacity,1)}@media(max-width:720px){.trace-controls{left:4px;top:72px;gap:5px}.trace-controls button{font-size:9px;padding:5px}.trace-controls input{width:65px}.orbit-hint{top:158px}}
-.inspection-panel{position:absolute;right:22px;top:190px;z-index:30;width:260px;max-height:55vh;overflow-y:auto;background:#10201fed;border:1px solid #adbd8f55;backdrop-filter:blur(15px);padding:22px}.inspection-panel h2{font-size:18px;font-weight:400;color:#eddbac;margin:0 0 12px}.inspection-panel p{font-size:10px;line-height:1.9;color:#a7bda9}.inspection-panel h3{font-size:12px;font-weight:400;color:#cfdbc1;margin-top:20px}.inspection-items{display:flex;flex-wrap:wrap;gap:6px;max-height:110px;overflow:auto}.inspection-items span{font-size:11px;color:#e0d9b4;background:#b5c79815;padding:4px 6px}.inspection-panel>button:not(.detail-close){display:block;width:100%;text-align:left;border:0;border-left:2px solid transparent;background:none;color:#b7cbbb;padding:8px;font-size:12px;line-height:1.8}.inspection-panel>button.is-active,.inspection-panel>button:hover{border-left-color:#ddc791;background:#d7c68922;color:#ffe3a8}@media(max-width:720px){.inspection-panel{right:10px;width:210px;top:230px;max-height:40vh}}
-.trace-hover-letter{color:#ffe6ae;font-size:17px;font-family:"Songti SC",serif;text-shadow:0 0 7px #080e0b,0 0 12px #080e0b;background:#0b1315b0;padding:2px 5px;border-radius:3px;white-space:nowrap}.node-word-tooltip{display:block;max-width:230px;min-width:70px;text-align:center;background:#17231ff2;color:#f9e2af;border:1px solid #d6c28b66;padding:9px 12px;font-size:14px;line-height:1.8;box-shadow:0 5px 25px #0006}.inspection-panel{display:none}
-.poem-switch{display:block;font-size:10px;color:#9eb2a2;margin:10px 0 14px}.poem-switch select{display:block;width:100%;margin-top:7px;padding:7px;background:#13211e;border:1px solid #b0c29b44;color:#e6dfc4;font:12px "Songti SC",serif}
-.detail-audio{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:12px 0 4px}
-.detail-audio button{background:#1d3029;border:1px solid #b9d0ae59;color:#dcc98f;padding:7px 12px;font:11px "Songti SC",serif;letter-spacing:.05em;cursor:pointer;border-radius:3px}
-.detail-audio button:hover{background:#2a4a3c;color:#f4e6b8;border-color:#d6c28b88}
+:root { --ink:#0b1315; --paper:#e5e4d6; --mist:#98b6b0; --gold:#ecd5a4; --jade:#9ce4dc; }
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:var(--ink)}body{color:var(--paper);font-family:"Noto Serif CJK SC","Songti SC","STSong","SimSun",serif}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #9ce4dc;outline-offset:5px}
+.rhyme-app{position:relative;height:100vh;height:100dvh;min-height:100svh;overflow:hidden;background:var(--ink)}
+.space-stage{position:absolute;inset:0}
+
+/* ---------- 通用：border glow 按钮 ---------- */
+.glow-btn{position:relative;overflow:hidden;border:0;border-radius:999px;background:#0c1918d9;color:#e9dcb4;padding:10px 22px;font-family:"Noto Serif CJK SC","Songti SC",serif;font-size:12px;letter-spacing:.18em;backdrop-filter:blur(12px);box-shadow:0 0 18px #00000055,inset 0 0 12px #d8c38a1a;transition:color .3s,transform .3s,box-shadow .3s;isolation:isolate;text-decoration:none;display:inline-block}
+.glow-btn:before{content:"";position:absolute;inset:-70%;z-index:-2;background:conic-gradient(from 0deg,transparent 0%,#ffe4a8 9%,transparent 21%,transparent 47%,#9ce4dc 59%,transparent 72%);animation:glow-rotate 5s linear infinite}
+.glow-btn:after{content:"";position:absolute;inset:1px;z-index:-1;border-radius:inherit;background:#0c1918f2}
+.glow-btn span,.glow-btn{position:relative}
+.glow-btn:hover{color:#fff5d8;transform:translateY(-1px);box-shadow:0 0 26px #d8c38a44,inset 0 0 16px #d8c38a26}
+@keyframes glow-rotate{to{transform:rotate(360deg)}}
+
+/* ---------- 悬浮诗句面板（无框） ---------- */
+.poem-reader{position:absolute;z-index:21;left:40px;top:112px;bottom:64px;width:196px;display:flex;flex-direction:column;background:transparent;border:0;padding:0}
+.reader-title h2{font-size:27px;font-weight:400;letter-spacing:.3em;margin:0;color:#f2e6c4;text-shadow:0 0 22px #d9bd6255}
+.reader-title p{margin:6px 0 0;font-size:10px;letter-spacing:.24em;color:#87a499}
+.poem-switch{display:block;margin:14px 0 22px}
+.poem-switch select{width:100%;padding:8px 12px;background:#0c1918bf;border:1px solid #d8c38a3d;border-radius:999px;color:#e6dfc4;font:12px "Songti SC",serif;letter-spacing:.12em;backdrop-filter:blur(10px);box-shadow:0 0 16px #d8c38a1f}
+.poem-scroll{overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding-right:10px}
+.poem-scroll::-webkit-scrollbar{display:none}
+.poem-paragraph{margin:0 0 26px;display:flex;flex-wrap:wrap;gap:2px 0}
+.poem-paragraph button{display:inline;text-align:left;border:0;background:transparent;color:#8fa79b;font-size:14px;line-height:2.35;padding:2px 4px;letter-spacing:.1em;transition:color .25s,text-shadow .25s,transform .25s}
+.poem-paragraph button:hover{color:#ffe4a8;text-shadow:0 0 16px #e4c27b99;transform:translateX(4px)}
+.poem-paragraph button.is-active{color:#f9e8bb;text-shadow:0 0 20px #d9bd62bb;background:linear-gradient(90deg,#d6be7830,transparent 82%)}
+
+/* ---------- 底部悬浮操作坞 ---------- */
+.action-dock{position:absolute;z-index:24;left:50%;bottom:32px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:12px}
+.dock-line{margin:0;font-size:14px;letter-spacing:.26em;color:#d3e0cb;text-shadow:0 0 16px #031011,0 2px 6px #031011}
+.dock-buttons{display:flex;gap:14px}
+.dock-status{font-size:10px;color:#6f8c82;letter-spacing:.16em;min-height:14px}
+
+/* ---------- 三维空间内的字 ---------- */
+.sound-glyph{position:relative;min-width:58px;height:62px;border:0;display:grid;place-items:center;color:#e6f2e8;background:transparent;transition:color .3s;text-shadow:0 0 12px #8fd8cbb0,0 2px 6px #031011}
+.glyph-char{font-size:29px;font-weight:400;line-height:1}
+.glyph-order{position:absolute;top:-5px;left:50%;transform:translateX(-50%);color:#94b9af;font:9px ui-monospace,monospace;letter-spacing:.1em;white-space:nowrap}
+.glyph-coordinate{position:absolute;top:100%;left:50%;transform:translateX(-50%);white-space:nowrap;color:#d5e6d8;font-size:9px;letter-spacing:.12em;opacity:0;transition:opacity .3s;text-shadow:0 2px 6px #031011}
+.sound-glyph:hover,.sound-glyph.is-selected{color:#ffebbf;text-shadow:0 0 18px #e0c084cc}
+.sound-glyph:hover .glyph-coordinate,.sound-glyph:focus-visible .glyph-coordinate,.sound-glyph.is-selected .glyph-coordinate{opacity:1}
+.sound-glyph.is-selected .glyph-order{color:#efce91}
+.sound-glyph.is-arriving{animation:glyph-emerge 1s ease-out both}
+@keyframes glyph-emerge{from{opacity:0;transform:translateY(10px);filter:blur(5px)}to{opacity:var(--context-opacity,1);transform:none;filter:none}}
+.trace-hover-letter{color:#ffe6ae;font-size:17px;font-family:"Songti SC",serif;text-shadow:0 0 7px #080e0b,0 0 12px #080e0b;background:#0b1315a8;padding:2px 6px;border-radius:3px;white-space:nowrap}
+.node-word-tooltip{display:block;max-width:230px;min-width:70px;text-align:center;background:#17231ff2;color:#f9e2af;border:1px solid #d6c28b66;padding:9px 12px;font-size:14px;line-height:1.8;box-shadow:0 5px 25px #0006}
+
+/* ---------- 字详情卡 ---------- */
+.detail-panel{position:absolute;z-index:26;top:128px;right:34px;width:262px;padding:26px;overflow:hidden;border:1px solid #d8c38a2e;border-top-color:#d8c38a5c;background:linear-gradient(135deg,#152a29e8,#0b1315d9);box-shadow:-16px 20px 70px #020a0a66;backdrop-filter:blur(20px)}
+.detail-close{position:absolute;right:13px;top:8px;border:0;background:none;color:#c3d6cc;font-size:24px}
+.detail-kicker{color:#b5cfc2;letter-spacing:.18em;font-size:10px}
+.detail-panel h2{margin:18px 0 24px;font-size:54px;font-weight:400;line-height:1;color:#f2e5c7}
+.detail-panel dl{margin:0}
+.detail-panel dl div{display:grid;grid-template-columns:58px 1fr;padding:9px 0}
+.detail-panel dt{color:#92ada2;font-size:11px;letter-spacing:.14em}
+.detail-panel dd{margin:0;color:#e1e7d9;font-size:14px}
+.detail-source{margin-top:18px;padding-top:14px;border-top:1px solid #b9d6c523;color:#93aba0;font-size:10px;line-height:1.9}
+.reading-status{font-size:11px;color:#dfc78e}
+.reading-choice{font-size:11px;color:#9dbbad;display:block}
+.reading-choice select{display:block;width:100%;margin-top:8px;background:#142724;color:#e4e6d1;padding:7px;border:1px solid #abc8b94d;font-size:11px}
+.detail-audio{display:flex;align-items:center;gap:9px;flex-wrap:wrap;margin:14px 0 4px}
+.detail-audio .glow-btn{padding:8px 14px;font-size:11px;letter-spacing:.1em}
 .detail-phoneme{font:12px "Menlo",monospace;color:#8fb9a6;letter-spacing:.04em}
+
+/* ---------- 进门动效 ---------- */
+.intro-overlay{position:fixed;inset:0;z-index:100;background:radial-gradient(120% 120% at 50% 42%,#111e1c 0%,#0b1315 62%);display:grid;place-items:center;transition:opacity .95s ease}
+.intro-overlay.phase-leaving{opacity:0;pointer-events:none}
+.intro-svg{position:absolute;width:min(720px,92vw);height:auto;overflow:visible;transition:opacity .9s ease,transform .9s ease}
+.phase-contact .intro-svg,.phase-leaving .intro-svg{opacity:0;transform:translateY(-18px) scale(.98)}
+.intro-svg path,.intro-svg circle{fill:none;stroke:#e8d9ad;stroke-width:1.9;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1;animation:intro-draw 1.05s ease forwards;filter:drop-shadow(0 0 6px #e8d9ad55)}
+.intro-svg .intro-fingers path{stroke:#9fd6cc;stroke-width:2.4}
+.intro-svg .intro-cradle path{stroke:#f2dfae}
+.intro-svg .intro-thread,.intro-svg .intro-pull{stroke:#e7c98d}
+.intro-svg .intro-axes path{stroke:#9ce4dc;stroke-width:2.6}
+.intro-svg circle{stroke:#d9bd62;stroke-width:1.4}
+@keyframes intro-draw{to{stroke-dashoffset:0}}
+.intro-ax-label{fill:#cfe3d8;font-size:15px;font-family:"Songti SC",serif;letter-spacing:.12em;opacity:0;animation:intro-fade .9s ease forwards}
+@keyframes intro-fade{from{opacity:0;transform:translateY(6px)}to{opacity:.92;transform:none}}
+.intro-title{position:absolute;top:calc(50% - 210px);text-align:center;opacity:0;animation:intro-fade 1.4s ease 3.9s forwards}
+.intro-title h1{margin:0;font-size:30px;font-weight:400;letter-spacing:.42em;color:#f4e8c6;text-shadow:0 0 24px #d9bd6255}
+.intro-title p{margin:12px 0 0;font-size:12px;letter-spacing:.3em;color:#8ba79b}
+.phase-contact .intro-title,.phase-leaving .intro-title{opacity:0;transition:opacity .5s}
+.intro-card{position:absolute;inset:0;display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity 1s .25s}
+.phase-contact .intro-card{opacity:1}
+.intro-card-inner{text-align:center;padding:0 8vw}
+.intro-card .c-line{display:block;opacity:0;transform:translateY(16px);animation:c-rise .9s ease forwards}
+@keyframes c-rise{to{opacity:1;transform:none}}
+.intro-kicker{font-size:11px;letter-spacing:.42em;color:#8ba79b;margin:0 0 14px}
+.intro-card h2{margin:0 0 22px;font-size:40px;font-weight:400;letter-spacing:.3em;color:#f6ead0;text-shadow:0 0 30px #d9bd6244}
+.intro-who{font-size:15px;letter-spacing:.24em;color:#dbe6d2;margin-bottom:12px}
+.intro-url{font-size:13px;letter-spacing:.16em;color:#b9c9b8;margin-bottom:10px;text-decoration:none;transition:color .3s}
+.intro-url.dim{color:#7e968d;font-size:11px}
+.intro-url.link:hover{color:#ffe4a8}
+.intro-enter{margin-top:20px}
+.intro-skip{position:absolute;right:28px;top:26px;padding:7px 16px;font-size:11px}
+@media(max-width:720px){.intro-card h2{font-size:28px}.intro-title h1{font-size:22px}}
+
+/* =========================================================================
+   响应式适配
+   断点：桌面 ≥1024px（沿用上方基础样式）｜平板 720–1023px｜手机 ≤720px
+        超窄 ≤380px｜横屏矮屏 (orientation:landscape) and (max-height:560px)
+   ========================================================================= */
+
+/* ---------- 安全区变量（iPhone 刘海 / 底部横条） ---------- */
+:root{
+  --safe-t:env(safe-area-inset-top,0px);
+  --safe-r:env(safe-area-inset-right,0px);
+  --safe-b:env(safe-area-inset-bottom,0px);
+  --safe-l:env(safe-area-inset-left,0px);
+}
+
+/* ---------- 触控基线：可点元素 ≥40px（纯鼠标桌面环境保持原样） ---------- */
+@media (max-width:1023px),(hover:none),(pointer:coarse){
+  .glow-btn{min-height:40px;display:inline-flex;align-items:center;justify-content:center;padding-left:16px;padding-right:16px}
+  .poem-switch select{min-height:40px}
+  .reading-choice select{min-height:40px}
+  .detail-close{width:40px;height:40px;right:6px;top:2px;display:grid;place-items:center;font-size:26px;line-height:1}
+  .poem-paragraph button{min-height:40px;display:flex;align-items:center;padding:0 5px}
+  .sound-glyph{min-height:44px}
+}
+
+/* ---------- 平板 720–1023px：整体收窄，保住中央 3D 视野 ---------- */
+@media (min-width:721px) and (max-width:1023px){
+  .poem-reader{left:22px;top:100px;bottom:76px;width:172px}
+  .reader-title h2{font-size:23px;letter-spacing:.24em}
+  .reader-title p{font-size:9.5px;letter-spacing:.18em}
+  .poem-switch{margin:12px 0 16px}
+  .poem-paragraph{margin-bottom:20px}
+  .poem-paragraph button{font-size:13.5px;line-height:2.3}
+  .action-dock{bottom:calc(24px + var(--safe-b));gap:10px}
+  .dock-line{font-size:13px;letter-spacing:.2em}
+  .dock-buttons{gap:11px}
+  .glow-btn{font-size:12px;letter-spacing:.14em}
+  .detail-panel{top:106px;right:20px;width:238px;padding:22px}
+  .detail-panel h2{font-size:44px;margin:14px 0 18px}
+  .detail-panel dl div{padding:7px 0}
+}
+
+/* ---------- 手机 ≤720px：竖屏为主 ---------- */
+@media (max-width:720px){
+  /* 容器：100dvh 为主，100svh 兜底，避免地址栏伸缩导致跳动 */
+  .rhyme-app{height:100vh;height:100dvh;min-height:100svh}
+
+  /* 左侧诗句面板 → 左上角半透明浮层：默认收窄，交互时展开 */
+  .poem-reader{
+    left:calc(10px + var(--safe-l));
+    top:calc(76px + var(--safe-t));
+    bottom:auto;
+    width:118px;
+    max-height:min(52vh,420px);
+    padding:9px 8px 10px;
+    border:1px solid #d8c38a26;
+    border-radius:14px;
+    background:#08110f99;
+    box-shadow:0 10px 28px #020a0a66;
+    backdrop-filter:blur(10px);
+    opacity:.92;
+    transition:width .28s ease,opacity .28s ease,background .28s ease;
+  }
+  .poem-reader:focus-within{width:150px;opacity:1;background:#0a1513e8}
+  .reader-title h2{font-size:17px;letter-spacing:.2em;text-shadow:0 0 14px #d9bd6244}
+  .reader-title p{margin:4px 0 0;font-size:9px;letter-spacing:.12em;color:#7e968d;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .poem-switch{margin:8px 0 10px}
+  .poem-switch select{width:100%;padding:4px 8px;font-size:11px;letter-spacing:.04em}
+  .poem-scroll{flex:1 1 auto;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding-right:2px}
+  .poem-paragraph{margin:0 0 14px;gap:0}
+  .poem-paragraph button{font-size:12.5px;line-height:1.7;letter-spacing:.03em}
+
+  /* 底部操作坞：全宽贴底、可换行、不拦截 3D 手势 */
+  .action-dock{
+    left:0;right:0;bottom:0;
+    width:100%;
+    transform:none;
+    align-items:center;
+    gap:8px;
+    padding:10px 12px calc(10px + var(--safe-b));
+    background:linear-gradient(to top,#061110f2 0%,#061110d1 52%,#06111000 100%);
+    pointer-events:none;
+    transition:opacity .3s ease,transform .3s ease;
+  }
+  .dock-line,.dock-status{pointer-events:none}
+  .dock-line{margin:0;max-width:100%;font-size:12.5px;letter-spacing:.12em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dock-buttons{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;max-width:100%;pointer-events:auto}
+  .dock-buttons .glow-btn{flex:0 1 auto;min-height:42px;padding:0 13px;font-size:12px;letter-spacing:.04em}
+  .dock-status{font-size:9.5px;letter-spacing:.08em;min-height:12px}
+
+  /* 字详情卡 → 底部抽屉（bottom sheet），最大 45vh，内部可滚动 */
+  .detail-panel{
+    top:auto;left:0;right:0;bottom:0;
+    width:auto;
+    max-height:45vh;
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+    overscroll-behavior:contain;
+    padding:16px 16px calc(18px + var(--safe-b));
+    border:1px solid #d8c38a2e;
+    border-bottom:0;
+    border-radius:18px 18px 0 0;
+    background:linear-gradient(180deg,#152a29f7,#0b1315fa);
+    box-shadow:0 -20px 60px #020a0a8c;
+    backdrop-filter:blur(16px);
+  }
+  /* 抽屉打开时让操作坞让位（GSAP 会写 inline transform，故此处不动 .detail-panel 的 transform） */
+  .rhyme-app:has(.detail-panel) .action-dock{opacity:0;transform:translateY(120%);pointer-events:none}
+  .detail-panel h2{font-size:30px;margin:8px 0 12px}
+  .detail-panel dl{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}
+  .detail-panel dl div{grid-template-columns:46px 1fr;padding:6px 0}
+  .detail-panel dt{font-size:10px;letter-spacing:.1em}
+  .detail-panel dd{font-size:13px}
+  .detail-source{margin-top:12px;padding-top:10px;font-size:9.5px;line-height:1.7}
+  .detail-audio{gap:8px;margin:10px 0 4px}
+  .detail-audio .glow-btn{min-height:40px;padding:0 14px;font-size:11px;letter-spacing:.04em}
+  .detail-phoneme{font-size:11px}
+  .reading-choice{font-size:10.5px}
+
+  /* 三维空间内 HTML 覆盖层等比缩小 */
+  .sound-glyph{min-width:48px;height:52px}
+  .glyph-char{font-size:25px}
+  .glyph-order{font-size:8px;top:-4px}
+  .glyph-coordinate{font-size:8px}
+  .trace-hover-letter{font-size:15px;padding:2px 5px}
+  .node-word-tooltip{max-width:180px;font-size:13px;line-height:1.6;padding:7px 10px}
+
+  /* 进门动效层：相对单位定位，避免溢出 */
+  .intro-svg{width:92vw}
+  .intro-ax-label{font-size:20px}
+  .intro-title{top:max(calc(6% + var(--safe-t)),calc(50% - 29vw - 56px))}
+  .intro-title h1{font-size:20px;letter-spacing:.28em}
+  .intro-title p{margin:8px 0 0;font-size:10px;letter-spacing:.18em}
+  .intro-card-inner{padding:0 7vw}
+  .intro-kicker{font-size:10px;letter-spacing:.3em;margin:0 0 10px}
+  .intro-card h2{font-size:26px;letter-spacing:.2em;margin:0 0 16px}
+  .intro-who{font-size:13px;letter-spacing:.16em;margin-bottom:10px}
+  .intro-url{font-size:12px;letter-spacing:.1em;overflow-wrap:anywhere}
+  .intro-enter{margin-top:16px}
+  .intro-skip{right:calc(10px + var(--safe-r));top:calc(12px + var(--safe-t))}
+
+  /* 性能：缩小流光层尺寸 + 降低转速，保证不掉帧 */
+  .glow-btn:before{inset:-42%;animation-duration:9s}
+  .glow-btn{backdrop-filter:blur(8px)}
+}
+
+/* 手机 + 有鼠标（如桌面窄窗口）：悬停展开诗句面板 */
+@media (max-width:720px) and (hover:hover){
+  .poem-reader:hover{width:150px;opacity:1;background:#0a1513e8}
+}
+
+/* ---------- 超窄 ≤380px ---------- */
+@media (max-width:380px){
+  .poem-reader{width:106px;top:calc(70px + var(--safe-t));padding:8px 6px 9px}
+  .poem-reader:focus-within{width:138px}
+  .reader-title h2{font-size:15px;letter-spacing:.14em}
+  .reader-title p{display:none}
+  .poem-paragraph button{font-size:12px;letter-spacing:.01em}
+  .dock-line{font-size:11.5px;letter-spacing:.06em}
+  .dock-buttons{gap:6px}
+  .dock-buttons .glow-btn{font-size:11px;padding:0 10px;letter-spacing:.01em}
+  .detail-panel{padding:13px 13px calc(16px + var(--safe-b))}
+  .detail-panel h2{font-size:26px}
+  .detail-panel dl{grid-template-columns:1fr}
+  .detail-panel dl div{grid-template-columns:44px 1fr}
+  .sound-glyph{min-width:44px;height:48px}
+  .glyph-char{font-size:22px}
+  .intro-svg{width:94vw}
+  .intro-card h2{font-size:22px}
+  .intro-title h1{font-size:17px;letter-spacing:.2em}
+}
+
+/* ---------- 横屏矮屏（手机横放 / 高度 <560px） ---------- */
+@media (orientation:landscape) and (max-height:560px){
+  .rhyme-app{height:100vh;height:100dvh;min-height:100svh}
+  .poem-reader{
+    left:calc(10px + var(--safe-l));
+    top:calc(46px + var(--safe-t));
+    bottom:auto;
+    width:134px;
+    max-height:calc(100svh - 118px);
+    padding:8px 8px 9px;
+    border:1px solid #d8c38a26;
+    border-radius:14px;
+    background:#08110f99;
+    backdrop-filter:blur(10px);
+  }
+  .reader-title h2{font-size:16px;letter-spacing:.16em}
+  .reader-title p{display:none}
+  .poem-switch{margin:6px 0 8px}
+  .poem-paragraph{margin-bottom:10px}
+  .poem-paragraph button{font-size:12px;line-height:1.6}
+  .action-dock{bottom:calc(8px + var(--safe-b));gap:4px;padding:6px 12px calc(6px + var(--safe-b))}
+  .dock-line{font-size:11.5px;letter-spacing:.08em;max-width:86vw;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .dock-buttons{gap:8px}
+  .dock-buttons .glow-btn{min-height:40px;padding:0 12px;font-size:11px}
+  .dock-status{display:none}
+  .detail-panel{
+    top:auto;bottom:0;left:auto;right:calc(10px + var(--safe-r));
+    width:min(430px,72vw);
+    max-height:calc(100svh - 16px);
+    padding:14px 16px calc(16px + var(--safe-b));
+    border-radius:16px 16px 0 0;
+  }
+  .rhyme-app:has(.detail-panel) .action-dock{opacity:0;transform:translateY(120%);pointer-events:none}
+  .detail-panel h2{font-size:26px;margin:6px 0 10px}
+  .detail-panel dl{grid-template-columns:1fr 1fr}
+  .intro-svg{width:min(92vw,58vh)}
+  .intro-title{top:calc(6% + var(--safe-t))}
+  .intro-title h1{font-size:17px;letter-spacing:.22em}
+  .intro-title p{font-size:9.5px}
+  .intro-card h2{font-size:20px;margin-bottom:10px}
+  .intro-who{font-size:12px}
+  .intro-url{font-size:11px}
+  .intro-enter{margin-top:12px}
+}
+
+/* ---------- 触屏：把 hover 效果降级为 :active ---------- */
+@media (hover:none){
+  .glow-btn,button,select{-webkit-tap-highlight-color:transparent}
+  .glow-btn:hover{color:#e9dcb4;transform:none;box-shadow:0 0 18px #00000055,inset 0 0 12px #d8c38a1a}
+  .glow-btn:active{color:#fff5d8;transform:scale(.97);box-shadow:0 0 24px #d8c38a55,inset 0 0 15px #d8c38a33}
+  .poem-paragraph button:hover:not(.is-active){color:#8fa79b;text-shadow:none;transform:none}
+  .poem-paragraph button:active{color:#ffe4a8;text-shadow:0 0 14px #e4c27b99;transform:translateX(2px)}
+  .sound-glyph:hover:not(.is-selected){color:#e6f2e8;text-shadow:0 0 12px #8fd8cbb0,0 2px 6px #031011}
+  .sound-glyph:hover:not(.is-selected) .glyph-coordinate{opacity:0}
+}
+
+/* ---------- 结尾屏二维码 ---------- */
+.intro-qr{display:flex;flex-direction:column;align-items:center;gap:10px;margin:22px 0 4px}
+.intro-qr img{width:132px;height:132px;border-radius:10px;padding:8px;background:#f0e2b80d;box-shadow:0 0 26px #d8c38a2e,0 0 0 1px #d8c38a3d}
+.intro-qr small{font-size:10px;letter-spacing:.2em;color:#7e968d}
+@media(max-width:720px){.intro-qr img{width:104px;height:104px}.intro-qr{margin:16px 0 2px}}
+@media(orientation:landscape) and (max-height:560px){.intro-qr{display:none}}
+
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}.glow-btn:before{animation:none}}

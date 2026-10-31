@@ -32,13 +32,16 @@ const initialX = (initial: string) => (initials.indexOf(initial) - (initials.len
 const groupZ = (group: string) => ((rhymeGroups.length - 1) / 2 - rhymeGroups.indexOf(group)) * 0.72;
 const locate = (initial: string, tone: string, group: string): [number, number, number] => [initialX(initial), toneY[tone], groupZ(group)];
 
-function FieldPlane({ axis, position, color }: { axis: 'x' | 'y' | 'z'; position: number; color: string }) {
-  const rotation: [number, number, number] = axis === 'x' ? [0, Math.PI / 2, 0] : axis === 'y' ? [Math.PI / 2, 0, 0] : [0, 0, 0];
-  const at: [number, number, number] = axis === 'x' ? [position, 0, 0] : axis === 'y' ? [0, position, 0] : [0, 0, position];
-  return <mesh position={at} rotation={rotation}><planeGeometry args={[15, 10]} /><meshBasicMaterial color={color} transparent opacity={0.027} depthWrite={false} side={THREE.DoubleSide} blending={THREE.AdditiveBlending} /></mesh>;
-}
+// 联系方式（结尾屏展示，待补充邮箱等）
+const CONTACT = {
+  name: '刘东沛',
+  role: '设计与开发',
+  mail: '134011730@qq.com',
+  site: 'https://liudongpei5-hue.github.io/shijing-rhyme-space/',
+  repo: 'https://github.com/liudongpei5-hue/shijing-rhyme-space',
+};
 
-const DEFAULT_VIEW: [number, number, number] = [0, 19, 18];
+const DEFAULT_VIEW: [number, number, number] = [0, 4.4, 21.5];
 
 function CameraRail({ selected, filmStart }: { selected: Entry | null; filmStart: number | null }) {
   const controls = useRef<React.ElementRef<typeof OrbitControls>>(null);
@@ -64,11 +67,6 @@ function CameraRail({ selected, filmStart }: { selected: Entry | null; filmStart
       let position=home.clone();let target=new THREE.Vector3();
       if(t<12){const a=ease((t-3)/4);position.lerpVectors(home,close,a);target.lerpVectors(new THREE.Vector3(),letter,a);}
       else if(t<19){const a=ease((t-12)/5);position.lerpVectors(close,home,a);target.lerpVectors(letter,new THREE.Vector3(),a);}
-      if(new URLSearchParams(location.search).get('film')==='axes'){
-        if(t<10){const x=9.25-18.5*ease(t/10);target.set(x,-3.35,5.76);position.copy(target).add(new THREE.Vector3(1.4,1.7,5.7));}
-        else if(t<16){const z=-5.4+10.8*ease((t-10)/6);target.set(-9.5,-3.2,z);position.copy(target).add(new THREE.Vector3(-3.2,2.2,4.4));}
-        else{const y=2.4-4.8*ease((t-16)/4);target.set(-9.5,y,5.76);position.copy(target).add(new THREE.Vector3(-2,1.1,5.3));}
-      }
       orbit.object.position.copy(position);orbit.target.copy(target);orbit.update();state.invalidate();return;
     }
     if (!orbit || !path.active) return;
@@ -82,7 +80,7 @@ function CameraRail({ selected, filmStart }: { selected: Entry | null; filmStart
     if (raw >= 1) path.active = false;
   });
 
-  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan={false} minDistance={3.2} maxDistance={38} minPolarAngle={0.38} maxPolarAngle={2.28} rotateSpeed={0.48} zoomSpeed={0.65} />;
+  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan={false} minDistance={3.2} maxDistance={40} minPolarAngle={0.3} maxPolarAngle={2.35} rotateSpeed={0.48} zoomSpeed={0.65} />;
 }
 
 function Glyph({ entries, entry, index, selected, onSelect }: { entries: Entry[]; entry: Entry; index: number; selected: boolean; onSelect: () => void }) {
@@ -192,10 +190,8 @@ function PoemPath({ entries }: { entries: Entry[] }) {
   return <group>{entries.slice(1).map((entry,i)=><GrowingSegment key={i} from={entries[i]} to={entry} delay={2.8+i*.32}/>)}</group>;
 }
 
-type Inspection = { title: string; note: string; ids: string[]; items: string[] };
-function BundledPaths({ onLineSelect, paths, strength, highlighted, inspection, onInspect }: { onLineSelect:(id:string)=>void; paths: Entry[][]; strength: number; highlighted: string | null; inspection: Inspection | null; onInspect: (value: Inspection)=>void }) {
+function BundledPaths({ onLineSelect, paths, strength }: { onLineSelect:(id:string)=>void; paths: Entry[][]; strength: number }) {
   const [hovered,setHovered]=useState<number[]>([]);
-  const [pinned,setPinned]=useState<number[]>([]);
   const curves=useMemo(()=>{
     const key=paths.map(path=>path.map(e=>`${e.chapter}:${e.index}:${e.char}:${e.position}`).join(',')).join('|');
     const saved=(precomputed as Record<string,{points:number[][];id:string;pair:string;transition:string;width:number}[]>)[key];
@@ -249,13 +245,12 @@ function BundledPaths({ onLineSelect, paths, strength, highlighted, inspection, 
       return {points:new THREE.CatmullRomCurve3(row).getPoints(40),id:edges[i].id,pair:edges[i].pair,transition:edges[i].transition,width:Math.min(3.2,.65+Math.sqrt(density)*.3)};
     });
   },[paths,strength]);
-  const neighborsAt=(index:number,point:THREE.Vector3)=>curves.flatMap((curve,i)=>i===index||curve.points.some(p=>Math.hypot(p.x-point.x,p.z-point.z)<.25)?[i]:[]);
-  const activeIndices=hovered.length?hovered:pinned;
+  const activeIndices=hovered;
   const labels=activeIndices.flatMap(i=>{const c=curves[i];return [{point:c.points[0],text:c.pair.split('→')[0]},{point:c.points[c.points.length-1],text:c.pair.split('→')[1]}];}).filter((v,i,all)=>all.findIndex(other=>other.text===v.text&&other.point.distanceTo(v.point)<.01)===i);
   return <group>{curves.map(({points,id,width},i)=>{
-    const active=activeIndices.includes(i)||highlighted===id;
-    const filtering=activeIndices.length>0||!!highlighted;
-    return <group key={i}><Line points={points} color={active?'#ffe4a8':'#b9d9ca'} lineWidth={active?2.5:width} transparent opacity={filtering?(active?1:.13):.42} depthWrite={false} depthTest={false} renderOrder={active?10:1} onClick={e=>{e.stopPropagation();setPinned([i]);onLineSelect(id);}} onPointerMove={e=>{e.stopPropagation();const next=[i];setHovered(old=>old.length===next.length&&old.every((v,k)=>v===next[k])?old:next);document.body.style.cursor='pointer';}} onPointerOut={()=>{setHovered([]);document.body.style.cursor='';}}/></group>;
+    const active=activeIndices.includes(i);
+    const filtering=activeIndices.length>0;
+    return <group key={i}><Line points={points} color={active?'#ffe4a8':'#b9d9ca'} lineWidth={active?2.5:width} transparent opacity={filtering?(active?1:.03):.42} depthWrite={false} depthTest={false} renderOrder={active?10:1} onClick={e=>{e.stopPropagation();onLineSelect(id);}} onPointerMove={e=>{e.stopPropagation();const next=[i];setHovered(old=>old.length===next.length&&old.every((v,k)=>v===next[k])?old:next);document.body.style.cursor='pointer';}} onPointerOut={()=>{setHovered([]);document.body.style.cursor='';}}/></group>;
   })}{labels.map(({point,text},i)=><Html key={i} position={point} center style={{pointerEvents:'none'}}><span className="trace-hover-letter">{text}</span></Html>)}</group>;
 }
 
@@ -278,140 +273,241 @@ function FadingContext({ opacity, children }: { opacity: number; children: React
   return <group ref={group} visible={opacity>.005}>{children}</group>;
 }
 
-function Scene({ filmStart, onLineSelect, inspection, onInspect, traceView, highlighted, contextOpacity, entries, paths, strength, selected, onSelect, generation }: { filmStart: number | null; onLineSelect:(id:string)=>void; inspection: Inspection | null; onInspect: (value: Inspection)=>void; traceView: boolean; highlighted: string | null; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number }) {
+function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, paths, strength, selected, onSelect, generation }: { filmStart: number | null; onLineSelect:(id:string)=>void; traceView: boolean; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number }) {
   const [activeNode,setActiveNode]=useState<string|null>(null);
   const unique=entries.filter((entry,i)=>entries.findIndex(e=>e.coord.join()===entry.coord.join())===i);
   return <>
     <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected} filmStart={filmStart}/><AxisScaffold/>
     {contextOpacity>.005 && <FadingContext opacity={contextOpacity}>{unique.map((entry,index)=><ConstructionLight key={`light-${generation}-${index}`} entry={entry} delay={paths.length>1?index*.025:0} selected={selected?.position===entry.position}/>)}</FadingContext>}
-    {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength} highlighted={highlighted} inspection={inspection} onInspect={onInspect}/>:<PoemPath entries={entries}/>}
+    {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength}/>:<PoemPath entries={entries}/>}
     {traceView && unique.map((entry,i)=><TraceNode key={`node-${i}`} entry={entry} entries={entries} activeNode={activeNode} onNodeSelect={setActiveNode}/>)}
     {contextOpacity>.005 && unique.map((entry,index)=><Glyph entries={entries} key={`${generation}-${index}`} entry={entry} index={paths.length>1?0:index} selected={selected?.position===entry.position} onSelect={()=>onSelect(entry)}/>)}
   </>;
 }
 
+/* ---------- 进门动效：挑线 → 拉线 → 坐标轴 → 联系方式 ---------- */
+
+function IntroOverlay({ onDone }: { onDone: () => void }) {
+  const [phase,setPhase]=useState<'string'|'contact'|'leaving'>('string');
+  useEffect(()=>{
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){onDone();return;}
+    const t=setTimeout(()=>setPhase('contact'),5400);
+    return()=>clearTimeout(t);
+  },[]);
+  useEffect(()=>{
+    if(phase!=='contact')return;
+    const t=setTimeout(()=>setPhase('leaving'),12000);
+    return()=>clearTimeout(t);
+  },[phase]);
+  useEffect(()=>{
+    if(phase!=='leaving')return;
+    const t=setTimeout(onDone,950);
+    return()=>clearTimeout(t);
+  },[phase]);
+  const leave=()=>setPhase(p=>p==='leaving'?p:'leaving');
+  return <div className={`intro-overlay phase-${phase}`}>
+    <svg className="intro-svg" viewBox="0 0 680 420" aria-hidden="true">
+      {/* 线团 */}
+      <g className="intro-ball">
+        <circle cx="118" cy="318" r="46" pathLength={1} style={{animationDelay:'.15s'}}/>
+        <path pathLength={1} style={{animationDelay:'.45s'}} d="M80 300 C 100 284, 138 282, 158 298"/>
+        <path pathLength={1} style={{animationDelay:'.65s'}} d="M78 322 C 100 338, 142 340, 160 324"/>
+        <path pathLength={1} style={{animationDelay:'.85s'}} d="M96 284 C 88 308, 90 338, 104 356"/>
+        <path pathLength={1} style={{animationDelay:'1.05s'}} d="M142 284 C 152 308, 150 340, 134 356"/>
+      </g>
+      {/* 从线团牵出的线 */}
+      <path className="intro-thread" pathLength={1} style={{animationDelay:'1.3s'}} d="M160 302 C 220 298, 246 262, 284 236 C 312 216, 336 196, 358 178"/>
+      {/* 手指（抽象为两组指形线） */}
+      <g className="intro-fingers">
+        <path pathLength={1} style={{animationDelay:'1.6s'}} d="M344 92 C 352 118, 354 138, 348 158"/>
+        <path pathLength={1} style={{animationDelay:'1.72s'}} d="M362 86 C 368 112, 369 134, 363 154"/>
+        <path pathLength={1} style={{animationDelay:'1.84s'}} d="M452 86 C 446 112, 445 134, 451 154"/>
+        <path pathLength={1} style={{animationDelay:'1.96s'}} d="M470 92 C 462 118, 460 138, 466 158"/>
+      </g>
+      {/* 挑线花样（菱形线网） */}
+      <g className="intro-cradle">
+        <path pathLength={1} style={{animationDelay:'2.2s'}} d="M348 158 L 407 118 L 466 158 L 407 198 Z"/>
+        <path pathLength={1} style={{animationDelay:'2.5s'}} d="M348 158 L 466 158"/>
+        <path pathLength={1} style={{animationDelay:'2.7s'}} d="M407 118 L 407 198"/>
+        <path pathLength={1} style={{animationDelay:'2.9s'}} d="M362 142 L 452 176"/>
+        <path pathLength={1} style={{animationDelay:'3.05s'}} d="M452 140 L 362 176"/>
+      </g>
+      {/* 被拉出去的那根线 */}
+      <path className="intro-pull" pathLength={1} style={{animationDelay:'3.3s'}} d="M466 158 C 522 168, 562 218, 566 282"/>
+      {/* 坐标轴 */}
+      <g className="intro-axes">
+        <path pathLength={1} style={{animationDelay:'3.8s'}} d="M566 282 L 662 282"/>
+        <path pathLength={1} style={{animationDelay:'4.05s'}} d="M566 282 L 566 180"/>
+        <path pathLength={1} style={{animationDelay:'4.3s'}} d="M566 282 L 492 340"/>
+      </g>
+      <text className="intro-ax-label" style={{animationDelay:'4.5s'}} x="664" y="286">声母</text>
+      <text className="intro-ax-label" style={{animationDelay:'4.65s'}} x="572" y="188">四声</text>
+      <text className="intro-ax-label" style={{animationDelay:'4.8s'}} x="472" y="358">十六摄</text>
+    </svg>
+    <div className="intro-title">
+      <h1>诗经 · 声迹</h1>
+      <p>一根线，牵出声音的空间</p>
+    </div>
+    <div className="intro-card">
+      <div className="intro-card-inner">
+        <p className="intro-kicker c-line" style={{animationDelay:'.15s'}}>诗经 · 声迹</p>
+        <h2 className="c-line" style={{animationDelay:'.35s'}}>声音的行迹</h2>
+        <span className="c-line intro-who" style={{animationDelay:'.75s'}}>{CONTACT.name} · {CONTACT.role}</span>
+        <span className="c-line intro-url" style={{animationDelay:'1s'}}>{CONTACT.mail}</span>
+        <a className="c-line intro-url link" style={{animationDelay:'1.2s'}} href={CONTACT.site} target="_blank" rel="noopener noreferrer">{CONTACT.site.replace('https://','')}</a>
+        <a className="c-line intro-url dim link" style={{animationDelay:'1.4s'}} href={CONTACT.repo} target="_blank" rel="noopener noreferrer">{CONTACT.repo.replace('https://','')}</a>
+        <span className="c-line intro-qr" style={{animationDelay:'1.7s'}}><img src="./qr/shijing-qr-small.png" alt="扫码在手机打开《诗经·声迹》" width={132} height={132}/><small>扫码在手机上观赏</small></span>
+        <span className="c-line" style={{animationDelay:'1.9s'}}><button className="glow-btn intro-enter" type="button" onClick={leave}><span>进入声迹</span></button></span>
+      </div>
+    </div>
+    {phase==='string'&&<button className="glow-btn intro-skip" type="button" onClick={leave}><span>跳过 ›</span></button>}
+  </div>;
+}
+
+/* ---------- 主组件 ---------- */
+
 export function RhymeSpace() {
   const poems={qiyue:{title:'七月',section:'豳风',data:qiyueData},jianjia:{title:'蒹葭',section:'秦风',data:jianjiaData},taoyao:{title:'桃夭',section:'周南',data:taoyaoData},wuyi:{title:'无衣',section:'秦风',data:wuyiData},caiwei:{title:'采薇',section:'小雅',data:caiweiData},luming:{title:'鹿鸣',section:'小雅',data:lumingData},shuoshu:{title:'硕鼠',section:'魏风',data:shuoshuData},mang:{title:'氓',section:'卫风',data:mangData},beifeng:{title:'北风',section:'邶风',data:beifengData},jigu:{title:'击鼓',section:'邶风',data:jiguData}};
-  const [filmReady,setFilmReady]=useState(false);
+  const [introDone,setIntroDone]=useState(false);
   const [filmStart,setFilmStart]=useState<number|null>(null);
-  const [filmLetter,setFilmLetter]=useState(false);
-  useEffect(()=>{setFilmReady(new URLSearchParams(location.search).has('film'));},[]);
+  useEffect(()=>{
+    if(!new URLSearchParams(location.search).has('film'))return;
+    const t=setTimeout(()=>setFilmStart(performance.now()),600);
+    return()=>clearTimeout(t);
+  },[]);
   const [poemId,setPoemId]=useState<keyof typeof poems>('qiyue');
   const {data:qiyue,title:poemTitle,section:poemSection}=poems[poemId];
-  const renderForExport=useRef<(()=>void)|null>(null);
-  const [inspection,setInspection]=useState<Inspection|null>(null);
-  const handleInspect=(value:Inspection)=>{setInspection(value);setHighlighted(null);};
-  const [traceView,setTraceView]=useState(true);
-  const [highlighted,setHighlighted]=useState<string|null>(null);
-  const [contextOpacity,setContextOpacity]=useState(0);
-  const [exportMessage,setExportMessage]=useState('');
-  const exportImage=()=>{
-    renderForExport.current?.();const source=root.current?.querySelector('canvas');if(!source)return;
-    const canvas=document.createElement('canvas');canvas.width=2400;canvas.height=1800;const ctx=canvas.getContext('2d');if(!ctx)return;
-    ctx.fillStyle='#0b1315';ctx.fillRect(0,0,2400,1800);
-    const ratio=Math.min(2200/source.width,1330/source.height);const w=source.width*ratio,h=source.height*ratio;ctx.drawImage(source,(2400-w)/2,180+(1330-h)/2,w,h);
-    ctx.fillStyle='#e5e4d6';ctx.font='40px serif';ctx.fillText(`诗经 · 声迹｜${poemTitle}`,110,110);ctx.font='22px serif';ctx.fillStyle='#9eb8ac';ctx.fillText('切韵音系 · 声母 × 四声 × 十六摄 · 字序路径',110,160);
-    ctx.font='23px serif';ctx.fillText(mode==='all'?'全诗声迹':mode==='paragraph'?'段落声迹':sentences[sentence],110,1590);
-    ctx.font='18px serif';ctx.fillText(`${bundlingEnabled?'FDEB 聚束（统一参数）':'原始字序直线'} · 节点位置固定 · 线束粗细表达局部密度`,110,1640);ctx.fillText('中古分类下的诗句路径，不代表先秦真实读音或押韵判定。',110,1680);
-    const a=document.createElement('a');a.download=`诗经-${poemTitle}-声迹.png`;a.href=canvas.toDataURL('image/png');a.click();setExportMessage('声迹图片已导出');
-  };
   const root = useRef<HTMLElement>(null);
   const [selected, setSelected] = useState<Entry | null>(null);
-  const [mode,setMode] = useState<'sentence'|'paragraph'|'all'>('all');
-  const [bundlingEnabled,setBundlingEnabled] = useState(true);
-  const strength = bundlingEnabled ? 1 : 0;
+  const [mode,setMode] = useState<'sentence'|'all'>('all');
   const [sentence, setSentence] = useState(0);
+  const [chapter, setChapter] = useState(0);
+  const [traceView] = useState(true);
+  const [contextOpacity,setContextOpacity]=useState(0);
+  const [overrides, setOverrides] = useState<Record<string, number>>({});
+  const [generation, setGeneration] = useState(0);
+  const [animating, setAnimating] = useState(false);
+  const animTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const charAudio = (audioManifest.characters ?? {}) as Record<string, string>;
   const charReading = ((audioManifest as { readings?: Record<string, string> }).readings ?? {}) as Record<string, string>;
   const sentAudio = (audioManifest.sentences ?? {}) as Record<string, string>;
   const audioReady = Object.keys(charAudio).length > 0;
-  const [audioMessage, setAudioMessage] = useState(audioReady ? '中古拟音 · 点击字即可朗读' : '中古拟音 · 音频尚未生成');
+  const [audioMessage, setAudioMessage] = useState(audioReady ? '' : '音频尚未生成');
   const player = useRef<HTMLAudioElement | null>(null);
   const startAudio = (url: string, msg: string) => {
     player.current?.pause();
     const audio = new Audio(url);
     player.current = audio;
-    audio.play().then(() => setAudioMessage(msg)).catch(() => setAudioMessage('音频播放失败，请再点一次'));
+    audio.play().then(() => { setAudioMessage(msg); }).catch(() => setAudioMessage('音频播放失败，请再点一次'));
   };
-  // 点字：播这个字的单字音频，并附中古音转写
   const playChar = (entry: Entry) => {
     const url = charAudio[entry.char];
     if (!url) { setAudioMessage(`「${entry.char}」暂无音频 · 目前仅《七月》已生成`); return; }
     const ph = charReading[entry.char];
     startAudio(url, `朗读「${entry.char}」${ph ? `　中古音 ${ph}` : ''}`);
   };
-  // 整句：句内保留逗号顿挫（音频已在合成时按标点插入停顿）
-  const playLine = (entry: Entry) => {
-    const line = paragraphs[entry.chapter]?.findIndex(l => l.entries.some(e => e.index === entry.index)) ?? -1;
-    const url = line >= 0 ? sentAudio[`${poemId}-${entry.chapter}-${line}`] : undefined;
-    if (!url) { setAudioMessage('本句暂无音频 · 目前仅《七月》已生成'); return; }
-    startAudio(url, `朗读：${paragraphs[entry.chapter][line].text}`);
-  };
   useEffect(()=>()=>{player.current?.pause();},[]);
-  const [chapter, setChapter] = useState(0);
-  const [overrides, setOverrides] = useState<Record<string, number>>({});
-  const [generated, setGenerated] = useState(true);
-  const [generation, setGeneration] = useState(0);
-  const [inputMessage, setInputMessage] = useState('三向光束定位 → 字浮现 → 依字序连线');
-
-  useEffect(()=>{
-    if(filmStart===null)return;
-    const timers:ReturnType<typeof setTimeout>[]=[];
-    const cue=(seconds:number,action:()=>void)=>timers.push(setTimeout(action,seconds*1000));
-    const reset=(poem:keyof typeof poems)=>{setPoemId(poem);setSelected(null);setInspection(null);setHighlighted(null);setChapter(0);setSentence(0);setMode('all');setTraceView(true);setContextOpacity(0);setFilmLetter(false);setGeneration(n=>n+1);};
-    if(new URLSearchParams(location.search).get('film')==='axes'){reset('qiyue');return;}
-    setPoemId('qiyue');setMode('sentence');setTraceView(false);setContextOpacity(1);setFilmLetter(true);setChapter(0);setSentence(0);setSelected(null);setGeneration(n=>n+1);
-    cue(6,()=>{const e=qiyueData[0].entries[0];setSelected({...e,coord:locate(e.initial,e.tone,e.group)});});
-    cue(12,()=>{setSelected(null);setFilmLetter(false);setGeneration(n=>n+1);});
-    cue(21,()=>{setMode('all');setTraceView(true);setContextOpacity(.18);setGeneration(n=>n+1);});
-    for(let j=0;j<10;j++)cue(24+j*.12,()=>setContextOpacity(.18*(1-j/9)));
-    cue(28,()=>reset('jianjia'));cue(34,()=>reset('luming'));cue(40,()=>reset('mang'));cue(46,()=>reset('qiyue'));
-    cue(50,()=>{setHighlighted('0-0');const el=root.current?.querySelector('[data-sentence-id="0-0"]');el?.scrollIntoView({behavior:'smooth',block:'center'});});
-    cue(54,()=>{const e=qiyueData[0].entries[0];setSelected({...e,coord:locate(e.initial,e.tone,e.group)});});
-    cue(58,()=>{setSelected(null);setHighlighted(null);});
-    return()=>timers.forEach(clearTimeout);
-  },[filmStart]);
 
   const paragraphs = useMemo(()=>qiyue.map(c=>{
     let offset=0;
     return (c.text.match(/[^。？！]+[。？！]?/g)||[]).map(text=>{const count=[...text.replace(/[^\p{Script=Han}]/gu,'')].length;const result={text,entries:c.entries.slice(offset,offset+count)};offset+=count;return result;});
   }),[qiyue]);
-  const sentences=paragraphs[chapter].map(s=>s.text);
+
   const paths=useMemo<Entry[][]>(()=>{
-    const source=mode==='all'?paragraphs.flat():mode==='paragraph'?paragraphs[chapter]:[paragraphs[chapter][sentence]];
-    return source.map(line=>(filmLetter?line.entries.slice(0,1):line.entries).map(e=>{
+    const source=mode==='all'?paragraphs.flat():[paragraphs[chapter][sentence]];
+    return source.map(line=>line.entries.map(e=>{
       const choice=overrides[`${e.chapter}-${e.index}`];const reading=choice===undefined?e:{...e,...e.candidates[choice],review:'手动选读'};
       return {...reading,coord:locate(reading.initial,reading.tone,reading.group)};
     }));
-  },[mode,chapter,sentence,overrides,paragraphs,filmLetter]);
+  },[mode,chapter,sentence,overrides,paragraphs]);
   const entries=useMemo(()=>paths.flat(),[paths]);
   const mapped=entries.filter(e=>e.initial);
-  const chooseSentence=(paragraph:number,line:number)=>{if(traceView){setChapter(paragraph);setSentence(line);setHighlighted(`${paragraph}-${paragraphs[paragraph][line].entries[0].index}`);return;}setInspection(null);setMode('sentence');setChapter(paragraph);setSentence(line);setSelected(null);setGeneration(n=>n+1);};
-  const generatePoem = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); setSelected(null); setGenerated(true); setGeneration(n=>n+1);
-    setInputMessage('三向光束定位 → 字浮现 → 依字序连线');
+
+  const kickAnimation=()=>{setGeneration(n=>n+1);setAnimating(true);if(animTimer.current)clearTimeout(animTimer.current);animTimer.current=setTimeout(()=>setAnimating(false),7000);};
+
+  // 点一句：只留这一句，重新演绎
+  const chooseSentence=(p:number,l:number)=>{
+    setChapter(p);setSentence(l);setMode('sentence');setSelected(null);setContextOpacity(1);kickAnimation();
+  };
+  // 回全诗（不重演）
+  const showAll=()=>{setMode('all');setSelected(null);setContextOpacity(0);};
+  // 全诗演化（重演）
+  const playAll=()=>{setMode('all');setSelected(null);setContextOpacity(1);kickAnimation();setTimeout(()=>setContextOpacity(0),4500);};
+
+  const soloByLineId=(id:string)=>{
+    const dash=id.indexOf('-');if(dash<0)return;
+    const p=Number(id.slice(0,dash));const firstIndex=Number(id.slice(dash+1));
+    const l=paragraphs[p]?.findIndex(line=>line.entries[0]&&line.entries[0].index===firstIndex);
+    if(l!==undefined&&l>=0)chooseSentence(p,l);
   };
 
-  useGSAP(() => {
-    const mm = gsap.matchMedia();
-    mm.add('(prefers-reduced-motion: no-preference)', () => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-      tl.from('.masthead', { autoAlpha: 0, y: -12, duration: 0.9 }).from('.space-stage canvas', { autoAlpha: 0, scale: 0.92, duration: 1.65 }, 0.25).from('.axis-note', { autoAlpha: 0, duration: 1.1, stagger: 0.08 }, 1.15).from('.footer-poem', { autoAlpha: 0, y: 12, duration: 0.8 }, 1.35);
-    });
-    return () => mm.revert();
-  }, { scope: root });
+  const playSentence=()=>{
+    const url=sentAudio[`${poemId}-${chapter}-${sentence}`];
+    if(!url){setAudioMessage('本句暂无音频 · 目前仅《七月》已生成');return;}
+    startAudio(url,`朗读：${paragraphs[chapter][sentence].text}`);
+  };
+
+  const playAllAudio=()=>{
+    if(mode==='sentence'){playSentence();return;}
+    const first=sentAudio[`${poemId}-0-0`];
+    if(!first){setAudioMessage('整诗暂无音频 · 目前仅《七月》已生成');return;}
+    playAll();
+    const urls=paragraphs.flatMap((lines,p)=>lines.map((_,l)=>sentAudio[`${poemId}-${p}-${l}`])).filter((u):u is string=>!!u);
+    let i=0;
+    const next=()=>{
+      if(i>=urls.length)return;
+      const audio=new Audio(urls[i]);player.current?.pause();player.current=audio;i++;
+      audio.onended=next;
+      audio.play().then(()=>setAudioMessage('连读全诗…')).catch(()=>setAudioMessage('音频播放失败，请再点一次'));
+    };
+    next();
+  };
+
+  useEffect(()=>{
+    const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape'){setSelected(null);if(mode==='sentence')showAll();}};
+    window.addEventListener('keydown',onKey);return()=>window.removeEventListener('keydown',onKey);
+  },[mode]);
+
+  useEffect(()=>{
+    if(filmStart===null)return;
+    setPoemId('qiyue');setSelected(null);setChapter(0);setSentence(0);setMode('all');setContextOpacity(0);setGeneration(n=>n+1);
+    const timers:ReturnType<typeof setTimeout>[]=[];
+    timers.push(setTimeout(()=>chooseSentence(0,0),4000));
+    timers.push(setTimeout(()=>{showAll();},14000));
+    return()=>timers.forEach(clearTimeout);
+  },[filmStart]);
 
   useGSAP(() => { if (selected) gsap.fromTo('.detail-panel', { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 0.7, ease: 'power3.out' }); }, { scope: root, dependencies: [selected], revertOnUpdate: true });
+
   return <main ref={root} className="rhyme-app" style={{'--context-opacity':contextOpacity} as React.CSSProperties}>
-    {filmReady && <button className="film-start" style={{position:'fixed',right:24,bottom:22,zIndex:80}} onClick={()=>setFilmStart(performance.now())}>{filmStart===null?'开始拍摄演示':'重播演示'}</button>}<header className="masthead"><div className="brand-mark">诗</div><div><h1>音韵空间</h1><p>《诗经·{poemSection}·{poemTitle}》 · 声音的行迹</p></div><button className="text-action" type="button" onClick={() => setSelected(null)}>全览</button></header>
-    <aside className="poem-reader" aria-label={`${poemTitle}全文`}><div className="reader-title"><h2>{poemTitle}</h2><label className="poem-switch">切换诗篇<select aria-label="切换诗篇" value={poemId} onChange={event=>{setPoemId(event.target.value as keyof typeof poems);setChapter(0);setSentence(0);setOverrides({});setHighlighted(null);setSelected(null);setInspection(null);setMode('all');setGeneration(n=>n+1);}}>{Object.entries(poems).map(([id,poem])=><option key={id} value={id}>{poem.title} · {poem.section}</option>)}</select></label><p>{poemSection} · 点选诗句，观看声音的路径</p></div><div className="poem-scroll">{qiyue.map((paragraph,p)=><p className="poem-paragraph" key={p}>{(paragraphs[p].map(s=>s.text)).map((line,l)=><button key={l} data-sentence-id={`${p}-${paragraphs[p][l].entries[0].index}`} type="button" className={inspection?.ids.includes(`${p}-${paragraphs[p][l].entries[0].index}`)||highlighted===`${p}-${paragraphs[p][l].entries[0].index}`||(!highlighted&&(mode==='all'||(chapter===p&&(mode==='paragraph'||sentence===l))))?'is-active':''} aria-pressed={chapter===p&&sentence===l} onClick={()=>chooseSentence(p,l)}>{line}</button>)}</p>)}</div></aside>
+    {!introDone && <IntroOverlay onDone={()=>setIntroDone(true)}/>}
+
+    {/* 悬浮诗句：无框，直接浮在页面上 */}
+    <aside className="poem-reader" aria-label={`${poemTitle}全文`}>
+      <div className="reader-title">
+        <h2>{poemTitle}</h2>
+        <p>{poemSection}</p>
+        <label className="poem-switch"><select aria-label="切换诗篇" value={poemId} onChange={event=>{setPoemId(event.target.value as keyof typeof poems);setChapter(0);setSentence(0);setOverrides({});setSelected(null);showAll();kickAnimation();}}>{Object.entries(poems).map(([id,poem])=><option key={id} value={id}>{poem.title} · {poem.section}</option>)}</select></label>
+      </div>
+      <div className="poem-scroll">{qiyue.map((paragraph,p)=><p className="poem-paragraph" key={p}>{(paragraphs[p].map(s=>s.text)).map((line,l)=><button key={l} type="button" className={mode==='sentence'&&chapter===p&&sentence===l?'is-active':''} onClick={()=>chooseSentence(p,l)}>{line}</button>)}</p>)}</div>
+    </aside>
+
     <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`}>
-      <Canvas frameloop={filmStart!==null?'always':traceView?'demand':'always'} camera={{ position: DEFAULT_VIEW, fov: 46 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onCreated={({gl,scene,get})=>{renderForExport.current=()=>gl.render(scene,get().camera);}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${generation}`} onLineSelect={id=>{setHighlighted(id);setInspection(null);const el=root.current?.querySelector(`[data-sentence-id="${id}"]`);el?.scrollIntoView({behavior:'smooth',block:'center'});}} inspection={inspection} onInspect={handleInspect} traceView={traceView} highlighted={highlighted} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={strength} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
-      <div className="evolution-controls"><button aria-pressed={mode==='paragraph'} onClick={()=>{setMode('paragraph');setSelected(null);setGeneration(n=>n+1);}}>整段演化</button><button aria-pressed={mode==='all'} onClick={()=>{setMode('all');setSelected(null);setGeneration(n=>n+1);}}>全诗演化</button>{mode!=='sentence'&&<button role="switch" aria-checked={bundlingEnabled} onClick={()=>setBundlingEnabled(value=>!value)}>{bundlingEnabled?'聚束：开':'聚束：关'}</button>}</div><div className="trace-controls"><button aria-pressed={contextOpacity===1} onClick={()=>{setContextOpacity(1);setTraceView(false);setHighlighted(null);}}>读诗</button><button aria-pressed={contextOpacity===0} onClick={()=>{setTraceView(true);setHighlighted(null);setContextOpacity(0);setMode('all');setSelected(null);setGeneration(n=>n+1);}}>观迹</button><label>光束与诗字<input aria-label="光束与诗字显隐" type="range" min="0" max="1" step=".01" value={contextOpacity} onChange={e=>setContextOpacity(Number(e.target.value))}/></label><button onClick={exportImage}>导出声迹 ↓</button><span aria-live="polite">{exportMessage}</span></div><div className="orbit-hint">{traceView?'悬停线段看字 · 点击线段定位原文 · 点击节点查看字':'拖动转观 · 滚轮缩放 · 点字寻音'}</div>
-      <div className="light-legend"><span><i />声母</span><span><i />十六摄</span><span><i />四声</span></div>
+      <Canvas frameloop={filmStart!==null||animating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={()=>{if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}-${generation}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
+
+      {/* 底部悬浮操作坞：朗读 / 重演光路 / 全诗演化 */}
+      <div className="action-dock">
+        {mode==='sentence'&&<p className="dock-line">{paragraphs[chapter][sentence].text}</p>}
+        <div className="dock-buttons">
+          <button className="glow-btn" type="button" onClick={playAllAudio}><span>朗读 ▸</span></button>
+          <button className="glow-btn" type="button" onClick={kickAnimation}><span>重演光路 ⟳</span></button>
+          <button className="glow-btn" type="button" onClick={playAll}><span>全诗演化 ◎</span></button>
+        </div>
+        <span className="dock-status" aria-live="polite">{audioMessage}</span>
+      </div>
     </section>
-    {generated && mode==='sentence' && <nav className="poem-sequence" aria-label="按诗句字序选择"><span className="sequence-label">字序</span>{entries.map((entry, i) => <button key={i} type="button" aria-pressed={selected?.chapter === entry.chapter && selected?.index === entry.index} onClick={() => (setSelected(entry.initial ? entry : null), playChar(entry))} disabled={!entry.initial} title={entry.initial ? entry.review : '字库未收录，待补资料'}><small>{String(i + 1).padStart(2, '0')}</small>{entry.char}</button>)}</nav>}
-    <div className="footer-poem"><form className="poem-form" onSubmit={generatePoem}><textarea aria-label="当前章节原文" value={sentences[sentence] || ''} readOnly /><button type="submit">重演光路 ↗</button><small aria-live="polite">{inputMessage}</small></form><span className="system-note" aria-live="polite">{audioMessage}<br/>音源：廌言 Zhiyan v1.3（cinix）· 中古拟音 · 仅供学术展示<br/><a href="./tts-preview.html" target="_blank" rel="noopener noreferrer">单独试听 ↗</a></span></div>
-    {selected && <aside className="detail-panel" aria-live="polite"><button className="detail-close" type="button" onClick={() => setSelected(null)} aria-label="返回全览">×</button><p className="detail-kicker">音韵位置</p><h2>{selected.char}</h2><dl><div><dt>声母</dt><dd>{selected.initial}</dd></div><div><dt>韵类</dt><dd>{selected.rhyme} · {selected.group}摄</dd></div><div><dt>声调</dt><dd>{selected.tone}</dd></div><div><dt>反切</dt><dd>{selected.fanqie}</dd></div></dl><p className="reading-status">{selected.review}</p><div className="detail-audio"><button type="button" onClick={() => playChar(selected)}>朗读这个字 ▸</button><button type="button" onClick={() => playLine(selected)}>朗读整句 ▸</button>{charReading[selected.char] && <span className="detail-phoneme" title="中古音转写">{charReading[selected.char]}</span>}</div>{selected.candidates.length > 1 && <label className="reading-choice">候选读音<select value={overrides[`${selected.chapter}-${selected.index}`] ?? selected.candidates.findIndex(c=>c.position===selected.position)} onChange={event=>{const choice=Number(event.target.value);const candidate=selected.candidates[choice];setOverrides(o=>({...o,[`${selected.chapter}-${selected.index}`]:choice}));setSelected({...selected,...candidate,originalPosition:candidate.originalPosition,review:'手动选读',coord:locate(candidate.initial,candidate.tone,candidate.group)});}}>{selected.candidates.map((c,i)=><option key={i} value={i}>{c.position} · {c.fanqie}</option>)}</select></label>}<p className="detail-source">《广韵》音韵地位　{selected.position}</p></aside>}
+
+    {selected && <aside className="detail-panel" aria-live="polite"><button className="detail-close" type="button" onClick={() => setSelected(null)} aria-label="返回全览">×</button><p className="detail-kicker">音韵位置</p><h2>{selected.char}</h2><dl><div><dt>声母</dt><dd>{selected.initial}</dd></div><div><dt>韵类</dt><dd>{selected.rhyme} · {selected.group}摄</dd></div><div><dt>声调</dt><dd>{selected.tone}</dd></div><div><dt>反切</dt><dd>{selected.fanqie}</dd></div></dl><p className="reading-status">{selected.review}</p><div className="detail-audio"><button className="glow-btn" type="button" onClick={() => playChar(selected)}><span>朗读这个字 ▸</span></button><button className="glow-btn" type="button" onClick={() => playSentence()}><span>朗读整句 ▸</span></button>{charReading[selected.char] && <span className="detail-phoneme" title="中古音转写">{charReading[selected.char]}</span>}</div>{selected.candidates.length > 1 && <label className="reading-choice">候选读音<select value={overrides[`${selected.chapter}-${selected.index}`] ?? selected.candidates.findIndex(c=>c.position===selected.position)} onChange={event=>{const choice=Number(event.target.value);const candidate=selected.candidates[choice];setOverrides(o=>({...o,[`${selected.chapter}-${selected.index}`]:choice}));setSelected({...selected,...candidate,originalPosition:candidate.originalPosition,review:'手动选读',coord:locate(candidate.initial,candidate.tone,candidate.group)});}}>{selected.candidates.map((c,i)=><option key={i} value={i}>{c.position} · {c.fanqie}</option>)}</select></label>}<p className="detail-source">《广韵》音韵地位　{selected.position}</p></aside>}
   </main>;
 }
