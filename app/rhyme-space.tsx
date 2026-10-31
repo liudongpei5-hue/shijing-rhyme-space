@@ -72,7 +72,7 @@ function CameraRail({ selected, filmStart }: { selected: Entry | null; filmStart
     if (raw >= 1) path.active = false;
   });
 
-  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan minDistance={3.2} maxDistance={40} minPolarAngle={0.3} maxPolarAngle={2.35} rotateSpeed={0.48} zoomSpeed={0.65} />;
+  return <OrbitControls ref={controls} onStart={() => { motion.current.active = false; }} makeDefault enableDamping dampingFactor={0.065} enablePan screenSpacePanning panSpeed={0.9} minDistance={3.2} maxDistance={40} minPolarAngle={0.3} maxPolarAngle={2.35} rotateSpeed={0.48} zoomSpeed={0.65} />;
 }
 
 function Glyph({ entries, entry, index, selected, onSelect }: { entries: Entry[]; entry: Entry; index: number; selected: boolean; onSelect: () => void }) {
@@ -302,6 +302,8 @@ export function RhymeSpace() {
   const [animating, setAnimating] = useState(false);
   const animTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const fadeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // 记录按下位置：平移/旋转结束后松手不应被判为「点空白退出」
+  const pressRef = useRef<{ x: number; y: number } | null>(null);
 
   const charAudio = (audioManifest.characters ?? {}) as Record<string, string>;
   const charReading = ((audioManifest as { readings?: Record<string, string> }).readings ?? {}) as Record<string, string>;
@@ -408,8 +410,8 @@ export function RhymeSpace() {
       <div className="poem-scroll">{qiyue.map((paragraph,p)=><p className="poem-paragraph" key={p}>{(paragraphs[p].map(s=>s.text)).map((line,l)=><button key={l} type="button" className={mode==='sentence'&&chapter===p&&sentence===l?'is-active':''} onClick={()=>chooseSentence(p,l)}>{line}</button>)}</p>)}</div>
     </aside>
 
-    <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`}>
-      <Canvas frameloop={filmStart!==null||animating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={()=>{if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
+    <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`} onPointerDown={e=>{pressRef.current={x:e.clientX,y:e.clientY};}}>
+      <Canvas frameloop={filmStart!==null||animating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={e=>{const p=pressRef.current;if(p&&Math.hypot(e.clientX-p.x,e.clientY-p.y)>6)return;if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
 
       {/* 底部悬浮操作坞：朗读 / 重演光路 / 全诗演化 */}
       <div className="action-dock">
