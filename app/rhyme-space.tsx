@@ -207,7 +207,7 @@ function PoemPath({ entries }: { entries: Entry[] }) {
   return <group>{entries.slice(1).map((entry,i)=><GrowingSegment key={i} from={entries[i]} to={entry} delay={2.8+i*.32}/>)}</group>;
 }
 
-function BundledPaths({ onLineSelect, paths, strength }: { onLineSelect:(id:string)=>void; paths: Entry[][]; strength: number }) {
+function BundledPaths({ onLineSelect, paths, strength, focusId }: { onLineSelect:(id:string)=>void; paths: Entry[][]; strength: number; focusId: string | null }) {
   const [hovered,setHovered]=useState<number[]>([]);
   const curves=useMemo(()=>{
     const key=paths.map(path=>path.map(e=>`${e.chapter}:${e.index}:${e.char}:${e.position}`).join(',')).join('|');
@@ -264,10 +264,33 @@ function BundledPaths({ onLineSelect, paths, strength }: { onLineSelect:(id:stri
   },[paths,strength]);
   const activeIndices=hovered;
   const labels=activeIndices.flatMap(i=>{const c=curves[i];return [{point:c.points[0],text:c.pair.split('→')[0]},{point:c.points[c.points.length-1],text:c.pair.split('→')[1]}];}).filter((v,i,all)=>all.findIndex(other=>other.text===v.text&&other.point.distanceTo(v.point)<.01)===i);
+  // 每条线的目标不透明度：悬停一条 > 单句聚焦 > 全诗常态
+  const targets=curves.map((curve,i)=>{
+    if(activeIndices.length)return activeIndices.includes(i)?1:.03;
+    if(focusId)return curve.id===focusId?.95:.035;
+    return .42;
+  });
+  const targetRef=useRef<number[]>([]);
+  targetRef.current=targets;
+  const materials=useRef<((THREE.Material & {opacity:number})|undefined)[]>([]);
+  useFrame((state,delta)=>{
+    const k=1-Math.pow(0.002,Math.min(delta,.1));   // 与帧率无关的阻尼
+    let moving=false;
+    for(let i=0;i<curves.length;i+=1){
+      const material=materials.current[i];
+      if(!material)continue;
+      const target=targetRef.current[i]??.42;
+      if(Math.abs(target-material.opacity)<.003){material.opacity=target;continue;}
+      material.opacity+=(target-material.opacity)*k;
+      moving=true;
+    }
+    // 按需渲染模式下，未到位就继续要帧，保证淡入淡出是连续的
+    if(moving)state.invalidate();
+  });
   return <group>{curves.map(({points,id,width},i)=>{
     const active=activeIndices.includes(i);
-    const filtering=activeIndices.length>0;
-    return <group key={i}><Line points={points} color={active?'#ffe4a8':'#b9d9ca'} lineWidth={active?2.5:width} transparent opacity={filtering?(active?1:.03):.42} depthWrite={false} depthTest={false} renderOrder={active?10:1} onClick={e=>{e.stopPropagation();onLineSelect(id);}} onPointerMove={e=>{e.stopPropagation();const next=[i];setHovered(old=>old.length===next.length&&old.every((v,k)=>v===next[k])?old:next);document.body.style.cursor='pointer';}} onPointerOut={()=>{setHovered([]);document.body.style.cursor='';}}/></group>;
+    const focused=focusId!==null&&id===focusId;
+    return <group key={i}><Line ref={(object)=>{const material=object?.material as (THREE.Material & {opacity:number})|undefined;if(!material)return;materials.current[i]=material;if(material.userData.seeded===undefined){material.opacity=targets[i]??.42;material.userData.seeded=true;}}} points={points} color={active?'#ffe4a8':focused?'#f0e9cb':'#b9d9ca'} lineWidth={active?2.5:focused?Math.max(width,1.7):width} transparent depthWrite={false} depthTest={false} renderOrder={active||focused?10:1} onClick={e=>{e.stopPropagation();onLineSelect(id);}} onPointerMove={e=>{e.stopPropagation();const next=[i];setHovered(old=>old.length===next.length&&old.every((v,k)=>v===next[k])?old:next);document.body.style.cursor='pointer';}} onPointerOut={()=>{setHovered([]);document.body.style.cursor='';}}/></group>;
   })}{labels.map(({point,text},i)=><Html key={i} position={point} center style={{pointerEvents:'none'}}><span className="trace-hover-letter">{text}</span></Html>)}</group>;
 }
 
@@ -290,13 +313,13 @@ function FadingContext({ opacity, children }: { opacity: number; children: React
   return <group ref={group} visible={opacity>.005}>{children}</group>;
 }
 
-function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, paths, strength, selected, onSelect, generation, axisReveal }: { filmStart: number | null; onLineSelect:(id:string)=>void; traceView: boolean; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number; axisReveal: React.MutableRefObject<number> }) {
+function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, paths, strength, selected, onSelect, generation, axisReveal, focusId }: { filmStart: number | null; onLineSelect:(id:string)=>void; traceView: boolean; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number; axisReveal: React.MutableRefObject<number>; focusId: string | null }) {
   const [activeNode,setActiveNode]=useState<string|null>(null);
   const unique=entries.filter((entry,i)=>entries.findIndex(e=>e.coord.join()===entry.coord.join())===i);
   return <>
     <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected} filmStart={filmStart}/><AxisScaffold reveal={axisReveal}/>
     {contextOpacity>.005 && <FadingContext opacity={contextOpacity}>{unique.map((entry,index)=><ConstructionLight key={`light-${generation}-${index}`} entry={entry} delay={paths.length>1?index*.025:0} selected={selected?.position===entry.position}/>)}</FadingContext>}
-    {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength}/>:<PoemPath key={generation} entries={entries}/>}
+    {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength} focusId={focusId}/>:<PoemPath key={generation} entries={entries}/>}
     {traceView && unique.map((entry,i)=><TraceNode key={`node-${i}`} entry={entry} entries={entries} activeNode={activeNode} onNodeSelect={setActiveNode}/>)}
     {contextOpacity>.005 && unique.map((entry,index)=><Glyph entries={entries} key={`${generation}-${index}`} entry={entry} index={paths.length>1?0:index} selected={selected?.position===entry.position} onSelect={()=>onSelect(entry)}/>)}
   </>;
@@ -344,16 +367,27 @@ export function RhymeSpace() {
   const audioReady = Object.keys(charAudio).length > 0;
   const [audioMessage, setAudioMessage] = useState(audioReady ? '' : '音频尚未生成');
   const player = useRef<HTMLAudioElement | null>(null);
+  const [reading,setReading]=useState(false);
+  const seqToken=useRef(0);   // 整诗连读的令牌：自增即打断
   const startAudio = (url: string, msg: string) => {
-    player.current?.pause();
+    seqToken.current+=1;
+    if(player.current){player.current.onended=null;player.current.pause();}
     const audio = new Audio(url);
     player.current = audio;
-    audio.play().then(() => { setAudioMessage(msg); }).catch(() => setAudioMessage('音频播放失败，请再点一次'));
+    audio.play().then(() => { setAudioMessage(msg); }).catch((error:unknown)=>setAudioMessage((error as {name?:string})?.name==='NotAllowedError'?'浏览器拦截了自动播放 · 再点一次即可发声':'音频播放失败，请再点一次'));
+    return audio;
+  };
+  const stopReading=()=>{
+    seqToken.current+=1;
+    if(player.current){player.current.onended=null;player.current.pause();}
+    setReading(false);
+    setAudioMessage('已暂停');
   };
   const playChar = (entry: Entry) => {
     const url = charAudio[entry.char];
     if (!url) { setAudioMessage(`「${entry.char}」暂无音频 · 目前仅《七月》已生成`); return; }
     const ph = charReading[entry.char];
+    setReading(false);
     startAudio(url, `朗读「${entry.char}」${ph ? `　中古音 ${ph}` : ''}`);
   };
   useEffect(()=>()=>{player.current?.pause();if(animTimer.current)clearTimeout(animTimer.current);if(fadeTimer.current)clearTimeout(fadeTimer.current);},[]);
@@ -363,22 +397,26 @@ export function RhymeSpace() {
     return (c.text.match(/[^。？！]+[。？！]?/g)||[]).map(text=>{const count=[...text.replace(/[^\p{Script=Han}]/gu,'')].length;const result={text,entries:c.entries.slice(offset,offset+count)};offset+=count;return result;});
   }),[qiyue]);
 
+  // 始终绘制全诗的所有句：单句模式下只靠透明度把其余句子淡出，不再重建场景
   const paths=useMemo<Entry[][]>(()=>{
-    const source=mode==='all'?paragraphs.flat():[paragraphs[chapter][sentence]];
-    return source.map(line=>line.entries.map(e=>{
+    return paragraphs.flat().map(line=>line.entries.map(e=>{
       const choice=overrides[`${e.chapter}-${e.index}`];const reading=choice===undefined?e:{...e,...e.candidates[choice],review:'手动选读'};
       return {...reading,coord:locate(reading.initial,reading.tone,reading.group)};
     }));
-  },[mode,chapter,sentence,overrides,paragraphs]);
+  },[overrides,paragraphs]);
+  // 单句模式要留下的那一句（与线条 id 同格式：章-首字序号）
+  const firstEntry=paragraphs[chapter]?.[sentence]?.entries?.[0];
+  const focusId=mode==='sentence'&&firstEntry?`${chapter}-${firstEntry.index}`:null;
   const entries=useMemo(()=>paths.flat(),[paths]);
   const mapped=entries.filter(e=>e.initial);
 
   const kickAnimation=()=>{setGeneration(n=>n+1);setAnimating(true);if(animTimer.current)clearTimeout(animTimer.current);animTimer.current=setTimeout(()=>setAnimating(false),7000);};
 
-  // 点一句：只留这一句，重新演绎
-  const chooseSentence=(p:number,l:number)=>{
+  // 点一句：其余句子淡出消失，只留这一句的线条（不重演），并念出这一句
+  const chooseSentence=(p:number,l:number,silent?:boolean)=>{
     if(fadeTimer.current)clearTimeout(fadeTimer.current);
-    setChapter(p);setSentence(l);setMode('sentence');setSelected(null);setContextOpacity(1);kickAnimation();
+    setChapter(p);setSentence(l);setMode('sentence');setSelected(null);setContextOpacity(0);
+    if(!silent)speakSentence(p,l);
   };
   // 回全诗（不重演）
   const showAll=()=>{if(fadeTimer.current)clearTimeout(fadeTimer.current);setMode('all');setSelected(null);setContextOpacity(0);};
@@ -392,24 +430,34 @@ export function RhymeSpace() {
     if(l!==undefined&&l>=0)chooseSentence(p,l);
   };
 
-  const playSentence=()=>{
-    const url=sentAudio[`${poemId}-${chapter}-${sentence}`];
+  const speakSentence=(p:number,l:number)=>{
+    const url=sentAudio[`${poemId}-${p}-${l}`];
     if(!url){setAudioMessage('本句暂无音频 · 目前仅《七月》已生成');return;}
-    startAudio(url,`朗读：${paragraphs[chapter][sentence].text}`);
+    const audio=startAudio(url,`朗读：${paragraphs[p][l].text}`);
+    setReading(true);
+    audio.onended=()=>setReading(false);
   };
+  const playSentence=()=>speakSentence(chapter,sentence);
 
-  const playAllAudio=()=>{
-    if(mode==='sentence'){playSentence();return;}
+  // 朗读键：正在读 → 暂停；没在读 → 单句模式下念这一句，全诗模式下连读全诗
+  const toggleReading=()=>{
+    if(reading){stopReading();return;}
+    if(mode==='sentence'){speakSentence(chapter,sentence);return;}
     const first=sentAudio[`${poemId}-0-0`];
     if(!first){setAudioMessage('整诗暂无音频 · 目前仅《七月》已生成');return;}
     playAll();
     const urls=paragraphs.flatMap((lines,p)=>lines.map((_,l)=>sentAudio[`${poemId}-${p}-${l}`])).filter((u):u is string=>!!u);
+    const token=++seqToken.current;
+    setReading(true);
     let i=0;
     const next=()=>{
-      if(i>=urls.length)return;
-      const audio=new Audio(urls[i]);player.current?.pause();player.current=audio;i++;
+      if(token!==seqToken.current)return;
+      if(i>=urls.length){setReading(false);setAudioMessage('朗读完毕');return;}
+      const url=urls[i];i+=1;
+      if(player.current){player.current.onended=null;player.current.pause();}
+      const audio=new Audio(url);player.current=audio;
       audio.onended=next;
-      audio.play().then(()=>setAudioMessage('连读全诗…')).catch(()=>setAudioMessage('音频播放失败，请再点一次'));
+      audio.play().then(()=>setAudioMessage(`连读全诗… ${i}/${urls.length}`)).catch(()=>{setReading(false);setAudioMessage('音频播放失败，请再点一次');});
     };
     next();
   };
@@ -423,7 +471,7 @@ export function RhymeSpace() {
     if(filmStart===null)return;
     setPoemId('qiyue');setSelected(null);setChapter(0);setSentence(0);setMode('all');setContextOpacity(0);setGeneration(n=>n+1);
     const timers:ReturnType<typeof setTimeout>[]=[];
-    timers.push(setTimeout(()=>chooseSentence(0,0),4000));
+    timers.push(setTimeout(()=>chooseSentence(0,0,true),4000));
     timers.push(setTimeout(()=>{showAll();},14000));
     return()=>timers.forEach(clearTimeout);
   },[filmStart]);
@@ -438,19 +486,19 @@ export function RhymeSpace() {
       <div className="reader-title">
         <h2>{poemTitle}</h2>
         <p>{poemSection}</p>
-        <label className="poem-switch"><select aria-label="切换诗篇" value={poemId} onChange={event=>{setPoemId(event.target.value as keyof typeof poems);setChapter(0);setSentence(0);setOverrides({});setSelected(null);showAll();kickAnimation();}}>{Object.entries(poems).map(([id,poem])=><option key={id} value={id}>{poem.title} · {poem.section}</option>)}</select></label>
+        <label className="poem-switch"><select aria-label="切换诗篇" value={poemId} onChange={event=>{setPoemId(event.target.value as keyof typeof poems);setChapter(0);setSentence(0);setOverrides({});setSelected(null);stopReading();showAll();kickAnimation();}}>{Object.entries(poems).map(([id,poem])=><option key={id} value={id}>{poem.title} · {poem.section}</option>)}</select></label>
       </div>
       <div className="poem-scroll">{qiyue.map((paragraph,p)=><p className="poem-paragraph" key={p}>{(paragraphs[p].map(s=>s.text)).map((line,l)=><button key={l} type="button" className={mode==='sentence'&&chapter===p&&sentence===l?'is-active':''} onClick={()=>chooseSentence(p,l)}>{line}</button>)}</p>)}</div>
     </aside>
 
     <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`} onPointerDown={e=>{pressRef.current={x:e.clientX,y:e.clientY};}}>
-      <Canvas frameloop={filmStart!==null||animating||axisAnimating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={e=>{const p=pressRef.current;if(p&&Math.hypot(e.clientX-p.x,e.clientY-p.y)>6)return;if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} axisReveal={axisReveal} /></Canvas>
+      <Canvas frameloop={filmStart!==null||animating||axisAnimating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={e=>{const p=pressRef.current;if(p&&Math.hypot(e.clientX-p.x,e.clientY-p.y)>6)return;if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${generation}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} axisReveal={axisReveal} focusId={focusId} /></Canvas>
 
       {/* 底部悬浮操作坞：朗读 / 重演光路 / 全诗演化 */}
       <div className="action-dock">
         {mode==='sentence'&&<p className="dock-line">{paragraphs[chapter][sentence].text}</p>}
         <div className="dock-buttons">
-          <button className="glow-btn" type="button" onClick={playAllAudio}><span>朗读 ▸</span></button>
+          <button className="glow-btn" type="button" onClick={toggleReading}><span>{reading?'暂停 ‖':'朗读 ▸'}</span></button>
           <button className="glow-btn" type="button" onClick={kickAnimation}><span>重演光路 ⟳</span></button>
           <button className="glow-btn" type="button" onClick={playAll}><span>全诗演化 ◎</span></button>
         </div>
