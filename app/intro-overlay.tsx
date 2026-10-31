@@ -15,7 +15,7 @@ const HOLD_MS = 360;         // 溶解结束后停留
 const FADE_MS = 850;         // 遮罩淡出（交棒给三维场景）
 const PUSH_SCALE = 2.2;      // 推进倍率
 
-/* 尾帧中「线团」的位置（占画面宽高的比例）——若线团不在画面正中，只改这两个数 */
+/* 尾帧中「线团」的默认位置（占画面宽高的比例）；运行时会自动按亮度重心校正 */
 const PUSH_X = 0.5;
 const PUSH_Y = 0.46;
 
@@ -23,6 +23,51 @@ const VIDEO_SRC = './intro/intro.mp4';
 
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 const smooth = (v: number) => { const x = clamp01(v); return x * x * (3 - 2 * x); };
+
+/* 取尾帧的亮度重心作为推进落点：线是亮的、背景是暗的，于是「推进到线团里」总是成立的 */
+function detectFocus(video: HTMLVideoElement): [number, number] | null {
+  if (!video.videoWidth || !video.videoHeight) return null;
+  try {
+    const width = 72;
+    const height = Math.max(2, Math.round((width * video.videoHeight) / video.videoWidth));
+    const canvas = document.createElement('canvas');
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+    if (!context) return null;
+    context.drawImage(video, 0, 0, width, height);
+    const data = context.getImageData(0, 0, width, height).data;
+    let peak = 0;
+    const luma = new Float32Array(width * height);
+    for (let i = 0; i < luma.length; i += 1) {
+      const value = 0.2126 * data[i * 4] + 0.7152 * data[i * 4 + 1] + 0.0722 * data[i * 4 + 2];
+      luma[i] = value;
+      if (value > peak) peak = value;
+    }
+    if (peak < 24) return null;
+    const threshold = peak * 0.62;
+    let total = 0;
+    let sx = 0;
+    let sy = 0;
+    for (let y = 0; y < height; y += 1) {
+      for (let x = 0; x < width; x += 1) {
+        const weight = luma[y * width + x] - threshold;
+        if (weight <= 0) continue;
+        const w = weight * weight;
+        total += w;
+        sx += w * (x + 0.5);
+        sy += w * (y + 0.5);
+      }
+    }
+    if (total <= 0) return null;
+    const fx = clamp01(sx / total / width);
+    const fy = clamp01(sy / total / height);
+    // 限制在画面中部，避免落点过于靠边
+    return [0.3 + fx * 0.4, 0.28 + fy * 0.44];
+  } catch {
+    return null;
+  }
+}
 
 export function IntroOverlay({ onDone, onReveal }: { onDone: () => void; onReveal?: (immediate?: boolean) => void }) {
   const [stage, setStage] = useState<Stage>('title');
@@ -79,7 +124,13 @@ export function IntroOverlay({ onDone, onReveal }: { onDone: () => void; onRevea
   /* 尾帧推进 → 溶解 → 交棒 */
   useEffect(() => {
     if (stage !== 'morph') return;
-    if (frameRef.current) frameRef.current.classList.add('is-morph');
+    const target = frameRef.current;
+    if (target) {
+      target.classList.add('is-morph');
+      const focus = videoRef.current ? detectFocus(videoRef.current) : null;
+      const [fx, fy] = focus ?? [PUSH_X, PUSH_Y];
+      target.style.transformOrigin = `${(fx * 100).toFixed(2)}% ${(fy * 100).toFixed(2)}%`;
+    }
     const t0 = performance.now();
     let raf = 0;
     const tick = (now: number) => {
