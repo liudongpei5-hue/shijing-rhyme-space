@@ -17,7 +17,7 @@ import { Html, Line, OrbitControls } from '@react-three/drei';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import * as THREE from 'three';
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { IntroOverlay } from './intro-overlay';
 
 type Entry = { index: number; chapter: number; review: string; candidates: {position:string;initial:string;rhyme:string;group:string;tone:string;fanqie:string;gloss:string;originalPosition:string}[]; char: string; initial: string; rhyme: string; group: string; tone: string; fanqie: string; position: string; originalPosition: string; coord: [number, number, number] };
@@ -121,7 +121,8 @@ function WorldLabel({ text, position, color, scale = 0.32 }: { text: string; pos
   return <mesh position={position} scale={[scale * 4, scale, 1]}><planeGeometry args={[1, 1]} /><meshBasicMaterial map={texture} transparent depthWrite={false} side={THREE.DoubleSide} /></mesh>;
 }
 
-function AxisScaffold() {
+/* 坐标轴：三臂从原点生长（reveal 0→1），刻度与轴名随之淡入 */
+function AxisScaffold({ reveal }: { reveal: React.MutableRefObject<number> }) {
   const xMin = initialX(initials[0]) - INITIAL_STEP / 2;
   const xMax = initialX(initials[initials.length - 1]) + INITIAL_STEP / 2;
   const zNear = groupZ(rhymeGroups[0]) + GROUP_STEP / 2;
@@ -129,19 +130,43 @@ function AxisScaffold() {
   const yMin = toneY['平'] - TONE_STEP / 2;
   const yMax = toneY['入'] + TONE_STEP / 2;
   const baseY = yMin;
+  const arms = useRef<THREE.Group>(null);
+  const marks = useRef<THREE.Group>(null);
+  useFrame(() => {
+    const value = Math.max(0, Math.min(1, reveal.current));
+    if (arms.current) {
+      arms.current.scale.setScalar(Math.max(value, 0.0001));
+      arms.current.visible = value > 0.002;
+    }
+    if (marks.current) {
+      const fade = value <= 0.5 ? 0 : (value - 0.5) / 0.5;
+      marks.current.visible = fade > 0.004;
+      marks.current.traverse((object) => {
+        const material = (object as THREE.Mesh).material as (THREE.Material & { opacity?: number }) | undefined;
+        if (!material || typeof material.opacity !== 'number') return;
+        const store = object.userData as { baseOpacity?: number };
+        if (store.baseOpacity === undefined) store.baseOpacity = material.opacity;
+        material.opacity = store.baseOpacity * fade;
+      });
+    }
+  });
   return <group>
-    <Line points={[[xMin, baseY, zNear], [xMax, baseY, zNear]]} color="#91a79f" transparent opacity={0.42} lineWidth={0.7} />
-    <Line points={[[xMin, baseY, zNear], [xMin, yMax, zNear]]} color="#b6a983" transparent opacity={0.42} lineWidth={0.7} />
-    <Line points={[[xMin, baseY, zNear], [xMin, baseY, zFar]]} color="#82988f" transparent opacity={0.42} lineWidth={0.7} />
-    {initials.map((label) => <AxisTick key={`ix-${label}`} axis="x" label={label} position={[initialX(label), baseY, zNear]} />)}
-    {Object.entries(toneY).map(([label, y]) => <AxisTick key={`ty-${label}`} axis="y" label={label} position={[xMin, y, zNear]} />)}
-    {rhymeGroups.map((label) => <AxisTick key={`gz-${label}`} axis="z" label={label} position={[xMin, baseY, groupZ(label)]} />)}
-    {Array.from({ length: initials.length + 1 }, (_, index) => <TickMark key={`ix-boundary-${index}`} axis="x" position={[xMin + index * INITIAL_STEP, baseY, zNear]} />)}
-    {Array.from({ length: 5 }, (_, index) => <TickMark key={`ty-boundary-${index}`} axis="y" position={[xMin, yMin + index * TONE_STEP, zNear]} />)}
-    {Array.from({ length: rhymeGroups.length + 1 }, (_, index) => <TickMark key={`gz-boundary-${index}`} axis="z" position={[xMin, baseY, zNear - index * GROUP_STEP]} />)}
-    <WorldLabel text="X 声母三十八" position={[xMax + 1.05, baseY, zNear]} color="#bd6659" scale={0.65} />
-    <WorldLabel text="Y 四声" position={[xMin - 0.6, yMax + 0.55, zNear]} color="#bd6659" scale={0.65} />
-    <WorldLabel text="Z 十六摄" position={[xMin - 0.7, baseY, zFar - 0.7]} color="#bd6659" scale={0.65} />
+    <group ref={arms} position={[xMin, baseY, zNear]}>
+      <Line points={[[0, 0, 0], [xMax - xMin, 0, 0]]} color="#91a79f" transparent opacity={0.42} lineWidth={0.7} />
+      <Line points={[[0, 0, 0], [0, yMax - baseY, 0]]} color="#b6a983" transparent opacity={0.42} lineWidth={0.7} />
+      <Line points={[[0, 0, 0], [0, 0, zFar - zNear]]} color="#82988f" transparent opacity={0.42} lineWidth={0.7} />
+    </group>
+    <group ref={marks}>
+      {initials.map((label) => <AxisTick key={`ix-${label}`} axis="x" label={label} position={[initialX(label), baseY, zNear]} />)}
+      {Object.entries(toneY).map(([label, y]) => <AxisTick key={`ty-${label}`} axis="y" label={label} position={[xMin, y, zNear]} />)}
+      {rhymeGroups.map((label) => <AxisTick key={`gz-${label}`} axis="z" label={label} position={[xMin, baseY, groupZ(label)]} />)}
+      {Array.from({ length: initials.length + 1 }, (_, index) => <TickMark key={`ix-boundary-${index}`} axis="x" position={[xMin + index * INITIAL_STEP, baseY, zNear]} />)}
+      {Array.from({ length: 5 }, (_, index) => <TickMark key={`ty-boundary-${index}`} axis="y" position={[xMin, yMin + index * TONE_STEP, zNear]} />)}
+      {Array.from({ length: rhymeGroups.length + 1 }, (_, index) => <TickMark key={`gz-boundary-${index}`} axis="z" position={[xMin, baseY, zNear - index * GROUP_STEP]} />)}
+      <WorldLabel text="X 声母三十八" position={[xMax + 1.05, baseY, zNear]} color="#bd6659" scale={0.65} />
+      <WorldLabel text="Y 四声" position={[xMin - 0.6, yMax + 0.55, zNear]} color="#bd6659" scale={0.65} />
+      <WorldLabel text="Z 十六摄" position={[xMin - 0.7, baseY, zFar - 0.7]} color="#bd6659" scale={0.65} />
+    </group>
   </group>;
 }
 
@@ -265,11 +290,11 @@ function FadingContext({ opacity, children }: { opacity: number; children: React
   return <group ref={group} visible={opacity>.005}>{children}</group>;
 }
 
-function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, paths, strength, selected, onSelect, generation }: { filmStart: number | null; onLineSelect:(id:string)=>void; traceView: boolean; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number }) {
+function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, paths, strength, selected, onSelect, generation, axisReveal }: { filmStart: number | null; onLineSelect:(id:string)=>void; traceView: boolean; contextOpacity: number; entries: Entry[]; paths: Entry[][]; strength: number; selected: Entry | null; onSelect: (entry: Entry) => void; generation: number; axisReveal: React.MutableRefObject<number> }) {
   const [activeNode,setActiveNode]=useState<string|null>(null);
   const unique=entries.filter((entry,i)=>entries.findIndex(e=>e.coord.join()===entry.coord.join())===i);
   return <>
-    <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected} filmStart={filmStart}/><AxisScaffold/>
+    <color attach="background" args={['#0b1315']} /><ambientLight intensity={.3}/><CameraRail selected={selected} filmStart={filmStart}/><AxisScaffold reveal={axisReveal}/>
     {contextOpacity>.005 && <FadingContext opacity={contextOpacity}>{unique.map((entry,index)=><ConstructionLight key={`light-${generation}-${index}`} entry={entry} delay={paths.length>1?index*.025:0} selected={selected?.position===entry.position}/>)}</FadingContext>}
     {paths.length>1?<BundledPaths onLineSelect={id=>{setActiveNode(null);onLineSelect(id);}} paths={paths} strength={strength}/>:<PoemPath key={generation} entries={entries}/>}
     {traceView && unique.map((entry,i)=><TraceNode key={`node-${i}`} entry={entry} entries={entries} activeNode={activeNode} onNodeSelect={setActiveNode}/>)}
@@ -282,6 +307,14 @@ function Scene({ filmStart, onLineSelect, traceView, contextOpacity, entries, pa
 export function RhymeSpace() {
   const poems={qiyue:{title:'七月',section:'豳风',data:qiyueData},jianjia:{title:'蒹葭',section:'秦风',data:jianjiaData},taoyao:{title:'桃夭',section:'周南',data:taoyaoData},wuyi:{title:'无衣',section:'秦风',data:wuyiData},caiwei:{title:'采薇',section:'小雅',data:caiweiData},luming:{title:'鹿鸣',section:'小雅',data:lumingData},shuoshu:{title:'硕鼠',section:'魏风',data:shuoshuData},mang:{title:'氓',section:'卫风',data:mangData},beifeng:{title:'北风',section:'邶风',data:beifengData},jigu:{title:'击鼓',section:'邶风',data:jiguData}};
   const [introDone,setIntroDone]=useState(()=>new URLSearchParams(location.search).has('film'));
+  // 坐标轴生长进度：进门动效尾帧溶解时由 0 → 1，让三维坐标轴在原地渐显
+  const axisReveal=useRef(new URLSearchParams(location.search).has('film')?1:0);
+  const [axisAnimating,setAxisAnimating]=useState(false);
+  const revealAxis=useCallback((immediate?:boolean)=>{
+    gsap.killTweensOf(axisReveal);
+    setAxisAnimating(true);
+    gsap.to(axisReveal,{current:1,duration:immediate?.55:1.7,delay:immediate?0:.85,ease:'power2.inOut',overwrite:true,onComplete:()=>setAxisAnimating(false)});
+  },[]);
   const [filmStart,setFilmStart]=useState<number|null>(null);
   useEffect(()=>{
     if(!new URLSearchParams(location.search).has('film'))return;
@@ -398,7 +431,7 @@ export function RhymeSpace() {
   useGSAP(() => { if (selected) gsap.fromTo('.detail-panel', { autoAlpha: 0, x: 28 }, { autoAlpha: 1, x: 0, duration: 0.7, ease: 'power3.out' }); }, { scope: root, dependencies: [selected], revertOnUpdate: true });
 
   return <main ref={root} className="rhyme-app" style={{'--context-opacity':contextOpacity} as React.CSSProperties}>
-    {!introDone && <IntroOverlay onDone={()=>setIntroDone(true)}/>}
+    {!introDone && <IntroOverlay onDone={()=>setIntroDone(true)} onReveal={revealAxis}/>}
 
     {/* 悬浮诗句：无框，直接浮在页面上 */}
     <aside className="poem-reader" aria-label={`${poemTitle}全文`}>
@@ -411,7 +444,7 @@ export function RhymeSpace() {
     </aside>
 
     <section className="space-stage" aria-label={`${poemTitle}的三维音韵空间`} onPointerDown={e=>{pressRef.current={x:e.clientX,y:e.clientY};}}>
-      <Canvas frameloop={filmStart!==null||animating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={e=>{const p=pressRef.current;if(p&&Math.hypot(e.clientX-p.x,e.clientY-p.y)>6)return;if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} /></Canvas>
+      <Canvas frameloop={filmStart!==null||animating||axisAnimating?'always':'demand'} camera={{ position: DEFAULT_VIEW, fov: 48 }} dpr={[1, 1.25]} gl={{ antialias: true, alpha: false, powerPreference: 'low-power' }} onPointerMissed={e=>{const p=pressRef.current;if(p&&Math.hypot(e.clientX-p.x,e.clientY-p.y)>6)return;if(selected)setSelected(null);else if(mode==='sentence')showAll();}}><Scene filmStart={filmStart} key={`${poemId}-${chapter}-${sentence}-${mode}`} onLineSelect={soloByLineId} traceView={traceView} contextOpacity={contextOpacity} entries={mapped} paths={paths} strength={1} selected={selected} onSelect={entry=>{setSelected(entry);playChar(entry);}} generation={generation} axisReveal={axisReveal} /></Canvas>
 
       {/* 底部悬浮操作坞：朗读 / 重演光路 / 全诗演化 */}
       <div className="action-dock">
